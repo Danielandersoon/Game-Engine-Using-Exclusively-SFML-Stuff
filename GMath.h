@@ -420,13 +420,20 @@ namespace GUESS::core::math {
         return y;
     }
     inline float nthrt(float x, int n) {
-        int sign = (x < 0 && n % 2) ? -1 : 1;
-        if (x < 0)
-            x *= -1;
+
+        if (n <= 0) return 0; 
+        if (x == 0) return 0; 
+        if (x < 0 && n % 2 == 0) return 0; 
+    
+        int sign = (x < 0) ? -1 : 1;
+        if (x < 0) x = -x; 
+    
+        // Bitwise magic: Adjust exponent
         float y = x;
-        long i = *(long*)&y;
-        i = 0x5f375a86 - (i >> n);
-        y = *(float*)&i;
+        int i = *(int*)&y; 
+        i = (i - (127 << 23)) / n + (127 << 23); 
+        y = *(float*)&i; 
+
         return sign * y;
     }
     // trig functions
