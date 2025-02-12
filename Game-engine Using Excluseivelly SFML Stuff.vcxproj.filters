@@ -80,5 +80,8 @@
     <ClInclude Include="WindowManager.h">
       <Filter>Header Files\GameEngine</Filter>
     </ClInclude>
+    <ClInclude Include="GMath.h">
+      <Filter>Header Files\GameEngine</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -3,24 +3,60 @@
   "WorkspaceRootPath": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\WindowManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:WindowManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\WindowManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:WindowManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\Scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:Scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\InstanceManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:InstanceManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\InstanceManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:InstanceManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\InputSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:InputSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\GameObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:GameObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\Engine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:Engine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\WindowManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:WindowManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\TimingSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:TimingSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\SceneManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:SceneManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\Scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:Scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\Manager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:Manager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\InstanceManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:InstanceManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\InputSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:InputSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\Engine.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:Engine.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\Component.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:Component.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -35,72 +71,183 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "WindowManager.cpp",
-              "DocumentMoniker": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\WindowManager.cpp",
-              "RelativeDocumentMoniker": "WindowManager.cpp",
-              "ToolTip": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\WindowManager.cpp",
-              "RelativeToolTip": "WindowManager.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvxIAAAAUAAAAAAAAAA==",
+              "Title": "Scene.cpp",
+              "DocumentMoniker": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\Scene.cpp",
+              "RelativeDocumentMoniker": "Scene.cpp",
+              "ToolTip": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\Scene.cpp",
+              "RelativeToolTip": "Scene.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-02-11T11:32:48.66Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Manager.h",
-              "DocumentMoniker": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\Manager.h",
-              "RelativeDocumentMoniker": "Manager.h",
-              "ToolTip": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\Manager.h",
-              "RelativeToolTip": "Manager.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-11T11:18:30.891Z",
+              "WhenOpened": "2025-02-11T15:09:44.804Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "WindowManager.h",
-              "DocumentMoniker": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\WindowManager.h",
-              "RelativeDocumentMoniker": "WindowManager.h",
-              "ToolTip": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\WindowManager.h",
-              "RelativeToolTip": "WindowManager.h",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABQAAAAMAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-02-11T11:17:45.786Z",
-              "EditorCaption": ""
-            }
-          ]
-        },
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "InstanceManager.cpp",
               "DocumentMoniker": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\InstanceManager.cpp",
               "RelativeDocumentMoniker": "InstanceManager.cpp",
               "ToolTip": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\InstanceManager.cpp",
               "RelativeToolTip": "InstanceManager.cpp",
-              "ViewState": "AgIAADMAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAAAFgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-01-30T15:14:24.028Z",
+              "WhenOpened": "2025-02-11T15:09:37.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "InputSystem.cpp",
+              "DocumentMoniker": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\InputSystem.cpp",
+              "RelativeDocumentMoniker": "InputSystem.cpp",
+              "ToolTip": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\InputSystem.cpp",
+              "RelativeToolTip": "InputSystem.cpp",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAAAHAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-02-11T15:09:31.226Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "GameObject.cpp",
+              "DocumentMoniker": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\GameObject.cpp",
+              "RelativeDocumentMoniker": "GameObject.cpp",
+              "ToolTip": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\GameObject.cpp",
+              "RelativeToolTip": "GameObject.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-02-11T15:09:25.733Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Engine.cpp",
+              "DocumentMoniker": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\Engine.cpp",
+              "RelativeDocumentMoniker": "Engine.cpp",
+              "ToolTip": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\Engine.cpp",
+              "RelativeToolTip": "Engine.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-02-11T15:09:16.888Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "WindowManager.h",
+              "DocumentMoniker": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\WindowManager.h",
+              "RelativeDocumentMoniker": "WindowManager.h",
+              "ToolTip": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\WindowManager.h",
+              "RelativeToolTip": "WindowManager.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-11T15:09:05.272Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Manager.h",
+              "DocumentMoniker": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\Manager.h",
+              "RelativeDocumentMoniker": "Manager.h",
+              "ToolTip": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\Manager.h",
+              "RelativeToolTip": "Manager.h",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAABgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-11T15:08:51.334Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "InstanceManager.h",
               "DocumentMoniker": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\InstanceManager.h",
               "RelativeDocumentMoniker": "InstanceManager.h",
               "ToolTip": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\InstanceManager.h",
               "RelativeToolTip": "InstanceManager.h",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABkAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-30T14:57:51.04Z",
+              "WhenOpened": "2025-02-11T15:08:34.954Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Engine.h",
+              "DocumentMoniker": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\Engine.h",
+              "RelativeDocumentMoniker": "Engine.h",
+              "ToolTip": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\Engine.h",
+              "RelativeToolTip": "Engine.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-11T15:08:21.493Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Component.h",
+              "DocumentMoniker": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\Component.h",
+              "RelativeDocumentMoniker": "Component.h",
+              "ToolTip": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\Component.h",
+              "RelativeToolTip": "Component.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-11T15:08:11.623Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TimingSystem.h",
+              "DocumentMoniker": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\TimingSystem.h",
+              "RelativeDocumentMoniker": "TimingSystem.h",
+              "ToolTip": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\TimingSystem.h",
+              "RelativeToolTip": "TimingSystem.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-11T13:37:48.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "InputSystem.h",
+              "DocumentMoniker": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\InputSystem.h",
+              "RelativeDocumentMoniker": "InputSystem.h",
+              "ToolTip": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\InputSystem.h",
+              "RelativeToolTip": "InputSystem.h",
+              "ViewState": "AgIAADcAAAAAAAAAAAAAAEAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-11T13:20:42.595Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Scene.h",
+              "DocumentMoniker": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\Scene.h",
+              "RelativeDocumentMoniker": "Scene.h",
+              "ToolTip": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\Scene.h",
+              "RelativeToolTip": "Scene.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-11T13:05:32.611Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "SceneManager.h",
+              "DocumentMoniker": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\SceneManager.h",
+              "RelativeDocumentMoniker": "SceneManager.h",
+              "ToolTip": "C:\\Users\\danie\\source\\repos\\Game-engine Using Excluseivelly SFML Stuff\\SceneManager.h",
+              "RelativeToolTip": "SceneManager.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-02-11T12:02:48.589Z",
               "EditorCaption": ""
             }
           ]
