@@ -406,7 +406,10 @@ namespace GUESS::core::math {
         return term + taylorSeries(x, center, iterations - 1);
     }
     inline float sqrt(float n) {
-
+        return 1 / fisr(n);
+    }
+    // I love stealing 
+    inline float fisr(float n) {
         const float threehalfs = 1.5F;
         float y = n;
 

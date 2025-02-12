@@ -19,6 +19,12 @@
     <Filter Include="Header Files\GameEngine">
       <UniqueIdentifier>{45322dfc-d3a9-4b9d-b0dd-a88c900fcbbd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\RenderingEngine">
+      <UniqueIdentifier>{0848274f-5e8d-4c87-9b24-f88d0d74152e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\RenderingEngine">
+      <UniqueIdentifier>{1aa5a089-d3a0-48ac-8bce-40ae965c16ae}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -47,6 +53,21 @@
     </ClCompile>
     <ClCompile Include="TimingSystem.cpp">
       <Filter>Source Files\GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingEngine\Camera.cpp">
+      <Filter>Source Files\RenderingEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingEngine\Material.cpp">
+      <Filter>Source Files\RenderingEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingEngine\RenderComponent.cpp">
+      <Filter>Source Files\RenderingEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingEngine\RenderManager.cpp">
+      <Filter>Source Files\RenderingEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingEngine\Shader.cpp">
+      <Filter>Source Files\RenderingEngine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -82,6 +103,21 @@
     </ClInclude>
     <ClInclude Include="GMath.h">
       <Filter>Header Files\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\Camera.h">
+      <Filter>Header Files\RenderingEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\Material.h">
+      <Filter>Header Files\RenderingEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\RenderComponent.h">
+      <Filter>Header Files\RenderingEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\RenderManager.h">
+      <Filter>Header Files\RenderingEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\Shader.h">
+      <Filter>Header Files\RenderingEngine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

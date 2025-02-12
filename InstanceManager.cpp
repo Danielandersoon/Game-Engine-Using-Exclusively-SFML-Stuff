@@ -72,6 +72,21 @@ namespace GUESS::core {
         }
     }
 
+    bool InstanceManager::pauseInstance(int instanceID)
+    {
+        try {
+            for (int x = 0; x < m_instances.size(); x++) {
+                if (m_instances[x].getInstanceID() == instanceID) {
+                    m_instances[x].stop();
+                    return true;
+                }
+            }
+        }
+        catch (int e) {
+            return false;
+        }
+    }
+
     unsigned int InstanceManager::getInstanceID(Engine* instance_ptr)
     {
         return instance_ptr->getInstanceID();
