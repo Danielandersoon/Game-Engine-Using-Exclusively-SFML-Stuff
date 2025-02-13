@@ -1,5 +1,6 @@
 #ifndef INSTANCE_MANAGER_H
 #define INSTANCE_MANAGER_H
+#include <vector>
 #include "Manager.h"
 #include "Engine.h"
 namespace GUESS::core {
@@ -7,7 +8,7 @@ namespace GUESS::core {
     class InstanceManager : Manager
     {
     private:
-        std::vector<Engine> m_instances;
+        std::vector<std::unique_ptr<Engine>> m_instances;
         int m_instanceCounter = 0;
 
     public:

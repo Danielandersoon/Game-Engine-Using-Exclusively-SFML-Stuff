@@ -1,5 +1,7 @@
 #ifndef ENGINE_H
 #define ENGINE_H
+#include "EventSystem.h"
+#include "Logger.h"
 #include "InputSystem.h"
 #include "TimingSystem.h"
 #include "SceneManager.h"
@@ -17,6 +19,9 @@ namespace GUESS::core {
         TimingSystem m_timingSystem;
         SceneManager m_sceneManager;
         WindowManager m_windowManager;
+        EventSystem m_eventSystem;
+        static Logger m_logger;
+
 
         // Fixed timestep settings
         const float FIXED_TIME_STEP = 1.0f / 60.0f;
@@ -24,6 +29,10 @@ namespace GUESS::core {
 
     public:
         Engine(int instanceID);
+        Engine(Engine&&) = default;                    
+        Engine& operator=(Engine&&) = default;         
+        Engine(const Engine&) = delete;                
+        Engine& operator=(const Engine&) = delete;     
         unsigned int getInstanceID();
 
         void start();

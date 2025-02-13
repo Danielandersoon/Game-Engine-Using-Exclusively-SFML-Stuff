@@ -7,8 +7,12 @@ namespace GUESS::core {
 	class WindowManager : Manager
 	{
 	private:
-		std::vector<sf::Window> m_renderWindows;
+		struct WindowData {
+			std::unique_ptr<sf::Window> window;
+			int id;
+		};
 		int m_windowCounter = 0;
+		std::vector<WindowData> m_WindowDataVec;
 
 	public:
 		WindowManager();
@@ -21,7 +25,7 @@ namespace GUESS::core {
 
 		bool CreateNewWindow(sf::VideoMode vidMode, sf::Vector2i startPosition, std::string windowName);
 		bool DestroyWindow(int WindowID);
-		unsigned int GetWindowID(sf::RenderWindow* renderWindow_ptr);
+		unsigned int GetWindowID(sf::Window* window_ptr);
 		std::vector<int> GetAllWindowIDs();
 	};
 }

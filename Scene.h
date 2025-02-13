@@ -16,14 +16,14 @@ namespace GUESS::core {
         bool LoadScene();
         bool CloseScene();
 
-        void AddGameObject(GameObject gameObject);
+        void AddGameObject(std::unique_ptr<GameObject> gameObject);
         void RemoveGameObject(const std::string& objectName);
         GameObject* FindGameObject(const std::string& objectName);
 
-        const std::vector<GameObject>& GetGameObjects() const { return GameObjects; }
+        const std::vector<std::unique_ptr<GameObject>>& GetGameObjects() const { return GameObjects; }
 
     private:
-        std::vector<GameObject> GameObjects;
+        std::vector<std::unique_ptr<GameObject>> GameObjects;
         unsigned int ID;
         std::string m_sceneName;
         bool m_active;

@@ -20,7 +20,7 @@ namespace GUESS::core {
         }
     }
 
-    void GameObject::update() {
+    void GameObject::update() const {
         if (!active) return;
 
         for (auto& component : componentList) {
@@ -32,7 +32,7 @@ namespace GUESS::core {
         }
     }
 
-    void GameObject::fixedUpdate() {
+    void GameObject::fixedUpdate() const {
         if (!active) return;
 
         for (auto& component : componentList) {
@@ -44,7 +44,7 @@ namespace GUESS::core {
         }
     }
 
-    void GameObject::lateUpdate() {
+    void GameObject::lateUpdate() const {
         if (!active) return;
 
         for (auto& component : componentList) {

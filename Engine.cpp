@@ -13,6 +13,9 @@ namespace GUESS::core {
     }
 
     void Engine::start() {
+        // Log game start
+        Logger::log(Logger::INFO, "Game initialized");
+
         m_isRunning = true;
 
         while (m_isRunning) {

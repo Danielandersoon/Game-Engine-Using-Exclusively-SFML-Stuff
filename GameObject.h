@@ -57,9 +57,9 @@ namespace GUESS::core {
         const std::string& getName() const { return objectName; }
 
         // Update methods
-        void update();
-        void fixedUpdate();
-        void lateUpdate();
+        void update() const;
+        void fixedUpdate() const;
+        void lateUpdate() const;
     };
 }
 #endif GAME_OBJECCT_H

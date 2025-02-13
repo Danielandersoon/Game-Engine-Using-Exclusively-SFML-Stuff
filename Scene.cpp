@@ -12,7 +12,7 @@ namespace GUESS::core {
             m_active = true;
             // Initialize all GameObjects
             for (auto& gameObject : GameObjects) {
-                gameObject.update();
+                gameObject -> update();
             }
             return true;
         }
@@ -28,24 +28,24 @@ namespace GUESS::core {
         return false;
     }
 
-    void Scene::AddGameObject(GameObject gameObject) {
-        GameObjects.push_back(gameObject);
+    void Scene::AddGameObject(std::unique_ptr<GameObject> gameObject) {
+        GameObjects.push_back(std::move(gameObject));
     }
 
     void Scene::RemoveGameObject(const std::string& objectName) {
         GameObjects.erase(
             std::remove_if(GameObjects.begin(), GameObjects.end(),
-                [&objectName](const GameObject& obj) {
-            return obj.getName() == objectName;
+                [&objectName](const std::unique_ptr<GameObject>& obj) {
+            return obj->getName() == objectName;
         }),
             GameObjects.end());
     }
 
     GameObject* Scene::FindGameObject(const std::string& objectName) {
         auto it = std::find_if(GameObjects.begin(), GameObjects.end(),
-            [&objectName](const GameObject& obj) {
-            return obj.getName() == objectName;
+            [&objectName](const std::unique_ptr<GameObject>& obj) {
+            return obj->getName() == objectName;
         });
-        return it != GameObjects.end() ? &(*it) : nullptr;
+        return it != GameObjects.end() ? it->get() : nullptr;
     }
 }

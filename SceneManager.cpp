@@ -39,12 +39,24 @@ namespace GUESS::core {
         return m_activeScene;
     }
 
+    bool GUESS::core::SceneManager::Shutdown() {
+        if (m_initialized) {
+            m_Scenes.clear();
+            m_activeScene = nullptr;
+            m_SceneCounter = 0;
+            m_initialized = false;
+            m_running = false;
+            return true;
+        }
+        return false;
+    }
+
     bool SceneManager::Update() {
         if (m_initialized && m_running && m_activeScene) {
             // Update active scene's game objects
             for (auto& gameObject : m_activeScene->GetGameObjects()) {
-                if (gameObject.isActive()) {
-                    gameObject.update();
+                if (gameObject -> isActive()) {
+                    gameObject -> update();
                 }
             }
             return true;

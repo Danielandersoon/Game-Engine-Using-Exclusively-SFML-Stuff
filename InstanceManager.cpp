@@ -47,7 +47,7 @@ namespace GUESS::core {
     {
         try {
             m_instanceCounter++;
-            m_instances.push_back(Engine(m_instanceCounter));
+            m_instances.push_back(std::make_unique<Engine>(m_instanceCounter));
             return true;
         }
         catch (int e) {
@@ -60,7 +60,7 @@ namespace GUESS::core {
         try {
             for (int x = 0; x < m_instances.size(); x++)
             {
-                if (m_instances[x].getInstanceID() == instanceID)
+                if (m_instances[x] -> getInstanceID() == instanceID)
                 {
                     m_instances.erase(m_instances.begin() + x);
                     return true;
@@ -76,8 +76,8 @@ namespace GUESS::core {
     {
         try {
             for (int x = 0; x < m_instances.size(); x++) {
-                if (m_instances[x].getInstanceID() == instanceID) {
-                    m_instances[x].stop();
+                if (m_instances[x] -> getInstanceID() == instanceID) {
+                    m_instances[x] -> stop();
                     return true;
                 }
             }
@@ -97,7 +97,7 @@ namespace GUESS::core {
         std::vector<int> IdVec;
         for (int x = 0; x < m_instances.size(); x++)
         {
-            IdVec.push_back(m_instances[x].getInstanceID());
+            IdVec.push_back(m_instances[x] -> getInstanceID());
         }
         return IdVec;
     }

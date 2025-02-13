@@ -16,9 +16,9 @@ namespace GUESS::core {
         virtual ~Component() = default;
 
         virtual void init() {}
-        virtual void update() {}
-        virtual void fixedUpdate() {}
-        virtual void lateUpdate() {}
+        virtual void update() const {}
+        virtual void fixedUpdate() const {}
+        virtual void lateUpdate() const {}
 
         void setOwner(GameObject* newOwner) { owner = newOwner; }
         GameObject* getOwner() const { return owner; }

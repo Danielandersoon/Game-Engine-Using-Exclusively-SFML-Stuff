@@ -24,7 +24,7 @@ namespace GUESS::core {
             for (int id : instances) {
                 DestroyWindow(id);
             }
-            m_renderWindows.clear();
+            m_WindowDataVec.clear();
             m_windowCounter = 0;
             m_initialized = false;
             m_running = false;
@@ -32,13 +32,14 @@ namespace GUESS::core {
         return true;;
     }
 
-    bool WindowManager::CreateNewWindow(sf::VideoMode vidMode, sf::Vector2i startPosition, std::string windowName)
-    {
+    bool WindowManager::CreateNewWindow(sf::VideoMode vidMode, sf::Vector2i startPosition, std::string windowName) {
         try {
             m_windowCounter++;
-            sf::Window newWindow(vidMode, windowName);
-            newWindow.setPosition(startPosition);
-            newWindow.setID(m_windowCounter);
+            WindowData winDat;
+            winDat.id = m_windowCounter;
+            winDat.window = std::make_unique<sf::Window>(vidMode, windowName);
+            winDat.window->setPosition(startPosition);
+            m_WindowDataVec.push_back(std::move(winDat));
             return true;
         }
         catch (int e) {
@@ -49,7 +50,7 @@ namespace GUESS::core {
     bool WindowManager::Update()
     {
         if (m_initialized && m_running) {
-            for (auto& instance : m_renderWindows) {
+            for (auto& instance : m_WindowDataVec) {
             }
             return true;
         }
@@ -59,11 +60,11 @@ namespace GUESS::core {
     bool WindowManager::DestroyWindow(int WindowID)
     {
         try {
-            for (int x = 0; x < m_renderWindows.size(); x++)
+            for (int x = 0; x < m_WindowDataVec.size(); x++)
             {
-                if (m_renderWindows[x].GetID() == WindowID)
+                if (m_WindowDataVec[x].id == WindowID)
                 {
-                    m_renderWindows.erase(m_renderWindows.begin() + x);
+                    m_WindowDataVec.erase(m_WindowDataVec.begin() + x);
                     return true;
                 }
             }
@@ -73,17 +74,22 @@ namespace GUESS::core {
         }
     }
 
-    unsigned int WindowManager::GetWindowID(sf::RenderWindow* renderWindow_ptr)
+    unsigned int WindowManager::GetWindowID(sf::Window* window_ptr)
     {
-        return renderWindow_ptr->GetID();
+        for (const auto& windowData : m_WindowDataVec) {
+            if (windowData.window.get() == window_ptr) {
+                return windowData.id;
+            }
+        }
+        return 0;
     }
 
     std::vector<int> WindowManager::GetAllWindowIDs()
     {
         std::vector<int> IdVec;
-        for (int x = 0; x < m_renderWindows.size(); x++)
+        for (int x = 0; x < m_WindowDataVec.size(); x++)
         {
-            IdVec.push_back(m_renderWindows[x].GetID());
+            IdVec.push_back(m_WindowDataVec[x].id);
         }
         return IdVec;
     }
