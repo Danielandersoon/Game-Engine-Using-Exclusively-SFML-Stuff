@@ -6,6 +6,7 @@ namespace GUESS::core {
         // Initialize managers
         m_sceneManager.Initialize();
         m_windowManager.Initialize();
+        start();
     }
 
     unsigned int Engine::getInstanceID() {
