@@ -72,6 +72,9 @@
     <ClCompile Include="Logger.cpp">
       <Filter>Source Files\GameEngine</Filter>
     </ClCompile>
+    <ClCompile Include="RenderingEngine\Mesh.cpp">
+      <Filter>Source Files\RenderingEngine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -127,6 +130,12 @@
     </ClInclude>
     <ClInclude Include="Logger.h">
       <Filter>Header Files\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\Mesh.h">
+      <Filter>Header Files\RenderingEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\Vertex3d.h">
+      <Filter>Header Files\RenderingEngine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

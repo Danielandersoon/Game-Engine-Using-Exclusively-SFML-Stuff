@@ -69,6 +69,14 @@ namespace GUESS::core::math {
             return result;
         }
 
+        Vector3f operator*(const Vector3f& vec) const {
+            return Vector3f(
+                m[0][0] * vec.x + m[0][1] * vec.y + m[0][2] * vec.z + m[0][3],
+                m[1][0] * vec.x + m[1][1] * vec.y + m[1][2] * vec.z + m[1][3],
+                m[2][0] * vec.x + m[2][1] * vec.y + m[2][2] * vec.z + m[2][3]
+            );
+        }
+
         static Matrix4x4 translation(float x, float y, float z) {
             Matrix4x4 result;
             result.m[0][3] = x;
@@ -125,6 +133,8 @@ namespace GUESS::core::math {
 
             return result;
         }
+
+
 
     };
 

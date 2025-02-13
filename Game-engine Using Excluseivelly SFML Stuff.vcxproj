@@ -141,6 +141,7 @@
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="RenderingEngine\Camera.cpp" />
     <ClCompile Include="RenderingEngine\Material.cpp" />
+    <ClCompile Include="RenderingEngine\Mesh.cpp" />
     <ClCompile Include="RenderingEngine\RenderComponent.cpp" />
     <ClCompile Include="RenderingEngine\RenderManager.cpp" />
     <ClCompile Include="RenderingEngine\Shader.cpp" />
@@ -162,9 +163,11 @@
     <ClInclude Include="Manager.h" />
     <ClInclude Include="RenderingEngine\Camera.h" />
     <ClInclude Include="RenderingEngine\Material.h" />
+    <ClInclude Include="RenderingEngine\Mesh.h" />
     <ClInclude Include="RenderingEngine\RenderComponent.h" />
     <ClInclude Include="RenderingEngine\RenderManager.h" />
     <ClInclude Include="RenderingEngine\Shader.h" />
+    <ClInclude Include="RenderingEngine\Vertex3d.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="TimingSystem.h" />
