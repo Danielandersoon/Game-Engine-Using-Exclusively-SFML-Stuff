@@ -6,6 +6,7 @@
 #include "TimingSystem.h"
 #include "SceneManager.h"
 #include "WindowManager.h"
+#include "./RenderingEngine/RenderManager.h"
 
 namespace GUESS::core {
 
@@ -21,6 +22,9 @@ namespace GUESS::core {
         WindowManager m_windowManager;
         EventSystem m_eventSystem;
         static Logger m_logger;
+
+        // Rendering systems
+        GUESS::rendering::RenderManager m_renderManager;
 
 
         // Fixed timestep settings

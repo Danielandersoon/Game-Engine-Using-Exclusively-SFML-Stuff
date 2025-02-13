@@ -15,7 +15,7 @@ namespace GUESS::core::math {
         Vector2<T> operator-(const Vector2<T>& other) const { return Vector2<T>(x - other.x, y - other.y); }
         Vector2<T> operator*(T scalar) const { return Vector2<T>(x * scalar, y * scalar); }
         T dot(const Vector2<T>& other) const { return x * other.x + y * other.y; }
-        T magnitude() const { return std::sqrt(x * x + y * y); }
+        T magnitude() const { return sqrt(x * x + y * y); }
         Vector2<T> normalized() const { T mag = magnitude(); return Vector2<T>(x / mag, y / mag); }
     };
 
@@ -34,7 +34,7 @@ namespace GUESS::core::math {
                 z * other.x - x * other.z,
                 x * other.y - y * other.x);
         }
-        T magnitude() const { return std::sqrt(x * x + y * y + z * z); }
+        T magnitude() const { return sqrt(x * x + y * y + z * z); }
         Vector3<T> normalized() const { T mag = magnitude(); return Vector3<T>(x / mag, y / mag, z / mag); }
     };
 
@@ -149,8 +149,21 @@ namespace GUESS::core::math {
             w /= mag; x /= mag; y /= mag; z /= mag;
         }
 
-        static Quaternion fromEuler(float pitch, float yaw, float roll);
-        Matrix4x4 toMatrix() const;
+        static Quaternion fromEuler(float pitch, float yaw, float roll) {
+            float cy = cos(roll * 0.5f);
+            float sy = sin(roll * 0.5f);
+            float cp = cos(pitch * 0.5f);
+            float sp = sin(pitch * 0.5f);
+            float cr = cos(yaw * 0.5f);
+            float sr = sin(yaw * 0.5f);
+
+            return Quaternion(
+                cy * cp * cr + sy * sp * sr,
+                cy * cp * sr - sy * sp * cr,
+                sy * cp * sr + cy * sp * cr,
+                sy * cp * cr - cy * sp * sr
+            );
+        }        Matrix4x4 toMatrix() const;
     };
 
     // Ray structure for raycasting
@@ -361,11 +374,28 @@ namespace GUESS::core::math {
 
     // Additional utility functions
     constexpr float PI = 3.14159265359f;
-    float toRadians(float degrees);
-    float toDegrees(float radians);
+    inline float toRadians(float degrees) { return degrees * (PI / 180); };
+    inline float toDegrees(float radians) { return radians * (180 / PI); };
     float lerp(float a, float b, float t);
     Vector3f lerp(const Vector3f& a, const Vector3f& b, float t);
     Quaternion slerp(const Quaternion& a, const Quaternion& b, float t);
+    inline float nthrt(float x, int n) {
+
+        if (n <= 0) return 0; 
+        if (x == 0) return 0; 
+        if (x < 0 && n % 2 == 0) return 0; 
+    
+        int sign = (x < 0) ? -1 : 1;
+        if (x < 0) x = -x; 
+    
+        // Bitwise magic: Adjust exponent
+        float y = x;
+        int i = *(int*)&y; 
+        i = (i - (127 << 23)) / n + (127 << 23); 
+        y = *(float*)&i; 
+
+        return sign * y;
+    }
     inline float factorial(int n) {
         if (n <= 1) return 1.0f;
         return n * factorial(n - 1);
@@ -397,17 +427,7 @@ namespace GUESS::core::math {
 
         return nthrt(pow(base, numerator), denominator);
     }
-    inline float taylorSeries(float x, float center, int iterations) {
-        if (iterations == 0) {
-            return 1.0f;
-        }
 
-        float term = pow(x - center, iterations) / factorial(iterations);
-        return term + taylorSeries(x, center, iterations - 1);
-    }
-    inline float sqrt(float n) {
-        return 1 / fisr(n);
-    }
     // I love stealing 
     inline float fisr(float n) {
         const float threehalfs = 1.5F;
@@ -422,23 +442,18 @@ namespace GUESS::core::math {
 
         return y;
     }
-    inline float nthrt(float x, int n) {
+    inline float taylorSeries(float x, float center, int iterations) {
+        if (iterations == 0) {
+            return 1.0f;
+        }
 
-        if (n <= 0) return 0; 
-        if (x == 0) return 0; 
-        if (x < 0 && n % 2 == 0) return 0; 
-    
-        int sign = (x < 0) ? -1 : 1;
-        if (x < 0) x = -x; 
-    
-        // Bitwise magic: Adjust exponent
-        float y = x;
-        int i = *(int*)&y; 
-        i = (i - (127 << 23)) / n + (127 << 23); 
-        y = *(float*)&i; 
-
-        return sign * y;
+        float term = pow(x - center, iterations) / factorial(iterations);
+        return term + taylorSeries(x, center, iterations - 1);
     }
+    inline float sqrt(float n) {
+        return 1 / fisr(n);
+    }
+
     // trig functions
     // sin, cos, tan taking the sides
     inline float sin(float opp, float hyp) { if (hyp == 0) { return 0.0; } return opp / hyp; }
