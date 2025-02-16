@@ -41,6 +41,8 @@ namespace GUESS::rendering {
 
         GUESS::core::math::Matrix4x4 getViewMatrix() const;
         GUESS::core::math::Matrix4x4 getProjectionMatrix() const;
+
+        bool isInFrustum(const GUESS::core::math::AABB& bounds, const GUESS::core::math::Matrix4x4& worldMatrix) const;
     };
 }
 #endif

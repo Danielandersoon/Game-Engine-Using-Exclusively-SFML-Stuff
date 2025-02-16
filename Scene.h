@@ -20,7 +20,7 @@ namespace GUESS::core {
         unsigned int GetSceneID() const { return ID; }
         std::string GetSceneName() const { return m_sceneName; }
         bool IsActive() const { return m_active; }
-        GUESS::rendering::Camera& getMainCamera() { return m_mainCamera; }
+        GUESS::rendering::Camera& getMainCamera() const { return m_mainCamera; }
 
         bool LoadScene();
         bool CloseScene();

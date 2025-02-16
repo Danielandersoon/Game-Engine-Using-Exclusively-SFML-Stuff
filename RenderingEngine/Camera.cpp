@@ -109,5 +109,10 @@ namespace GUESS::rendering {
         );
     }
 
+    bool Camera::isInFrustum(const GUESS::core::math::AABB& bounds, const GUESS::core::math::Matrix4x4& worldMatrix) const {
+        // Transform AABB by world matrix
+        GUESS::core::math::AABB transformedBounds = bounds.transform(worldMatrix);
+        return m_frustum.isAABBVisible(transformedBounds);
+    }
 
 }

@@ -48,25 +48,31 @@ namespace GUESS::core {
     void Engine::update() {
         m_inputSystem.Update();
         m_sceneManager.Update();
-
         m_renderingPipeline.clear();
 
         Scene& currentScene = m_sceneManager.getCurrentScene();
+        const auto& camera = currentScene.getMainCamera();
+
+        // Spatial partitioning grid
+        std::vector<GameObject*> visibleObjects;
+
         for (const auto& gameObject : currentScene.GetGameObjects()) {
-            if (GUESS::rendering::threed::MeshRendererComponenet* meshRenderer = gameObject->getComponent<GUESS::rendering::threed::MeshRendererComponenet>()) {
-                GUESS::rendering::RenderCommand cmd{
-                    meshRenderer->getMesh(),
-                    meshRenderer->getMaterial(),
-                    gameObject->getTransform().toMatrix(),
-                };
-                m_renderingPipeline.submitGeometry(cmd);
+            if (auto* meshRenderer = gameObject->getComponent<GUESS::rendering::threed::MeshRendererComponenet>()) {
+                const auto& mesh = meshRenderer->getMesh();
+                const auto& worldMatrix = gameObject->getTransform().toMatrix();
+
+                // Frustum culling check
+                if (camera.isInFrustum(mesh->getBoundingBox(), worldMatrix)) {
+                    GUESS::rendering::RenderCommand cmd{
+                        meshRenderer->getMesh(),
+                        meshRenderer->getMaterial(),
+                        worldMatrix,
+                    };
+                    m_renderingPipeline.submitGeometry(cmd);
+                }
             }
         }
-
-        m_renderingPipeline.render(currentScene.getMainCamera(), *static_cast<sf::RenderWindow*>(m_windowManager.getWindow(1)));
-        m_windowManager.Update();
     }
-
 
     void Engine::fixedUpdate() {
         // Watch this space

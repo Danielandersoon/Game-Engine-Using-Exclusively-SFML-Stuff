@@ -3,27 +3,48 @@
 #include <unordered_map>
 #include <string>
 #include <functional>
+#include <any>
+#include <memory>
+#include <vector>
 
 namespace GUESS::core {
+    class GameObject;
+
+    struct Event {
+        std::string name;
+        GameObject* sender;
+        std::any data;
+    };
+
     class EventSystem {
     private:
-        std::unordered_map<std::string, std::vector<std::function<void(const void*)>>> subscribers;
-        
+        using EventCallback = std::function<void(const Event&)>;
+        std::unordered_map<std::string, std::vector<std::pair<GameObject*, EventCallback>>> subscribers;
+
     public:
-        template<typename T>
-        void subscribe(const std::string& eventName, std::function<void(const T&)> callback) {
-            subscribers[eventName].push_back([callback](const void* data) {
-                callback(*static_cast<const T*>(data));
-            });
+        void subscribe(const std::string& eventName, GameObject* receiver, EventCallback callback) {
+            subscribers[eventName].push_back({ receiver, callback });
         }
-        
-        template<typename T>
-        void publish(const std::string& eventName, const T& data) {
-            for(auto& callback : subscribers[eventName]) {
-                callback(&data);
+
+        void unsubscribe(const std::string& eventName, GameObject* receiver) {
+            auto& callbacks = subscribers[eventName];
+            callbacks.erase(
+                std::remove_if(callbacks.begin(), callbacks.end(),
+                    [receiver](const auto& pair) { return pair.first == receiver; }),
+                callbacks.end()
+            );
+        }
+
+        void publish(const std::string& eventName, GameObject* sender, const std::any& data = std::any()) {
+            Event event{ eventName, sender, data };
+            for (const auto& [receiver, callback] : subscribers[eventName]) {
+                callback(event);
             }
+        }
+
+        void clearAllSubscriptions() {
+            subscribers.clear();
         }
     };
 }
-
 #endif

@@ -13,10 +13,14 @@ namespace GUESS::rendering {
         std::unique_ptr<sf::Texture> metallicMap;
 
     public:
+        void initialize();
         void setRoughness(float value);
         void setMetallic(float value);
         void setNormalMap(const std::string& path);
         void bind();
+        void setAmbientOcclusion(float value);
+        void setRoughnessMap(const std::string& path);
+        void setMetallicMap(const std::string& path);
     };
 }
     

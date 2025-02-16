@@ -154,6 +154,17 @@ namespace GUESS::core::math {
             );
         }
 
+        Vector3f operator*(const Vector3f& vec) const {
+            // Extract vector part of quaternion
+            Vector3f qvec(x, y, z);
+
+            // Calculate using quaternion rotation formula: q*v*q^-1
+            // Optimized version of the formula to avoid full quaternion multiplication
+            Vector3f result = vec + qvec.cross(qvec.cross(vec) + vec * w) * 2.0f;
+
+            return result;
+        }
+
         void normalize() {
             float mag = sqrt(w * w + x * x + y * y + z * z);
             w /= mag; x /= mag; y /= mag; z /= mag;
@@ -208,12 +219,37 @@ namespace GUESS::core::math {
         AABB(const Vector3f& min = Vector3f(), const Vector3f& max = Vector3f())
             : min(min), max(max) {}
 
-        bool contains(const Vector3f& point) const {
-            return point.x >= min.x && point.x <= max.x &&
-                point.y >= min.y && point.y <= max.y &&
-                point.z >= min.z && point.z <= max.z;
+        AABB transform(const Matrix4x4& matrix) const {
+            // Transform all 8 corners of the AABB
+            Vector3f corners[8] = {
+                Vector3f(min.x, min.y, min.z),
+                Vector3f(max.x, min.y, min.z),
+                Vector3f(min.x, max.y, min.z),
+                Vector3f(max.x, max.y, min.z),
+                Vector3f(min.x, min.y, max.z),
+                Vector3f(max.x, min.y, max.z),
+                Vector3f(min.x, max.y, max.z),
+                Vector3f(max.x, max.y, max.z)
+            };
+
+            // Transform each corner and find new bounds
+            Vector3f newMin = matrix * corners[0];
+            Vector3f newMax = newMin;
+
+            for (int i = 1; i < 8; i++) {
+                Vector3f transformed = matrix * corners[i];
+                newMin.x = std::min(newMin.x, transformed.x);
+                newMin.y = std::min(newMin.y, transformed.y);
+                newMin.z = std::min(newMin.z, transformed.z);
+                newMax.x = std::max(newMax.x, transformed.x);
+                newMax.y = std::max(newMax.y, transformed.y);
+                newMax.z = std::max(newMax.z, transformed.z);
+            }
+
+            return AABB(newMin, newMax);
         }
     };
+
 
     // Frustrum structure
     struct Frustum {

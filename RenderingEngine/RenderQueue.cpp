@@ -8,31 +8,49 @@ namespace GUESS::rendering {
     }
 
     void RenderQueue::execute(const Camera& camera, sf::RenderTarget& renderTarget) {
-        for (const auto& [priority, commands] : queues) {
+        // Sort by material to minimize state changes
+        for (auto& [priority, commands] : queues) {
+            std::sort(commands.begin(), commands.end(),
+                [](const RenderCommand& a, const RenderCommand& b) {
+                return a.material < b.material;
+            });
+
+            Material* currentMaterial = nullptr;
+            std::vector<sf::Vertex> batchedVertices;
+
             for (const auto& cmd : commands) {
-                cmd.material->bind();
-                cmd.material->getShader().setUniform("modelMatrix", cmd.transform);
-                cmd.material->getShader().setUniform("viewMatrix", camera.getViewMatrix());
-                cmd.material->getShader().setUniform("projectionMatrix", camera.getProjectionMatrix());
-
-                sf::VertexArray vertexArray(sf::Triangles);
-                const auto& vertices = cmd.mesh->getVertices();
-                const auto& indices = cmd.mesh->getIndices();
-
-                if (!indices.empty()) {
-                    for (unsigned int index : indices) {
-                        const auto& vertex = vertices[index];
-                        sf::Vertex sfmlVertex;
-                        sfmlVertex.position = sf::Vector2f(vertex.position.x, vertex.position.y);
-                        sfmlVertex.color = vertex.color;
-                        sfmlVertex.texCoords = sf::Vector2f(vertex.texCoords.x, vertex.texCoords.y);
-                        vertexArray.append(sfmlVertex);
+                // New material - flush existing batch
+                if (currentMaterial != cmd.material) {
+                    if (!batchedVertices.empty()) {
+                        renderTarget.draw(batchedVertices.data(), batchedVertices.size(),
+                            sf::Triangles, sf::RenderStates(currentMaterial->getShader().getNativeShader()));
+                        batchedVertices.clear();
                     }
+                    currentMaterial = cmd.material;
+                    currentMaterial->bind();
                 }
 
-                sf::RenderStates states;
-                states.shader = cmd.material->getShader().getNativeShader();
-                renderTarget.draw(vertexArray, states);
+                // Add to current batch
+                const auto& mesh = cmd.mesh;
+                const auto& vertices = mesh->getVertices();
+                const auto& indices = mesh->getIndices();
+
+                // Transform and add vertices to batch
+                for (unsigned int index : indices) {
+                    const auto& vertex = vertices[index];
+                    sf::Vertex transformedVertex;
+                    auto worldPos = cmd.transform * vertex.position;
+                    transformedVertex.position = sf::Vector2f(worldPos.x, worldPos.y);
+                    transformedVertex.color = vertex.color;
+                    transformedVertex.texCoords = sf::Vector2f(vertex.texCoords.x, vertex.texCoords.y);
+                    batchedVertices.push_back(transformedVertex);
+                }
+            }
+
+            // Flush final batch
+            if (!batchedVertices.empty()) {
+                renderTarget.draw(batchedVertices.data(), batchedVertices.size(),
+                    sf::Triangles, sf::RenderStates(currentMaterial->getShader().getNativeShader()));
             }
         }
     }

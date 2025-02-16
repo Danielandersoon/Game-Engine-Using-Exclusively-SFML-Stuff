@@ -18,12 +18,16 @@ namespace GUESS::rendering::threed {
         sf::Texture m_shadowMap;
 
     public:
+        Light(LightType type);
         void setPosition(const GUESS::core::math::Vector3f& pos) { position = pos; }
         void setColor(const GUESS::core::math::Vector3f& col) { colour = col; }
         void setIntensity(float i) { intensity = i; }
         void setType(LightType t) { type = t; }
         const GUESS::core::math::Matrix4x4& getLightSpaceMatrix() const { return m_lightSpaceMatrix; }
         const sf::Texture& getShadowMap() const { return m_shadowMap; }
+        void setShadowMap(const sf::Texture& shadowMap);
+        void setLightSpaceMatrix(const GUESS::core::math::Matrix4x4& matrix);
+        void setForward(const GUESS::core::math::Vector3f& forward);
 
         const GUESS::core::math::Vector3f& getPosition() const { return position; }
         const GUESS::core::math::Vector3f& getColor() const { return colour; }

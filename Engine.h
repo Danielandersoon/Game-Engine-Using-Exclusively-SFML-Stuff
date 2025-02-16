@@ -10,6 +10,7 @@
 #include "TimingSystem.h"
 #include "SceneManager.h"
 #include "WindowManager.h"
+#include "ResourceManager.h"
 
 // Rendering system headers
 #include "./RenderingEngine/RenderManager.h"
