@@ -1,12 +1,20 @@
 #ifndef ENGINE_H
 #define ENGINE_H
-#include "EventSystem.h"
+
+// Core system headers
+#include "GameObject.h"
+#include "Scene.h"
 #include "Logger.h"
+#include "EventSystem.h"
 #include "InputSystem.h"
 #include "TimingSystem.h"
 #include "SceneManager.h"
 #include "WindowManager.h"
+
+// Rendering system headers
 #include "./RenderingEngine/RenderManager.h"
+#include "./RenderingEngine/RenderingPipeline.h"
+#include "./RenderingEngine/MeshRendererComponenet.h"
 
 namespace GUESS::core {
 
@@ -25,7 +33,7 @@ namespace GUESS::core {
 
         // Rendering systems
         GUESS::rendering::RenderManager m_renderManager;
-
+        GUESS::rendering::RenderingPipeline m_renderingPipeline;
 
         // Fixed timestep settings
         const float FIXED_TIME_STEP = 1.0f / 60.0f;

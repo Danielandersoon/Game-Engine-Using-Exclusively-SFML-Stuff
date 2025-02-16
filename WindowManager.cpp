@@ -12,7 +12,7 @@ namespace GUESS::core {
         if (!m_initialized) {
             m_initialized = true;
             m_running = true;
-            return CreateNewWindow(sf::VideoMode(480, 640, 32), sf::Vector2i(0, 0), "initWin");
+            return CreateNewWindow(sf::VideoMode(640, 480, 32), sf::Vector2i(0, 0), "initWin");
         }
         return true;
     }

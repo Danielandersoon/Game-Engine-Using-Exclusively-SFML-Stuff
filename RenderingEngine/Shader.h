@@ -13,6 +13,13 @@ namespace GUESS::rendering {
         std::string vertexPath;
         std::string fragmentPath;
 
+        GUESS::core::math::Vector3f position;
+        GUESS::core::math::Vector3f color;
+        float intensity;
+
+        enum class LightType { Point, Directional, Spot };
+        LightType type;
+
     public:
         Shader() = default;
         bool loadFromFile(const std::string& vertexPath, const std::string& fragmentPath);
@@ -26,6 +33,10 @@ namespace GUESS::rendering {
 
         void bind();
         void unbind();
+
+        void setSpecular(float strength);
+        void setShininess(float value);
+        void setAmbient(const GUESS::core::math::Vector3f& ambient);
 
         sf::Shader* getNativeShader() { return &shader; }
     };

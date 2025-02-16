@@ -1,7 +1,7 @@
 #include "Scene.h"
 
 namespace GUESS::core {
-    Scene::Scene(std::string sceneName) : m_sceneName(sceneName) {
+    Scene::Scene(std::string sceneName) : m_sceneName(sceneName) , m_mainCamera(900.0f, 1440.0f, 1000.0f, 0.1f, 60.0f) {
         static unsigned int nextID = 0;
         ID = ++nextID;
         m_active = false;

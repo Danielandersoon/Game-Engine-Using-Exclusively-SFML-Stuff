@@ -46,11 +46,27 @@ namespace GUESS::core {
     }
 
     void Engine::update() {
-        // Update order: Input -> Scene -> Window
         m_inputSystem.Update();
         m_sceneManager.Update();
+
+        m_renderingPipeline.clear();
+
+        Scene& currentScene = m_sceneManager.getCurrentScene();
+        for (const auto& gameObject : currentScene.GetGameObjects()) {
+            if (GUESS::rendering::threed::MeshRendererComponenet* meshRenderer = gameObject->getComponent<GUESS::rendering::threed::MeshRendererComponenet>()) {
+                GUESS::rendering::RenderCommand cmd{
+                    meshRenderer->getMesh(),
+                    meshRenderer->getMaterial(),
+                    gameObject->getTransform().toMatrix(),
+                };
+                m_renderingPipeline.submitGeometry(cmd);
+            }
+        }
+
+        m_renderingPipeline.render(currentScene.getMainCamera(), *static_cast<sf::RenderWindow*>(m_windowManager.getWindow(1)));
         m_windowManager.Update();
     }
+
 
     void Engine::fixedUpdate() {
         // Watch this space

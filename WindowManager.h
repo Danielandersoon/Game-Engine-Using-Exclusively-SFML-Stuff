@@ -22,6 +22,14 @@ namespace GUESS::core {
 		virtual bool Update() override;
 		virtual bool IsInitialized() const override { return m_initialized; }
 		virtual bool IsRunning() const override { return m_running; }
+		sf::Window* getWindow(int windowID) {
+			for (const auto& windowData : m_WindowDataVec) {
+				if (windowData.id == windowID) {
+					return windowData.window.get();
+				}
+			}
+			return nullptr;
+		}
 
 		bool CreateNewWindow(sf::VideoMode vidMode, sf::Vector2i startPosition, std::string windowName);
 		bool DestroyWindow(int WindowID);

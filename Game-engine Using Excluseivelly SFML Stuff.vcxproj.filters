@@ -75,6 +75,33 @@
     <ClCompile Include="RenderingEngine\Mesh.cpp">
       <Filter>Source Files\RenderingEngine</Filter>
     </ClCompile>
+    <ClCompile Include="RenderingEngine\Light.cpp">
+      <Filter>Source Files\RenderingEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingEngine\LightBaker.cpp">
+      <Filter>Source Files\RenderingEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingEngine\ShadowMapper.cpp">
+      <Filter>Source Files\RenderingEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingEngine\LightManager.cpp">
+      <Filter>Source Files\RenderingEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingEngine\PBRMaterial.cpp">
+      <Filter>Source Files\RenderingEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingEngine\RenderingPipeline.cpp">
+      <Filter>Source Files\RenderingEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingEngine\RenderQueue.cpp">
+      <Filter>Source Files\RenderingEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingEngine\Gbuffer.cpp">
+      <Filter>Source Files\RenderingEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingEngine\PostProcessor.cpp">
+      <Filter>Source Files\RenderingEngine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -135,6 +162,42 @@
       <Filter>Header Files\RenderingEngine</Filter>
     </ClInclude>
     <ClInclude Include="RenderingEngine\Vertex3d.h">
+      <Filter>Header Files\RenderingEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\Light.h">
+      <Filter>Header Files\RenderingEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\LightManager.h">
+      <Filter>Header Files\RenderingEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\LightBaker.h">
+      <Filter>Header Files\RenderingEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\ShadowMapper.h">
+      <Filter>Header Files\RenderingEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\PBRMaterial.h">
+      <Filter>Header Files\RenderingEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\RenderCommand.h">
+      <Filter>Header Files\RenderingEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\RenderingPipeline.h">
+      <Filter>Header Files\RenderingEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\Gbuffer.h">
+      <Filter>Header Files\RenderingEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\PostProcessor.h">
+      <Filter>Header Files\RenderingEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\RenderQueue.h">
+      <Filter>Header Files\RenderingEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\Effect.h">
+      <Filter>Header Files\RenderingEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\MeshRendererComponenet.h">
       <Filter>Header Files\RenderingEngine</Filter>
     </ClInclude>
   </ItemGroup>

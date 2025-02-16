@@ -38,6 +38,9 @@ namespace GUESS::rendering {
 
         bool isInView(const GUESS::core::math::AABB& boundingBox) const;
         bool isInView(const GUESS::core::math::Vector3f& point, float radius) const;
+
+        GUESS::core::math::Matrix4x4 getViewMatrix() const;
+        GUESS::core::math::Matrix4x4 getProjectionMatrix() const;
     };
 }
 #endif

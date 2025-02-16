@@ -7,9 +7,13 @@
 namespace GUESS::rendering {
     class Material {
     private:
-        sf::Shader shader;
         std::unique_ptr<sf::Texture> mainTexture;
         GUESS::core::math::Vector3f color;
+        std::unique_ptr<sf::Texture> lightMap;
+        bool hasLightMap = false;
+
+    protected:
+        GUESS::rendering::Shader shader;
 
     public:
         Material();
@@ -18,9 +22,14 @@ namespace GUESS::rendering {
         void setColor(const GUESS::core::math::Vector3f& color);
         void bind();
 
-        sf::Shader* getShader();
+        GUESS::rendering::Shader& getShader() ;
         sf::Texture* getMainTexture() const;
         const GUESS::core::math::Vector3f& getColor() const;
+
+        void setLightMap(const std::string& texturePath);
+        void setLightMap(const sf::RenderTexture& lmTecxture);
+
+        bool hasLightmap() const { return hasLightMap; }
     };
 }
 #endif

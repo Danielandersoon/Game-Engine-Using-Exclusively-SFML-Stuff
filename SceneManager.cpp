@@ -1,4 +1,5 @@
 #include "SceneManager.h"
+#include "Logger.h"
 
 namespace GUESS::core {
     bool SceneManager::Initialize() {
@@ -15,9 +16,10 @@ namespace GUESS::core {
         try {
             m_SceneCounter++;
             m_Scenes.emplace_back(sceneName);
+            GUESS::core::Logger::log(GUESS::core::Logger::INFO, "New Scene " + sceneName + " created.");
             return true;
         }
-        catch (...) {
+        catch (int e) {
             return false;
         }
     }
@@ -29,6 +31,7 @@ namespace GUESS::core {
                     m_activeScene->CloseScene();
                 }
                 m_activeScene = &scene;
+                GUESS::core::Logger::log(GUESS::core::Logger::INFO, "Scene " + sceneName + " loaded.");
                 return m_activeScene->LoadScene();
             }
         }
@@ -37,6 +40,18 @@ namespace GUESS::core {
 
     Scene* SceneManager::GetActiveScene() {
         return m_activeScene;
+    }
+
+    Scene& SceneManager::getCurrentScene()
+    {
+        if (m_Scenes.empty()) {
+            m_Scenes.emplace_back(Scene("defaultScene"));
+        } else if (m_activeScene == nullptr) {
+            m_activeScene = &m_Scenes[0];
+            m_activeScene->LoadScene();
+        }
+        
+    return *m_activeScene;
     }
 
     bool GUESS::core::SceneManager::Shutdown() {

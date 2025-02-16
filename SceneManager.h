@@ -11,6 +11,7 @@ namespace GUESS::core {
         Scene* m_activeScene;
         unsigned int m_SceneCounter = 0;
 
+
     public:
         SceneManager() : m_activeScene(nullptr) {}
         virtual ~SceneManager() override = default;
@@ -29,6 +30,8 @@ namespace GUESS::core {
         unsigned int GetSceneID(Scene* scene_ptr);
         std::vector<int> GetAllSceneIDs();
         unsigned int GetSceneIDByName(std::string sceneName);
+
+        Scene& getCurrentScene();
     };
 }
 #endif

@@ -29,7 +29,14 @@ namespace GUESS::rendering {
     }
 
     void Shader::setUniform(const std::string& name, const GUESS::core::math::Matrix4x4& value) {
-        shader.setUniform(name, sf::Glsl::Mat4(value.m[0]));
+        float glslMatrix[16];
+        // Convert matrix elements one by one
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                glslMatrix[i * 4 + j] = value.m[i][j];
+            }
+        }
+        shader.setUniform(name, sf::Glsl::Mat4(glslMatrix));
     }
 
     void Shader::setUniform(const std::string& name, const sf::Texture& texture) {

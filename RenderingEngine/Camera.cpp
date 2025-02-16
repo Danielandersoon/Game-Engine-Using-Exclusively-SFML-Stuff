@@ -92,5 +92,22 @@ namespace GUESS::rendering {
         float angle = GUESS::core::math::toDegrees(GUESS::core::math::arctan(direction.y / direction.x));
         setRotation(angle);
     }
+    
+    GUESS::core::math::Matrix4x4 Camera::getViewMatrix() const {
+        GUESS::core::math::Matrix4x4 viewMatrix;
+        viewMatrix = GUESS::core::math::Matrix4x4::translation(-position.x, -position.y, -position.z) *
+            GUESS::core::math::Matrix4x4::rotation(rotation.x, rotation.y, rotation.z, rotation.w);
+        return viewMatrix;
+    }
+
+    GUESS::core::math::Matrix4x4 Camera::getProjectionMatrix() const {
+        return GUESS::core::math::Matrix4x4::perspective(
+            GUESS::core::math::toRadians(FOV),
+            m_width / m_height,
+            m_near,
+            m_far
+        );
+    }
+
 
 }
