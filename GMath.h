@@ -5,6 +5,151 @@
 #include <thread>
 
 namespace GUESS::core::math {
+
+    constexpr float PI = 3.14159265359f;
+    inline float toRadians(float degrees) { return degrees * (PI / 180); };
+    inline float toDegrees(float radians) { return radians * (180 / PI); };
+    float lerp(float a, float b, float t);
+    inline float nthrt(float x, int n) {
+
+        if (n <= 0) return 0;
+        if (x == 0) return 0;
+        if (x < 0 && n % 2 == 0) return 0;
+
+        int sign = (x < 0) ? -1 : 1;
+        if (x < 0) x = -x;
+
+        // Bitwise magic: Adjust exponent
+        float y = x;
+        int i = *(int*)&y;
+        i = (i - (127 << 23)) / n + (127 << 23);
+        y = *(float*)&i;
+
+        return sign * y;
+    }
+    inline float factorial(int n) {
+        if (n <= 1) return 1.0f;
+        return n * factorial(n - 1);
+    }
+    inline float pow(float base, int exponent) {
+        float result = 1.0f;
+        int sign = (base < 0 && exponent % 2) ? -1 : 1;
+        if (base < 0)
+            base *= -1;
+        int exponMag = exponent;
+        if (exponent < 0)
+            return 1.0f / (pow(base, -exponent));
+        while (exponMag > 0) {
+            if (exponMag & 1) {
+                result *= base;
+            }
+            base *= base;
+            exponMag >>= 1;
+        }
+        return sign * result;
+    }
+    inline float fractionalPow(float base, int numerator, int denominator) {
+        if (numerator < 0 && denominator < 0) {
+            numerator *= -1;
+            denominator *= -1;
+        }
+        if (numerator < 0 || denominator < 0)
+            return 1 / nthrt(pow(base, numerator), denominator);
+
+        return nthrt(pow(base, numerator), denominator);
+    }
+
+    // I love stealing 
+    inline float fisr(float n) {
+        const float threehalfs = 1.5F;
+        float y = n;
+
+        long i = *(long*)&y;
+
+        i = 0x5f3759df - (i >> 1);
+        y = *(float*)&i;
+
+        y = y * (threehalfs - ((n * 0.5F) * y * y));
+
+        return y;
+    }
+    inline float taylorSeries(float x, float center, int iterations) {
+        if (iterations == 0) {
+            return 1.0f;
+        }
+
+        float term = pow(x - center, iterations) / factorial(iterations);
+        return term + taylorSeries(x, center, iterations - 1);
+    }
+    inline float sqrt(float n) {
+        return 1 / fisr(n);
+    }
+
+    // trig functions
+    // sin, cos, tan taking the sides
+    inline float sin(float opp, float hyp) { if (hyp == 0) { return 0.0; } return opp / hyp; }
+    inline float cos(float adj, float hyp) { if (hyp == 0) { return 0.0; }return adj / hyp; }
+    inline float tan(float opp, float adj) { if (adj == 0) { return 0.0; }return opp / adj; }
+
+    // sin, cos, tan taking the angle (in radians)
+    // sin using taylor series
+    inline float sin(float radians) {
+
+        return taylorSeries(radians, 0.0f, 20);
+    }
+    inline float cos(float radians) {
+        return sin((PI / 2) - radians);
+    }
+    inline float tan(float radians) {
+        float cosValue = cos(radians);
+        if (cosValue == 0.0f) return 0.0f;
+        return sin(radians) / cosValue;
+    }
+
+    // arcsin using taylor series
+    inline float arcsin(float x) {
+        if (x > 1.0 || x < -1.0) return 0.0;
+
+        return taylorSeries(x, 0.0f, 20);
+    }
+    inline float arccos(float x) {
+        if (x > 1.0 || x < -1.0) return 0.0;
+        return PI / 2.0 - arcsin(x);
+    }
+    // arctan using Taylor series
+    inline float arctan(float x) {
+        if (x > 1.0 || x < -1.0) {
+            x = 1.0 / x;
+            return (x > 0 ? -PI / 2.0 : PI / 2.0) - taylorSeries(x, 0.0f, 40);
+        }
+        return taylorSeries(x, 0.0f, 20);
+    }
+    // Two-argument arctangent
+    inline float arctan2(float y, float x) {
+        if (x == 0.0f) {
+            if (y > 0.0f) return PI / 2.0f;
+            if (y < 0.0f) return -PI / 2.0f;
+            return 0.0f;
+        }
+        float angle = arctan(y / x);
+        if (x < 0.0f) {
+            angle += (y >= 0.0f) ? PI : -PI;
+        }
+        return angle;
+    }
+    // Two-argument arcsine
+    inline float arcsin2(float y, float x) {
+        float hyp = sqrt(x * x + y * y);
+        if (hyp == 0.0f) return 0.0f;
+        return arcsin(y / hyp);
+    }
+    // Two-argument arccosine
+    inline float arccos2(float x, float y) {
+        float hyp = sqrt(x * x + y * y);
+        if (hyp == 0.0f) return 0.0f;
+        return arccos(x / hyp);
+    }
+
     template<typename T>
     struct Vector2 {
         T x, y;
@@ -133,9 +278,6 @@ namespace GUESS::core::math {
 
             return result;
         }
-
-
-
     };
 
     // Quaternion Structure
@@ -170,6 +312,29 @@ namespace GUESS::core::math {
             w /= mag; x /= mag; y /= mag; z /= mag;
         }
 
+        Vector3f toEuler() {
+            Vector3f euler;
+
+            // Roll (x-axis rotation)
+            float sinr_cosp = 2.0f * (this->w * this->x + this->y * this->z);
+            float cosr_cosp = 1.0f - 2.0f * (this->x * this->x + this->y * this->y);
+            euler.x = arctan2(sinr_cosp, cosr_cosp);
+
+            // Pitch (y-axis rotation)
+            float sinp = 2.0f * (this->w * this->y - this->z * this->x);
+            if (abs(sinp) >= 1.0f)
+                euler.y = (sinp > 0.0f ? 1.0f : -1.0f) * PI / 2.0f;
+            else
+                euler.y = arcsin(sinp);
+
+            // Yaw (z-axis rotation)
+            float siny_cosp = 2.0f * (this->w * this->z + this->x * this->y);
+            float cosy_cosp = 1.0f - 2.0f * (this->y * this->y + this->z * this->z);
+            euler.z = arctan2(siny_cosp, cosy_cosp);
+
+            return euler;
+        }
+
         static Quaternion fromEuler(float pitch, float yaw, float roll) {
             float cy = cos(roll * 0.5f);
             float sy = sin(roll * 0.5f);
@@ -184,7 +349,33 @@ namespace GUESS::core::math {
                 sy * cp * sr + cy * sp * cr,
                 sy * cp * cr - cy * sp * sr
             );
-        }        Matrix4x4 toMatrix() const;
+        }
+        Matrix4x4 toMatrix() const {
+            Matrix4x4 result;
+
+            // Calculate matrix elements using this->x, this->y, etc
+            result.m[0][0] = 1.0f - 2.0f * (this->y * this->y + this->z * this->z);
+            result.m[0][1] = 2.0f * (this->x * this->y - this->w * this->z);
+            result.m[0][2] = 2.0f * (this->x * this->z + this->w * this->y);
+            result.m[0][3] = 0.0f;
+
+            result.m[1][0] = 2.0f * (this->x * this->y + this->w * this->z);
+            result.m[1][1] = 1.0f - 2.0f * (this->x * this->x + this->z * this->z);
+            result.m[1][2] = 2.0f * (this->y * this->z - this->w * this->x);
+            result.m[1][3] = 0.0f;
+
+            result.m[2][0] = 2.0f * (this->x * this->z - this->w * this->y);
+            result.m[2][1] = 2.0f * (this->y * this->z + this->w * this->x);
+            result.m[2][2] = 1.0f - 2.0f * (this->x * this->x + this->y * this->y);
+            result.m[2][3] = 0.0f;
+
+            result.m[3][0] = 0.0f;
+            result.m[3][1] = 0.0f;
+            result.m[3][2] = 0.0f;
+            result.m[3][3] = 1.0f;
+
+            return result;
+        }
     };
 
     // Ray structure for raycasting
@@ -249,7 +440,6 @@ namespace GUESS::core::math {
             return AABB(newMin, newMax);
         }
     };
-
 
     // Frustrum structure
     struct Frustum {
@@ -337,16 +527,16 @@ namespace GUESS::core::math {
     };
 
     // Extended Vector3f operations
-    inline Vector3f reflect(const Vector3f & v, const Vector3f & normal) {
+    inline Vector3f reflect(const Vector3f& v, const Vector3f& normal) {
         return v - normal * 2.0f * v.dot(normal);
     }
 
-    inline Vector3f project(const Vector3f & v, const Vector3f & onto) {
+    inline Vector3f project(const Vector3f& v, const Vector3f& onto) {
         return onto * (v.dot(onto) / onto.dot(onto));
     }
 
     // Extended Matrix4x4 operations
-    inline Matrix4x4 transpose(const Matrix4x4 & m) {
+    inline Matrix4x4 transpose(const Matrix4x4& m) {
         Matrix4x4 result;
         for (int i = 0; i < 4; i++)
             for (int j = 0; j < 4; j++)
@@ -354,35 +544,8 @@ namespace GUESS::core::math {
         return result;
     }
 
-    inline Matrix4x4 Quaternion::toMatrix() const {
-        Matrix4x4 result;
-        
-        // Calculate matrix elements
-        result.m[0][0] = 1.0f - 2.0f * (y * y + z * z);
-        result.m[0][1] = 2.0f * (x * y - w * z);
-        result.m[0][2] = 2.0f * (x * z + w * y);
-        result.m[0][3] = 0.0f;
-    
-        result.m[1][0] = 2.0f * (x * y + w * z);
-        result.m[1][1] = 1.0f - 2.0f * (x * x + z * z);
-        result.m[1][2] = 2.0f * (y * z - w * x);
-        result.m[1][3] = 0.0f;
-    
-        result.m[2][0] = 2.0f * (x * z - w * y);
-        result.m[2][1] = 2.0f * (y * z + w * x);
-        result.m[2][2] = 1.0f - 2.0f * (x * x + y * y);
-        result.m[2][3] = 0.0f;
-    
-        result.m[3][0] = 0.0f;
-        result.m[3][1] = 0.0f;
-        result.m[3][2] = 0.0f;
-        result.m[3][3] = 1.0f;
-    
-        return result;
-    }
-
     // View matrix generation
-    static Matrix4x4 lookAt(const Vector3f & eye, const Vector3f & target, const Vector3f & up) {
+    static Matrix4x4 lookAt(const Vector3f& eye, const Vector3f& target, const Vector3f& up) {
         Matrix4x4 result;
 
         Vector3f f = (target - eye).normalized();
@@ -401,7 +564,7 @@ namespace GUESS::core::math {
     }
 
     // Curve mathematics
-    inline Vector3f bezierCurve(const Vector3f & p0, const Vector3f & p1, const Vector3f & p2, float t) {
+    inline Vector3f bezierCurve(const Vector3f& p0, const Vector3f& p1, const Vector3f& p2, float t) {
         float oneMinusT = 1.0f - t;
         return p0 * (oneMinusT * oneMinusT) +
             p1 * (2.0f * oneMinusT * t) +
@@ -417,129 +580,8 @@ namespace GUESS::core::math {
         return t * (2.0f - t);
     }
 
-
-    // Additional utility functions
-    constexpr float PI = 3.14159265359f;
-    inline float toRadians(float degrees) { return degrees * (PI / 180); };
-    inline float toDegrees(float radians) { return radians * (180 / PI); };
-    float lerp(float a, float b, float t);
     Vector3f lerp(const Vector3f& a, const Vector3f& b, float t);
     Quaternion slerp(const Quaternion& a, const Quaternion& b, float t);
-    inline float nthrt(float x, int n) {
-
-        if (n <= 0) return 0; 
-        if (x == 0) return 0; 
-        if (x < 0 && n % 2 == 0) return 0; 
-    
-        int sign = (x < 0) ? -1 : 1;
-        if (x < 0) x = -x; 
-    
-        // Bitwise magic: Adjust exponent
-        float y = x;
-        int i = *(int*)&y; 
-        i = (i - (127 << 23)) / n + (127 << 23); 
-        y = *(float*)&i; 
-
-        return sign * y;
-    }
-    inline float factorial(int n) {
-        if (n <= 1) return 1.0f;
-        return n * factorial(n - 1);
-    }
-    inline float pow(float base, int exponent) {
-        float result = 1.0f;
-        int sign = (base < 0 && exponent % 2) ? -1 : 1;
-        if (base < 0)
-            base *= -1;
-        int exponMag = exponent;
-        if (exponent < 0)
-            return 1.0f / (pow(base, -exponent));
-        while (exponMag > 0) {
-            if (exponMag & 1) {
-                result *= base;
-            }
-            base *= base;
-            exponMag >>= 1;
-        }
-        return sign * result;
-    }
-    inline float fractionalPow(float base, int numerator, int denominator) {
-        if (numerator < 0 && denominator < 0) {
-            numerator *= -1;
-            denominator *= -1;
-        }
-        if (numerator < 0 || denominator < 0)
-            return 1/nthrt(pow(base, numerator), denominator);
-
-        return nthrt(pow(base, numerator), denominator);
-    }
-
-    // I love stealing 
-    inline float fisr(float n) {
-        const float threehalfs = 1.5F;
-        float y = n;
-
-        long i = *(long*)&y;
-
-        i = 0x5f3759df - (i >> 1);
-        y = *(float*)&i;
-
-        y = y * (threehalfs - ((n * 0.5F) * y * y));
-
-        return y;
-    }
-    inline float taylorSeries(float x, float center, int iterations) {
-        if (iterations == 0) {
-            return 1.0f;
-        }
-
-        float term = pow(x - center, iterations) / factorial(iterations);
-        return term + taylorSeries(x, center, iterations - 1);
-    }
-    inline float sqrt(float n) {
-        return 1 / fisr(n);
-    }
-
-    // trig functions
-    // sin, cos, tan taking the sides
-    inline float sin(float opp, float hyp) { if (hyp == 0) { return 0.0; } return opp / hyp; }
-    inline float cos(float adj, float hyp) { if (hyp == 0) { return 0.0; }return adj / hyp; }
-    inline float tan(float opp, float adj) { if (adj == 0) { return 0.0; }return opp / adj; }
-   
-    // sin, cos, tan taking the angle (in radians)
-    // sin using taylor series
-    inline float sin(float radians) {
-
-        return taylorSeries(radians, 0.0f, 20);
-    }
-    inline float cos(float radians) {
-        return sin((PI / 2) - radians);
-    }
-    inline float tan(float radians) {
-        float cosValue = cos(radians);
-        if (cosValue == 0.0f) return 0.0f; 
-        return sin(radians) / cosValue;
-    }
-    
-    // arcsin using taylor series
-    inline float arcsin(float x) {
-        if (x > 1.0 || x < -1.0) return 0.0;
-
-        return taylorSeries(x, 0.0f, 20);
-    }
-    inline float arccos(float x) {
-        if (x > 1.0 || x < -1.0) return 0.0;
-        return PI / 2.0 - arcsin(x);
-    }
-    // arctan using Taylor series
-    inline float arctan(float x) {
-        if (x > 1.0 || x < -1.0) {
-            x = 1.0 / x;
-            return (x > 0 ? -PI / 2.0 : PI / 2.0) - taylorSeries(x, 0.0f, 40);
-        }
-        return taylorSeries(x, 0.0f, 20);
-    }
-
 
     //
     // Randomization
@@ -552,7 +594,7 @@ namespace GUESS::core::math {
     }
 
     // Permutation table for noise generation don't look at it, its gross
-    static const int PERM[512] = {151,160,137,91,90,15,131,13,201,95,96,53,194,233,7,225,140,36,103,30,69,1428,99,37,240,21,10,23,190,6,148,247,120,234,75,0,26,197,62,94,252,219,203,117,35,11,32,57,177,33,88,237,149,56,87,174,20,125,136,171,168,68,175,74,165,71,134,139,48,27,166,77,146,158,231,83,111,229,122,60,211,133,230,220,105,92,41,55,46,245,40,244,102,143,54,65,25,63,161,1,216,80,73,209,76,132,187,208, 89,18,169,200,196,135,130,116,188,159,86,164,100,109,198,173,186,3,64,52,217,226,250,124,123,5,202,38,147,118,126,255,82,85,212,207,206,59,227,47,16,58,17,182,189,28,42,223,183,170,213,119,248,152,2,44,154,163,70,221,153,101,155,167,43,172,9,129,22,39,253,19,98,108,110,79,113,224,232,178,185,112,104,218,246,97,228,251,34,242,193,238,210,144,12,191,179,162,241,81,51,145,235,249,14,239,107,49,192,214,31,181,199,106,157,184,84,204,176,115,121,50,45,127,4,150,254,138,236,205,93,222,114,67,29,24,72,243,141,128,195,78,66,215,61,156,180};
+    static const int PERM[512] = { 151,160,137,91,90,15,131,13,201,95,96,53,194,233,7,225,140,36,103,30,69,1428,99,37,240,21,10,23,190,6,148,247,120,234,75,0,26,197,62,94,252,219,203,117,35,11,32,57,177,33,88,237,149,56,87,174,20,125,136,171,168,68,175,74,165,71,134,139,48,27,166,77,146,158,231,83,111,229,122,60,211,133,230,220,105,92,41,55,46,245,40,244,102,143,54,65,25,63,161,1,216,80,73,209,76,132,187,208, 89,18,169,200,196,135,130,116,188,159,86,164,100,109,198,173,186,3,64,52,217,226,250,124,123,5,202,38,147,118,126,255,82,85,212,207,206,59,227,47,16,58,17,182,189,28,42,223,183,170,213,119,248,152,2,44,154,163,70,221,153,101,155,167,43,172,9,129,22,39,253,19,98,108,110,79,113,224,232,178,185,112,104,218,246,97,228,251,34,242,193,238,210,144,12,191,179,162,241,81,51,145,235,249,14,239,107,49,192,214,31,181,199,106,157,184,84,204,176,115,121,50,45,127,4,150,254,138,236,205,93,222,114,67,29,24,72,243,141,128,195,78,66,215,61,156,180 };
 
     inline float fade(float t) {
         return t * t * t * (t * (t * 6 - 15) + 10);
@@ -820,6 +862,7 @@ namespace GUESS::core::math {
             );
         }
     };
+
 }
 
 #endif GMATH_H

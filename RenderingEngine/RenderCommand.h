@@ -5,11 +5,18 @@
 #include "Material.h"
 #include "../GMath.h"
 
+namespace GUESS::rendering::twod {
+    class Sprite;  // Forward declaration
+}
+
 namespace GUESS::rendering {
     struct RenderCommand {
-        const GUESS::rendering::threed::Mesh* mesh;
-        Material* material;
-        GUESS::core::math::Matrix4x4 transform;
+        union {
+            const GUESS::rendering::threed::Mesh* mesh;
+            const GUESS::rendering::twod::Sprite* sprite;
+        } geometry;
+        const GUESS::rendering::Material* material;
+        bool is2D;
     };
 }
 #endif

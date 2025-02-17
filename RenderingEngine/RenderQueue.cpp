@@ -26,12 +26,12 @@ namespace GUESS::rendering {
                             sf::Triangles, sf::RenderStates(currentMaterial->getShader().getNativeShader()));
                         batchedVertices.clear();
                     }
-                    currentMaterial = cmd.material;
+                    currentMaterial = const_cast<Material*>(cmd.material);
                     currentMaterial->bind();
                 }
 
                 // Add to current batch
-                const auto& mesh = cmd.mesh;
+                const auto& mesh = cmd.geometry.mesh;
                 const auto& vertices = mesh->getVertices();
                 const auto& indices = mesh->getIndices();
 
@@ -39,7 +39,7 @@ namespace GUESS::rendering {
                 for (unsigned int index : indices) {
                     const auto& vertex = vertices[index];
                     sf::Vertex transformedVertex;
-                    auto worldPos = cmd.transform * vertex.position;
+                    auto worldPos = cmd.geometry.mesh->getTransform() * vertex.position;
                     transformedVertex.position = sf::Vector2f(worldPos.x, worldPos.y);
                     transformedVertex.color = vertex.color;
                     transformedVertex.texCoords = sf::Vector2f(vertex.texCoords.x, vertex.texCoords.y);

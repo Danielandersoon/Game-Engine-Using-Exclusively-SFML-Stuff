@@ -66,7 +66,6 @@ namespace GUESS::core {
                     GUESS::rendering::RenderCommand cmd{
                         meshRenderer->getMesh(),
                         meshRenderer->getMaterial(),
-                        worldMatrix,
                     };
                     m_renderingPipeline.submitGeometry(cmd);
                 }

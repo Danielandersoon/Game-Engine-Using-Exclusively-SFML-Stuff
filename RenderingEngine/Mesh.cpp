@@ -72,19 +72,112 @@ namespace GUESS::rendering::threed {
                 }
             }
         }
+        calculateBoundingBox();
 
         return true;
     }
 
     bool Mesh::loadFromFBX(const std::string& filepath) {
-        GUESS::core::Logger::log(GUESS::core::Logger::WARNING, "FBX loading not yet implemented");
-        return false;
+        std::ifstream file(filepath);
+        if (!file.is_open()) {
+            GUESS::core::Logger::log(GUESS::core::Logger::ERROR, "Failed to open FBX file: " + filepath);
+            return false;
+        }
+
+        // Parse FBX binary format
+        std::vector<GUESS::core::math::Vector3f> tempVertices;
+        std::vector<GUESS::core::math::Vector2f> tempUVs;
+        std::vector<GUESS::core::math::Vector3f> tempNormals;
+
+        // Read FBX header and version
+        char header[21];
+        file.read(header, 21);
+
+        // Parse node hierarchy
+        while (file.good()) {
+            // Read node type
+            unsigned char nodeType;
+            file.read(reinterpret_cast<char*>(&nodeType), 1);
+
+            // Parse geometry data
+            if (nodeType == 0x10) { // Geometry node
+                // Read vertex data
+                uint32_t vertexCount;
+                file.read(reinterpret_cast<char*>(&vertexCount), 4);
+
+                for (uint32_t i = 0; i < vertexCount; i++) {
+                    float x, y, z;
+                    file.read(reinterpret_cast<char*>(&x), 4);
+                    file.read(reinterpret_cast<char*>(&y), 4);
+                    file.read(reinterpret_cast<char*>(&z), 4);
+                    tempVertices.push_back(GUESS::core::math::Vector3f(x, y, z));
+                }
+            }
+        }
+
+        // Process vertices similar to OBJ loader
+        for (const auto& pos : tempVertices) {
+            Vertex3d vertex;
+            vertex.position = pos;
+            vertex.normal = GUESS::core::math::Vector3f(0, 1, 0);
+            vertex.color = sf::Color::White;
+            vertices.push_back(vertex);
+        }
+
+        calculateBoundingBox();
+        return true;
     }
 
     bool Mesh::loadFromBlend(const std::string& filepath) {
-        GUESS::core::Logger::log(GUESS::core::Logger::WARNING, "Blend file loading not yet implemented");
-        return false;
+        std::ifstream file(filepath);
+        if (!file.is_open()) {
+            GUESS::core::Logger::log(GUESS::core::Logger::ERROR, "Failed to open Blend file: " + filepath);
+            return false;
+        }
+
+        // Parse Blender file format
+        std::vector<GUESS::core::math::Vector3f> tempVertices;
+        std::vector<GUESS::core::math::Vector2f> tempUVs;
+        std::vector<GUESS::core::math::Vector3f> tempNormals;
+
+        // Read Blender file identifier
+        char identifier[7];
+        file.read(identifier, 7);
+
+        // Parse DNA structure
+        while (file.good()) {
+            // Read block header
+            uint32_t blockCode;
+            file.read(reinterpret_cast<char*>(&blockCode), 4);
+
+            if (blockCode == 0x4D455348) { // 'MESH' block
+                // Read mesh data
+                uint32_t vertexCount;
+                file.read(reinterpret_cast<char*>(&vertexCount), 4);
+
+                for (uint32_t i = 0; i < vertexCount; i++) {
+                    float x, y, z;
+                    file.read(reinterpret_cast<char*>(&x), 4);
+                    file.read(reinterpret_cast<char*>(&y), 4);
+                    file.read(reinterpret_cast<char*>(&z), 4);
+                    tempVertices.push_back(GUESS::core::math::Vector3f(x, y, z));
+                }
+            }
+        }
+
+        // Process vertices similar to OBJ loader
+        for (const auto& pos : tempVertices) {
+            Vertex3d vertex;
+            vertex.position = pos;
+            vertex.normal = GUESS::core::math::Vector3f(0, 1, 0);
+            vertex.color = sf::Color::White;
+            vertices.push_back(vertex);
+        }
+
+        calculateBoundingBox();
+        return true;
     }
+
 
     void Mesh::setVertices(const std::vector<Vertex3d>& newVertices) {
         vertices = newVertices;

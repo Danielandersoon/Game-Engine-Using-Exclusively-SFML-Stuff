@@ -25,6 +25,42 @@
     <Filter Include="Source Files\RenderingEngine">
       <UniqueIdentifier>{1aa5a089-d3a0-48ac-8bce-40ae965c16ae}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GameEngine\jsonSerialization">
+      <UniqueIdentifier>{141c892e-c29d-40c5-ab1a-6594b0710c77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameEngine\jsonSerialization">
+      <UniqueIdentifier>{7240456c-201a-4db7-8a3a-5480af81f61c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameEngine\Managers">
+      <UniqueIdentifier>{4c41c15e-6752-43b4-b483-003b0658ccfa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameEngine\Managers">
+      <UniqueIdentifier>{a697d025-3d99-4c19-8762-f9e91b656dc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameEngine\UtilityHeaders">
+      <UniqueIdentifier>{ef7b069b-f4a8-4252-aa69-c26e2acd1d51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameEngine\Utility">
+      <UniqueIdentifier>{fe042225-99a5-4f29-aebd-b72b696e45a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\RenderingEngine\UI">
+      <UniqueIdentifier>{5dbe4d8b-24fe-49cf-8863-b5d885a68cd8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\RenderingEngine\UI">
+      <UniqueIdentifier>{17cbbff6-0f70-490d-955e-83e03464deae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\RenderingEngine\3D">
+      <UniqueIdentifier>{173ebdf9-4958-43c6-9c55-4f85923fe18d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\RenderingEngine\3D">
+      <UniqueIdentifier>{7b567f29-5e23-4496-b8c8-49ea64a912c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\RenderingEngine\2D">
+      <UniqueIdentifier>{1635fc4d-51db-4a10-af4e-f3987fbb00f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\RenderingEngine\2D">
+      <UniqueIdentifier>{ba55b42b-30ad-4a8e-bff7-33bdf24f20df}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -39,16 +75,7 @@
     <ClCompile Include="InputSystem.cpp">
       <Filter>Source Files\GameEngine</Filter>
     </ClCompile>
-    <ClCompile Include="InstanceManager.cpp">
-      <Filter>Source Files\GameEngine</Filter>
-    </ClCompile>
     <ClCompile Include="Scene.cpp">
-      <Filter>Source Files\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneManager.cpp">
-      <Filter>Source Files\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="WindowManager.cpp">
       <Filter>Source Files\GameEngine</Filter>
     </ClCompile>
     <ClCompile Include="TimingSystem.cpp">
@@ -69,24 +96,6 @@
     <ClCompile Include="RenderingEngine\Shader.cpp">
       <Filter>Source Files\RenderingEngine</Filter>
     </ClCompile>
-    <ClCompile Include="Logger.cpp">
-      <Filter>Source Files\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderingEngine\Mesh.cpp">
-      <Filter>Source Files\RenderingEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderingEngine\Light.cpp">
-      <Filter>Source Files\RenderingEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderingEngine\LightBaker.cpp">
-      <Filter>Source Files\RenderingEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderingEngine\ShadowMapper.cpp">
-      <Filter>Source Files\RenderingEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderingEngine\LightManager.cpp">
-      <Filter>Source Files\RenderingEngine</Filter>
-    </ClCompile>
     <ClCompile Include="RenderingEngine\PBRMaterial.cpp">
       <Filter>Source Files\RenderingEngine</Filter>
     </ClCompile>
@@ -102,6 +111,63 @@
     <ClCompile Include="RenderingEngine\PostProcessor.cpp">
       <Filter>Source Files\RenderingEngine</Filter>
     </ClCompile>
+    <ClCompile Include="SceneSerializer.cpp">
+      <Filter>Source Files\GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="JSONValue.cpp">
+      <Filter>Source Files\GameEngine\jsonSerialization</Filter>
+    </ClCompile>
+    <ClCompile Include="JSONParser.cpp">
+      <Filter>Source Files\GameEngine\jsonSerialization</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowManager.cpp">
+      <Filter>Source Files\GameEngine\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Source Files\GameEngine\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>Source Files\GameEngine\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="InstanceManager.cpp">
+      <Filter>Source Files\GameEngine\Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="Logger.cpp">
+      <Filter>Source Files\GameEngine\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingEngine\Button.cpp">
+      <Filter>Source Files\RenderingEngine\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingEngine\UISystem.cpp">
+      <Filter>Source Files\RenderingEngine\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingEngine\Light.cpp">
+      <Filter>Source Files\RenderingEngine\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingEngine\LightBaker.cpp">
+      <Filter>Source Files\RenderingEngine\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingEngine\LightManager.cpp">
+      <Filter>Source Files\RenderingEngine\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingEngine\ParticleSystem.cpp">
+      <Filter>Source Files\RenderingEngine\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingEngine\Mesh.cpp">
+      <Filter>Source Files\RenderingEngine\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingEngine\ShadowMapper.cpp">
+      <Filter>Source Files\RenderingEngine\3D</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingEngine\SpriteRenderer.cpp">
+      <Filter>Source Files\RenderingEngine\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingEngine\TileMap.cpp">
+      <Filter>Source Files\RenderingEngine\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingEngine\RenderingPipeline2d.cpp">
+      <Filter>Source Files\RenderingEngine\2D</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">
@@ -116,25 +182,10 @@
     <ClInclude Include="InputSystem.h">
       <Filter>Header Files\GameEngine</Filter>
     </ClInclude>
-    <ClInclude Include="InstanceManager.h">
-      <Filter>Header Files\GameEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="Manager.h">
-      <Filter>Header Files\GameEngine</Filter>
-    </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>Header Files\GameEngine</Filter>
     </ClInclude>
-    <ClInclude Include="SceneManager.h">
-      <Filter>Header Files\GameEngine</Filter>
-    </ClInclude>
     <ClInclude Include="TimingSystem.h">
-      <Filter>Header Files\GameEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="WindowManager.h">
-      <Filter>Header Files\GameEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="GMath.h">
       <Filter>Header Files\GameEngine</Filter>
     </ClInclude>
     <ClInclude Include="RenderingEngine\Camera.h">
@@ -154,27 +205,6 @@
     </ClInclude>
     <ClInclude Include="EventSystem.h">
       <Filter>Header Files\GameEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="Logger.h">
-      <Filter>Header Files\GameEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderingEngine\Mesh.h">
-      <Filter>Header Files\RenderingEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderingEngine\Vertex3d.h">
-      <Filter>Header Files\RenderingEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderingEngine\Light.h">
-      <Filter>Header Files\RenderingEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderingEngine\LightManager.h">
-      <Filter>Header Files\RenderingEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderingEngine\LightBaker.h">
-      <Filter>Header Files\RenderingEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderingEngine\ShadowMapper.h">
-      <Filter>Header Files\RenderingEngine</Filter>
     </ClInclude>
     <ClInclude Include="RenderingEngine\PBRMaterial.h">
       <Filter>Header Files\RenderingEngine</Filter>
@@ -197,8 +227,83 @@
     <ClInclude Include="RenderingEngine\Effect.h">
       <Filter>Header Files\RenderingEngine</Filter>
     </ClInclude>
-    <ClInclude Include="RenderingEngine\MeshRendererComponenet.h">
-      <Filter>Header Files\RenderingEngine</Filter>
+    <ClInclude Include="JSONValue.h">
+      <Filter>Header Files\GameEngine\jsonSerialization</Filter>
     </ClInclude>
+    <ClInclude Include="JSONParser.h">
+      <Filter>Header Files\GameEngine\jsonSerialization</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneSerializer.h">
+      <Filter>Header Files\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="InstanceManager.h">
+      <Filter>Header Files\GameEngine\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>Header Files\GameEngine\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Header Files\GameEngine\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowManager.h">
+      <Filter>Header Files\GameEngine\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger.h">
+      <Filter>Header Files\GameEngine\UtilityHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="GMath.h">
+      <Filter>Header Files\GameEngine\UtilityHeaders</Filter>
+    </ClInclude>
+    <ClInclude Include="Manager.h">
+      <Filter>Header Files\GameEngine\Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\Button.h">
+      <Filter>Header Files\RenderingEngine\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\UISystem.h">
+      <Filter>Header Files\RenderingEngine\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\UIElement.h">
+      <Filter>Header Files\RenderingEngine\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\LightBaker.h">
+      <Filter>Header Files\RenderingEngine\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\LightManager.h">
+      <Filter>Header Files\RenderingEngine\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\Light.h">
+      <Filter>Header Files\RenderingEngine\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\Mesh.h">
+      <Filter>Header Files\RenderingEngine\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\MeshRendererComponenet.h">
+      <Filter>Header Files\RenderingEngine\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\ParticleSystem.h">
+      <Filter>Header Files\RenderingEngine\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\ShadowMapper.h">
+      <Filter>Header Files\RenderingEngine\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\Vertex3d.h">
+      <Filter>Header Files\RenderingEngine\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\TileMap.h">
+      <Filter>Header Files\RenderingEngine\2D</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\SpriteRenderer.h">
+      <Filter>Header Files\RenderingEngine\2D</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\Sprite.h">
+      <Filter>Header Files\RenderingEngine\2D</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\RenderingPipeline2d.h">
+      <Filter>Header Files\RenderingEngine\2D</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>

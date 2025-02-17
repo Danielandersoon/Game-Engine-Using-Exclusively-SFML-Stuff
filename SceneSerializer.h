@@ -2,12 +2,31 @@
 #define SCENE_SERIALIZER_H
 
 #include "Scene.h"
-#include "JsonValue.h"
+#include "JsonParser.h"
 
 namespace GUESS::core {
     class SceneSerializer {
+    private:
+        static JsonValue serializeVector3(const GUESS::core::math::Vector3f& vec) {
+            std::vector<JsonValue> values;
+            values.push_back(JsonValue(static_cast<double>(vec.x)));
+            values.push_back(JsonValue(static_cast<double>(vec.y)));
+            values.push_back(JsonValue(static_cast<double>(vec.z)));
+            return JsonValue(values);
+        }
+
+        static GUESS::core::math::Vector3f deserializeVector3(const JsonValue& json) {
+            const auto& values = json.get<std::vector<JsonValue>>();
+            return GUESS::core::math::Vector3f(
+                static_cast<float>(values[0].get<double>()),
+                static_cast<float>(values[1].get<double>()),
+                static_cast<float>(values[2].get<double>())
+            );
+        }
+
+
     public:
-        static bool saveScene(const Scene& scene, const std::string& filepath);
+        static bool saveScene(Scene& scene, const std::string& filepath);
         static bool loadScene(Scene& scene, const std::string& filepath);
 
     private:

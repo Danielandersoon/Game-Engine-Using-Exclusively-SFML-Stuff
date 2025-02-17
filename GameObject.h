@@ -16,7 +16,15 @@ namespace GUESS::core {
                 GUESS::core::math::Matrix4x4::rotation(rotation.x, rotation.y, rotation.z, rotation.w) *
                 GUESS::core::math::Matrix4x4::scale(scale.x, scale.y, scale.z);
         }
+        GUESS::core::math::Vector3f getPosition() const { return position; };
+        GUESS::core::math::Quaternion getRotation() const { return rotation; };
+        GUESS::core::math::Vector3f getScale() const { return scale; };
+        void setPosition(const GUESS::core::math::Vector3f& pos) { position = pos; };
+        void setRotation(const GUESS::core::math::Quaternion& rot) { rotation = rot; };
+        void setRotation(const GUESS::core::math::Vector3f& rot) { rotation = GUESS::core::math::Quaternion::fromEuler(rot.x, rot.y, rot.z); };
+        void setScale(const GUESS::core::math::Vector3f& scale) { this->scale = scale; };
     };
+
 	class GameObject
 	{
     private:
@@ -74,7 +82,7 @@ namespace GUESS::core {
         void fixedUpdate() const;
         void lateUpdate() const;
 
-        Transform getTransform() { return m_transform; }
+        Transform getTransform() const { return m_transform; }
     };
 }
 #endif GAME_OBJECCT_H

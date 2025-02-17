@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GUESS::core::GameObject" Collapsed="true">
+    <Position X="17" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hBACAAAIAAAAAEAECJAAABAAACAAAABAAAAEIAIMAAI=</HashCode>
+      <FileName>Component.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::core::Component" Collapsed="true">
+    <Position X="3.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgigAAAAAAAgAAAAAAAAAAAACAAAAIAAAAAAAAEAAA=</HashCode>
+      <FileName>Component.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::core::Engine" Collapsed="true">
+    <Position X="13.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AYACAAABQACAAABgAAAAAAAEASgkAAgABCAwAAAEAAA=</HashCode>
+      <FileName>Engine.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::core::EventSystem" Collapsed="true">
+    <Position X="15.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAQAAAAAAAAAIAAABAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>EventSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::core::InputSystem" Collapsed="true">
+    <Position X="10" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAQAADAAQAAAoEAAgAUAAQAhAhiAAgAAACACAAAgAAw=</HashCode>
+      <FileName>InputSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::core::Scene" Collapsed="true">
+    <Position X="15.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABgAAAEAAAAgCAAkAACCgAAAAAAABAAIAABAgEEAAA=</HashCode>
+      <FileName>Scene.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::core::SceneSerializer" Collapsed="true">
+    <Position X="17" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAgAAAAAAAIwAAAAAAACAAAACAAAAAAABAAAAA=</HashCode>
+      <FileName>SceneSerializer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::core::TimingSystem" Collapsed="true">
+    <Position X="11.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAQAAAABAAAAAQAAAAAEAA=</HashCode>
+      <FileName>TimingSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::core::JsonParser" Collapsed="true">
+    <Position X="11.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAACAAAAAAAAABAAAAAAiAAIAAAAAAIAAAEAMAI=</HashCode>
+      <FileName>JSONParser.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::core::JsonValue" Collapsed="true">
+    <Position X="13.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAACAAAAAQATQAAgQABACAAAAEACAAEIAA=</HashCode>
+      <FileName>JSONValue.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::core::InstanceManager" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQABAAAIAAAIQIAAAAAQQAkAAEAAAAAAAYABAAAAAA=</HashCode>
+      <FileName>InstanceManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::core::Manager" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAEAAAAAQAAAAQAQQAAAAAAAAAAAAAABAAAgAA=</HashCode>
+      <FileName>Manager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::core::ResourceManager" Collapsed="true">
+    <Position X="13.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAMAAAAAAAAAAUAAAgBBAAAQCAAAAAAAAAAA=</HashCode>
+      <FileName>ResourceManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::core::SceneManager" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAQAAAAQgCAAAUAAAJBASQAAQAAAAgAAAAAABgAAAIQ=</HashCode>
+      <FileName>SceneManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::core::WindowManager" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIQAAAAAAIBEAQCAAAAAQQAgAAAAgAAAAAAABEAQAAA=</HashCode>
+      <FileName>WindowManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::core::Logger" Collapsed="true">
+    <Position X="10" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logger.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::rendering::Camera" Collapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACI4IgIAAAAACBABCQIRACGAAAABGgQAAAABAAAQA=</HashCode>
+      <FileName>RenderingEngine\Camera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::rendering::Effect" Collapsed="true">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAEAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAgEAAQAA=</HashCode>
+      <FileName>RenderingEngine\Effect.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::rendering::GBuffer" Collapsed="true">
+    <Position X="18.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAIAAAAAAAAAhAAAAQAAgAAAAIgAAABAAAAAAAA=</HashCode>
+      <FileName>RenderingEngine\Gbuffer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::rendering::Material" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAIAAAAAAAIAAAAAAEAAAAACAAAAggUQISAA=</HashCode>
+      <FileName>RenderingEngine\Material.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::rendering::ParticleSystem" Collapsed="true">
+    <Position X="13.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAAAAAAAAEAgAAAIAAAAQAAAgACAAAAAUAAA=</HashCode>
+      <FileName>RenderingEngine\ParticleSystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::rendering::PBRMaterial" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARAAQAAILAAAABAAAEQCAAQAAAIAAAAAABAAAAAAAA=</HashCode>
+      <FileName>RenderingEngine\PBRMaterial.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::rendering::PostProcessor" Collapsed="true">
+    <Position X="15.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEMAAAIEAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RenderingEngine\PostProcessor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::rendering::RenderComponent" Collapsed="true">
+    <Position X="18.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RenderingEngine\RenderComponent.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::rendering::RenderingPipeline" Collapsed="true">
+    <Position X="10" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAACAAAACAEAAAAAAAABAAQAAAAAACAQAAA=</HashCode>
+      <FileName>RenderingEngine\RenderingPipeline.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::rendering::RenderManager" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EDQAAAAAAAAAAwgACgACRQAEAIAAIAEQhCAABREAAAA=</HashCode>
+      <FileName>RenderingEngine\RenderManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::rendering::RenderQueue" Collapsed="true">
+    <Position X="11.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEACCAAAAAAAAAAAAABEAAAAABAAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>RenderingEngine\RenderQueue.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::rendering::Shader" Collapsed="true">
+    <Position X="18.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QCAYAAAAAIAAAAAAAAAIIAAAAAABCQSEAAAQAEAABAA=</HashCode>
+      <FileName>RenderingEngine\Shader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::rendering::threed::LightBaker" Collapsed="true">
+    <Position X="17" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAACEgAAAAIAAAAAAAACAAAABAAAAACAAABEAAAAA=</HashCode>
+      <FileName>RenderingEngine\LightBaker.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::rendering::threed::Light" Collapsed="true">
+    <Position X="15.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EABAIAAAgAAAAAAgAACAIkAGARABCAAAAAIAgAAIBBQ=</HashCode>
+      <FileName>RenderingEngine\Light.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::rendering::threed::LightManager" Collapsed="true">
+    <Position X="18.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAABBAAAAAAAA=</HashCode>
+      <FileName>RenderingEngine\LightManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::rendering::threed::Mesh" Collapsed="true">
+    <Position X="11.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>RAAAQAAIACABAGEAACIAQAACDAAQABACAQAAAA0AAAA=</HashCode>
+      <FileName>RenderingEngine\Mesh.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::rendering::threed::MeshRendererComponenet" Collapsed="true">
+    <Position X="3.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAABAAAA=</HashCode>
+      <FileName>RenderingEngine\MeshRendererComponenet.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::rendering::threed::ShadowMapper" Collapsed="true">
+    <Position X="10" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAYIAAIAAAAAEAAACAAAAAAAAAAEAAAgAABAA=</HashCode>
+      <FileName>RenderingEngine\ShadowMapper.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::rendering::threed::Vertex3d" Collapsed="true">
+    <Position X="15.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAgAAAAAAACAgAIAAAAAAAA=</HashCode>
+      <FileName>RenderingEngine\Vertex3d.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::rendering::ui::Button" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAABAAAAAAAAAAAAAAAgAIAAAAgAAUIAA=</HashCode>
+      <FileName>RenderingEngine\Button.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::rendering::ui::UIElement" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAgAAAAAABgAAJAAIAACAAAAAAAAAAAAAAAUAgA=</HashCode>
+      <FileName>RenderingEngine\UIElement.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::rendering::ui::UISystem" Collapsed="true">
+    <Position X="13.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAEAAAAAABAAIAEAAAAAAAAAAAAAAAAAAAAUAAA=</HashCode>
+      <FileName>RenderingEngine\UISystem.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GUESS::core::math::Random" Collapsed="true">
+    <Position X="17" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAEAAAAAhAAAAAAAAAAAARAgEAAAAAAAAQAA=</HashCode>
+      <FileName>GMath.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="GUESS::core::Event" Collapsed="true">
+    <Position X="11.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>EventSystem.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="GUESS::core::Transform" Collapsed="true">
+    <Position X="17" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAIAACgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameObject.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="GUESS::rendering::Particle" Collapsed="true">
+    <Position X="17" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAIAAAAAAAAACAAAQAAABAAAA=</HashCode>
+      <FileName>RenderingEngine\ParticleSystem.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="GUESS::rendering::RenderCommand" Collapsed="true">
+    <Position X="15.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAFAAAAAAAAAABAAAA=</HashCode>
+      <FileName>RenderingEngine\RenderCommand.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="GUESS::core::math::Vector2&lt;T&gt;" Collapsed="true">
+    <Position X="18.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAABAAAAAAAIAAAAAAAAAAAAAQBgAAAAAAA=</HashCode>
+      <FileName>GMath.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="GUESS::core::math::Vector3&lt;T&gt;" Collapsed="true">
+    <Position X="10" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAIAAAAAAAAAIAAAAAAAAAIAAAQBgAQAAAAA=</HashCode>
+      <FileName>GMath.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="GUESS::core::math::Matrix4x4" Collapsed="true">
+    <Position X="15.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAACAAAACAAAAAgAAAgEgAABAAAA=</HashCode>
+      <FileName>GMath.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="GUESS::core::math::Quaternion" Collapsed="true">
+    <Position X="10" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAgAAAACAAAAhgAQAQAAA=</HashCode>
+      <FileName>GMath.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="GUESS::core::math::Ray" Collapsed="true">
+    <Position X="13.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAKAAAAAAAAAAAAAAAAAAAAAAAAAAAACA=</HashCode>
+      <FileName>GMath.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="GUESS::core::math::Plane" Collapsed="true">
+    <Position X="18.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAiAAEAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>GMath.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="GUESS::core::math::AABB" Collapsed="true">
+    <Position X="10" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAQAAAAAAAAAAAAAAAEAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>GMath.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="GUESS::core::math::Frustum" Collapsed="true">
+    <Position X="13.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAEAAAAAAAAABAAIAAAgAAAAAAAgAAAAA=</HashCode>
+      <FileName>GMath.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="GUESS::core::math::RandomState" Collapsed="true">
+    <Position X="11.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAQAAAAAAEAAAAABAAAAA=</HashCode>
+      <FileName>GMath.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
