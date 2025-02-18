@@ -43,6 +43,8 @@ namespace GUESS::rendering {
         shader.setUniform(name, texture);
     }
 
+
+
     void Shader::bind() {
         sf::Shader::bind(&shader);
     }
@@ -50,4 +52,31 @@ namespace GUESS::rendering {
     void Shader::unbind() {
         sf::Shader::bind(nullptr);
     }
+
+    void Shader::setupInstancing() {
+        // Add instance matrix attribute
+        const std::string instancedVertexShader = R"(
+        attribute mat4 instanceMatrix;
+        uniform mat4 projectionMatrix;
+        uniform mat4 viewMatrix;
+        
+        void main() {
+            // Transform vertex position by instance matrix first, then view and projection
+            vec4 worldPos = instanceMatrix * vec4(position, 1.0);
+            vec4 viewPos = viewMatrix * worldPos;
+            gl_Position = projectionMatrix * viewPos;
+            
+            // Transform normal by instance matrix
+            vec3 worldNormal = mat3(instanceMatrix) * normal;
+            
+            // Pass transformed attributes to fragment shader
+            vNormal = normalize(worldNormal);
+            vUV = texCoord;
+            vWorldPos = worldPos.xyz;
+        }
+    )";
+
+        shader.loadFromMemory(instancedVertexShader, sf::Shader::Vertex);
+    }
+
 }

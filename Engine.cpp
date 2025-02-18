@@ -53,24 +53,31 @@ namespace GUESS::core {
         Scene& currentScene = m_sceneManager.getCurrentScene();
         const auto& camera = currentScene.getMainCamera();
 
-        // Spatial partitioning grid
-        std::vector<GameObject*> visibleObjects;
+        std::map<const GUESS::rendering::threed::Mesh*, std::vector<GUESS::core::math::Matrix4x4>> instancedMeshes;
 
         for (const auto& gameObject : currentScene.GetGameObjects()) {
             if (auto* meshRenderer = gameObject->getComponent<GUESS::rendering::threed::MeshRendererComponenet>()) {
                 const auto& mesh = meshRenderer->getMesh();
+                const auto& material = meshRenderer->getMaterial();  
                 const auto& worldMatrix = gameObject->getTransform().toMatrix();
 
-                // Frustum culling check
-                if (camera.isInFrustum(mesh->getBoundingBox(), worldMatrix)) {
-                    GUESS::rendering::RenderCommand cmd{
-                        meshRenderer->getMesh(),
-                        meshRenderer->getMaterial(),
-                    };
-                    m_renderingPipeline.submitGeometry(cmd);
-                }
+                instancedMeshes[&(*mesh)].push_back(worldMatrix);
+                GUESS::rendering::RenderCommand cmd{ mesh->get(), material, true };
+                m_renderingPipeline.submitGeometry(cmd);
             }
         }
+
+        // For instanced rendering
+        for (const auto& [mesh, transforms] : instancedMeshes) {
+            if (transforms.size() > 1) {
+                mesh->setInstanceTransforms(transforms);
+                // Use the material from the renderer, not from mesh
+                GUESS::rendering::RenderCommand cmd{ mesh, nullptr, true }; 
+                m_renderingPipeline.submitGeometry(cmd);
+            }
+        }
+
+
     }
 
     void Engine::fixedUpdate() {

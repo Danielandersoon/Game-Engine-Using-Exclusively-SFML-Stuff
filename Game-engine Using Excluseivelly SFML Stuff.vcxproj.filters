@@ -61,6 +61,12 @@
     <Filter Include="Source Files\RenderingEngine\2D">
       <UniqueIdentifier>{ba55b42b-30ad-4a8e-bff7-33bdf24f20df}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\PysicsEngine">
+      <UniqueIdentifier>{e4a5165f-e869-48fb-9df3-26e221fb0316}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\PhysicsEngine">
+      <UniqueIdentifier>{d4525b64-c1cc-45c2-bb7d-bc38811d3eeb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -167,6 +173,24 @@
     </ClCompile>
     <ClCompile Include="RenderingEngine\RenderingPipeline2d.cpp">
       <Filter>Source Files\RenderingEngine\2D</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsEngine\BoxCollider.cpp">
+      <Filter>Source Files\PhysicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsEngine\CapsuleCollider.cpp">
+      <Filter>Source Files\PhysicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsEngine\PhysicsManager.cpp">
+      <Filter>Source Files\PhysicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsEngine\PhysicsMaterial.cpp">
+      <Filter>Source Files\PhysicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsEngine\Rigidbody2D.cpp">
+      <Filter>Source Files\PhysicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsEngine\RigidBody.cpp">
+      <Filter>Source Files\PhysicsEngine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -302,8 +326,29 @@
     <ClInclude Include="RenderingEngine\RenderingPipeline2d.h">
       <Filter>Header Files\RenderingEngine\2D</Filter>
     </ClInclude>
+    <ClInclude Include="PhysicsEngine\BoxCollider.h">
+      <Filter>Header Files\PysicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsEngine\CapsuleCollider.h">
+      <Filter>Header Files\PysicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsEngine\Collider.h">
+      <Filter>Header Files\PysicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsEngine\PhysicsManager.h">
+      <Filter>Header Files\PysicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsEngine\PhysicsMaterial.h">
+      <Filter>Header Files\PysicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsEngine\RigidBody.h">
+      <Filter>Header Files\PysicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsEngine\Rigidbody2D.h">
+      <Filter>Header Files\PysicsEngine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
 </Project>

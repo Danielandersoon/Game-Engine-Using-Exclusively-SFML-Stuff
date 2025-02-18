@@ -159,6 +159,8 @@ namespace GUESS::core::math {
         Vector2<T> operator+(const Vector2<T>& other) const { return Vector2<T>(x + other.x, y + other.y); }
         Vector2<T> operator-(const Vector2<T>& other) const { return Vector2<T>(x - other.x, y - other.y); }
         Vector2<T> operator*(T scalar) const { return Vector2<T>(x * scalar, y * scalar); }
+        Vector2<T> operator/(const Vector2<T>& other) const { return Vector2<T>(x / other.x, y / other.y); }
+
         T dot(const Vector2<T>& other) const { return x * other.x + y * other.y; }
         T magnitude() const { return sqrt(x * x + y * y); }
         Vector2<T> normalized() const { T mag = magnitude(); return Vector2<T>(x / mag, y / mag); }
@@ -173,6 +175,7 @@ namespace GUESS::core::math {
         Vector3<T> operator+(const Vector3<T>& other) const { return Vector3<T>(x + other.x, y + other.y, z + other.z); }
         Vector3<T> operator-(const Vector3<T>& other) const { return Vector3<T>(x - other.x, y - other.y, z - other.z); }
         Vector3<T> operator*(T scalar) const { return Vector3<T>(x * scalar, y * scalar, z * scalar); }
+        Vector3<T> operator/(const Vector3<T>& other) const { return Vector3<T>(x / other.x, y / other.y, z / other.z); }
         T dot(const Vector3<T>& other) const { return x * other.x + y * other.y + z * other.z; }
         Vector3<T> cross(const Vector3<T>& other) const {
             return Vector3<T>(y * other.z - z * other.y,

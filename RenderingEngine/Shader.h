@@ -38,6 +38,7 @@ namespace GUESS::rendering {
         void setShininess(float value);
         void setAmbient(const GUESS::core::math::Vector3f& ambient);
 
+        void setupInstancing();
         sf::Shader* getNativeShader() { return &shader; }
     };
 }

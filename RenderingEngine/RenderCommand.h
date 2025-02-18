@@ -17,6 +17,7 @@ namespace GUESS::rendering {
         } geometry;
         const GUESS::rendering::Material* material;
         bool is2D;
+        bool useInstancing = false;
     };
 }
 #endif

@@ -11,6 +11,7 @@ namespace GUESS::rendering::threed {
     private:
         std::vector<Vertex3d> vertices;
         std::vector<unsigned int> indices;
+        mutable std::vector<GUESS::core::math::Matrix4x4> instanceTransforms;
 
         GUESS::core::math::Matrix4x4 m_transform;
         GUESS::core::math::Vector3f m_position;
@@ -35,11 +36,22 @@ namespace GUESS::rendering::threed {
         void setPosition(const GUESS::core::math::Vector3f& position);
         void setRotation(const GUESS::core::math::Vector3f& rotation);
         void setScale(const GUESS::core::math::Vector3f& scale);
+        void setInstanceTransforms(const std::vector<GUESS::core::math::Matrix4x4>& transforms) const { instanceTransforms = transforms;  };
 
+        Mesh* get() { return this; }
         const GUESS::core::math::Matrix4x4& getTransform() const { return m_transform; }
         void updateTransform();
 
         const GUESS::core::math::AABB& getBoundingBox() const { return m_boundingBox; }
+
+        void addInstance(const GUESS::core::math::Matrix4x4& transform) {
+            instanceTransforms.push_back(transform);
+        }
+
+        const std::vector<GUESS::core::math::Matrix4x4>& getInstanceTransforms() const {
+            return instanceTransforms;
+        }
+
     };
 }
 #endif

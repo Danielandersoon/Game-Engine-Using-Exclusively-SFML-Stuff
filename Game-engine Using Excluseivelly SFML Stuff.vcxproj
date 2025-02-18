@@ -141,6 +141,12 @@
     <ClCompile Include="JSONParser.cpp" />
     <ClCompile Include="JSONValue.cpp" />
     <ClCompile Include="Logger.cpp" />
+    <ClCompile Include="PhysicsEngine\BoxCollider.cpp" />
+    <ClCompile Include="PhysicsEngine\CapsuleCollider.cpp" />
+    <ClCompile Include="PhysicsEngine\PhysicsManager.cpp" />
+    <ClCompile Include="PhysicsEngine\PhysicsMaterial.cpp" />
+    <ClCompile Include="PhysicsEngine\RigidBody.cpp" />
+    <ClCompile Include="PhysicsEngine\Rigidbody2D.cpp" />
     <ClCompile Include="RenderingEngine\Button.cpp" />
     <ClCompile Include="RenderingEngine\Camera.cpp" />
     <ClCompile Include="RenderingEngine\Gbuffer.cpp" />
@@ -182,6 +188,13 @@
     <ClInclude Include="JSONValue.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="Manager.h" />
+    <ClInclude Include="PhysicsEngine\BoxCollider.h" />
+    <ClInclude Include="PhysicsEngine\CapsuleCollider.h" />
+    <ClInclude Include="PhysicsEngine\Collider.h" />
+    <ClInclude Include="PhysicsEngine\PhysicsManager.h" />
+    <ClInclude Include="PhysicsEngine\PhysicsMaterial.h" />
+    <ClInclude Include="PhysicsEngine\RigidBody.h" />
+    <ClInclude Include="PhysicsEngine\Rigidbody2D.h" />
     <ClInclude Include="RenderingEngine\Button.h" />
     <ClInclude Include="RenderingEngine\Camera.h" />
     <ClInclude Include="RenderingEngine\Effect.h" />
@@ -217,7 +230,7 @@
     <ClInclude Include="WindowManager.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="ClassDiagram.cd" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
