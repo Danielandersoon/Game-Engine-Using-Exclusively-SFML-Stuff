@@ -26,3 +26,29 @@ A modern C++ game engine built on SFML, designed for both 2D and 3D game develop
 - Tilemap system
 - UI framework
 - 2D lighting
+
+[INSTANCE MANAGER]
+        │
+        ▼
+    [ENGINE]
+        │
+┌───────┴───────┐
+▼               ▼
+[WINDOW]    [CORE SYSTEMS]
+                │
+    ┌───────────┼───────────┬──────────────┐
+    ▼           ▼           ▼              ▼
+[RENDERING] [PHYSICS]  [INPUT]     [EVENTS]
+│           │          │           │
+└─2D        └─Bodies   └─Keyboard  └─Publisher
+└─3D        └─Colliders └─Mouse    └─Subscriber
+└─Lighting  └─Materials └─Touch
+└─Particles └─World
+└─Post FX
+└─UI
+
+[UTILITIES]
+└─ JSON Parser
+└─ Logger
+└─ Math Library
+└─ Timing System
