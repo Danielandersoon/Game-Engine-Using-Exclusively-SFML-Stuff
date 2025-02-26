@@ -1,95 +1,36 @@
-﻿  BoxCollider.cpp
+﻿  Source.cpp
 C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(117,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  (compiling source file 'PhysicsEngine/BoxCollider.cpp')
+  (compiling source file 'Source.cpp')
   
 C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(122,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  (compiling source file 'PhysicsEngine/BoxCollider.cpp')
+  (compiling source file 'Source.cpp')
   
 C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(123,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  (compiling source file 'PhysicsEngine/BoxCollider.cpp')
+  (compiling source file 'Source.cpp')
   
 C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(623,19): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-  (compiling source file 'PhysicsEngine/BoxCollider.cpp')
+  (compiling source file 'Source.cpp')
   
 C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(624,19): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-  (compiling source file 'PhysicsEngine/BoxCollider.cpp')
+  (compiling source file 'Source.cpp')
   
 C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(625,19): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-  (compiling source file 'PhysicsEngine/BoxCollider.cpp')
+  (compiling source file 'Source.cpp')
   
 C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(665,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'PhysicsEngine/BoxCollider.cpp')
+  (compiling source file 'Source.cpp')
   
 C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(666,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'PhysicsEngine/BoxCollider.cpp')
+  (compiling source file 'Source.cpp')
   
 C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(667,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'PhysicsEngine/BoxCollider.cpp')
+  (compiling source file 'Source.cpp')
   
 C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(835,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  (compiling source file 'PhysicsEngine/BoxCollider.cpp')
+  (compiling source file 'Source.cpp')
   
-  CapsuleCollider.cpp
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(117,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  (compiling source file 'PhysicsEngine/CapsuleCollider.cpp')
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\TimingSystem.h(15,28): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'Source.cpp')
   
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(122,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  (compiling source file 'PhysicsEngine/CapsuleCollider.cpp')
-  
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(123,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  (compiling source file 'PhysicsEngine/CapsuleCollider.cpp')
-  
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(623,19): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-  (compiling source file 'PhysicsEngine/CapsuleCollider.cpp')
-  
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(624,19): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-  (compiling source file 'PhysicsEngine/CapsuleCollider.cpp')
-  
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(625,19): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-  (compiling source file 'PhysicsEngine/CapsuleCollider.cpp')
-  
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(665,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'PhysicsEngine/CapsuleCollider.cpp')
-  
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(666,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'PhysicsEngine/CapsuleCollider.cpp')
-  
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(667,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'PhysicsEngine/CapsuleCollider.cpp')
-  
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(835,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  (compiling source file 'PhysicsEngine/CapsuleCollider.cpp')
-  
-  RigidBody.cpp
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(117,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  (compiling source file 'PhysicsEngine/RigidBody.cpp')
-  
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(122,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  (compiling source file 'PhysicsEngine/RigidBody.cpp')
-  
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(123,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  (compiling source file 'PhysicsEngine/RigidBody.cpp')
-  
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(623,19): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-  (compiling source file 'PhysicsEngine/RigidBody.cpp')
-  
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(624,19): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-  (compiling source file 'PhysicsEngine/RigidBody.cpp')
-  
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(625,19): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-  (compiling source file 'PhysicsEngine/RigidBody.cpp')
-  
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(665,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'PhysicsEngine/RigidBody.cpp')
-  
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(666,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'PhysicsEngine/RigidBody.cpp')
-  
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(667,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'PhysicsEngine/RigidBody.cpp')
-  
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(835,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  (compiling source file 'PhysicsEngine/RigidBody.cpp')
-  
-  Generating Code...
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\InstanceManager.h(36,1): warning C4715: 'GUESS::core::InstanceManager::getInstanceByID': not all control paths return a value
   Game-engine Using Excluseivelly SFML Stuff.vcxproj -> C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\x64\Debug\Game-engine Using Excluseivelly SFML Stuff.exe

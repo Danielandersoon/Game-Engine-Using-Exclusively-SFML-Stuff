@@ -7,8 +7,10 @@ namespace GUESS::core {
             m_initialized = true;
             m_running = true;
             m_activeScene = nullptr;
-            return CreateNewScene("DefaultScene");
+            CreateNewScene("DefaultScene");
+            return LoadScene("DefaultScene");
         }
+        Logger::log(GUESS::core::Logger::ERROR, "Could not initialize the scene manager");
         return true;
     }
 
@@ -20,6 +22,7 @@ namespace GUESS::core {
             return true;
         }
         catch (int e) {
+            Logger::log(GUESS::core::Logger::ERROR, "Could not create new scene " + sceneName);
             return false;
         }
     }

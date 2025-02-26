@@ -9,11 +9,14 @@ namespace GUESS::core {
 
     bool InstanceManager::Initialize()
     {
+        Logger::log(GUESS::core::Logger::INFO, "Initializing game");
         if (!m_initialized) {
             m_initialized = true;
             m_running = true;
+            Logger::log(GUESS::core::Logger::INFO, "Instance manager initialized");
             return createNewInstance(); // Creates initial instance
         }
+        Logger::log(GUESS::core::Logger::ERROR, "Could not initialize the instance manager");
         return true;
     }
 
@@ -46,11 +49,14 @@ namespace GUESS::core {
     bool InstanceManager::createNewInstance()
     {
         try {
+            Logger::log(GUESS::core::Logger::INFO, "Initializing engine instance");
             m_instanceCounter++;
             m_instances.push_back(std::make_unique<Engine>(m_instanceCounter));
+            Logger::log(GUESS::core::Logger::INFO, "Created new engine instance");
             return true;
         }
         catch (int e) {
+            Logger::log(GUESS::core::Logger::ERROR, "Could not create new engine instance");
             return false;
         }
     }
@@ -63,11 +69,13 @@ namespace GUESS::core {
                 if (m_instances[x] -> getInstanceID() == instanceID)
                 {
                     m_instances.erase(m_instances.begin() + x);
+                    Logger::log(GUESS::core::Logger::INFO, "Sucessfully destroyed new engine instance ID: " + instanceID);
                     return true;
                 }
             }
         }
         catch (int e) {
+            Logger::log(GUESS::core::Logger::ERROR, "Could not Destroy engine ID: " + instanceID);
             return false;
         }
     }

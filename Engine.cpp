@@ -1,11 +1,18 @@
 #include "Engine.h"
+#include "MeshRendererComponent.h"
+#include "RigidbodyComponent.h"
+#include "Rigidbody2DComponent.h"
+
 
 namespace GUESS::core {
 
     Engine::Engine(int instanceID) : m_instanceID(instanceID) {
         // Initialize managers
         m_sceneManager.Initialize();
-        m_windowManager.Initialize();
+
+        // Initialize physics systems
+        m_physicsManager.initializeDefaultMaterials();
+
         start();
     }
 
@@ -47,41 +54,49 @@ namespace GUESS::core {
 
     void Engine::update() {
         m_inputSystem.Update();
+        m_sceneManager.getCurrentScene().setInputSystem(&m_inputSystem);
         m_sceneManager.Update();
         m_renderingPipeline.clear();
 
         Scene& currentScene = m_sceneManager.getCurrentScene();
         const auto& camera = currentScene.getMainCamera();
 
-        std::map<const GUESS::rendering::threed::Mesh*, std::vector<GUESS::core::math::Matrix4x4>> instancedMeshes;
-
+        // Process physics components
         for (const auto& gameObject : currentScene.GetGameObjects()) {
-            if (auto* meshRenderer = gameObject->getComponent<GUESS::rendering::threed::MeshRendererComponenet>()) {
+            // Handle 3D physics
+            if (auto* rb3d = gameObject->getComponent<GUESS::core::RigidbodyComponent>()) {
+                if (auto* collider = rb3d->getRigidbody()->getCollider()) {
+                    collider->setPosition(gameObject->getTransform().getPosition());
+                    collider->setRotation(gameObject->getTransform().getRotation().toEuler().y);
+                }
+            }
+
+            // Handle 2D physics
+            if (auto* rb2d = gameObject->getComponent<GUESS::core::Rigidbody2DComponent>()) {
+                gameObject->getTransform().setPosition(
+                    GUESS::core::math::Vector3f(rb2d->getRigidbody()->getPosition().x, rb2d->getRigidbody()->getPosition().y, 0)
+                );
+                gameObject->getTransform().setRotation(
+                    GUESS::core::math::Vector3f(0, 0, rb2d->getRigidbody()->getRotation())
+                );
+            }
+
+            // Handle rendering
+            if (auto* meshRenderer = gameObject->getComponent<MeshRendererComponent>()) {
                 const auto& mesh = meshRenderer->getMesh();
-                const auto& material = meshRenderer->getMaterial();  
+                const auto& material = meshRenderer->getMaterial();
                 const auto& worldMatrix = gameObject->getTransform().toMatrix();
 
-                instancedMeshes[&(*mesh)].push_back(worldMatrix);
-                GUESS::rendering::RenderCommand cmd{ mesh->get(), material, true };
+                GUESS::rendering::RenderCommand cmd{ mesh->get(), material.get(), true};
                 m_renderingPipeline.submitGeometry(cmd);
             }
         }
-
-        // For instanced rendering
-        for (const auto& [mesh, transforms] : instancedMeshes) {
-            if (transforms.size() > 1) {
-                mesh->setInstanceTransforms(transforms);
-                // Use the material from the renderer, not from mesh
-                GUESS::rendering::RenderCommand cmd{ mesh, nullptr, true }; 
-                m_renderingPipeline.submitGeometry(cmd);
-            }
-        }
-
-
     }
 
+
+
     void Engine::fixedUpdate() {
-        // Watch this space
+        m_physicsWorld.step(FIXED_TIME_STEP);
     }
 
     void Engine::lateUpdate() {

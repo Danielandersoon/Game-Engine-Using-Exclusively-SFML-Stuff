@@ -27,6 +27,14 @@ namespace GUESS::core {
         unsigned int getInstanceID(Engine* instance_ptr);
         std::vector<int> GetInstanceIDs();
 
+        GUESS::core::Engine* getInstanceByID(int i)
+        {
+            for (auto& inst : m_instances) {
+                if (inst.get()->getInstanceID() == i)
+                    return m_instances[i].get();
+            }
+        }
+
     };
 }
 

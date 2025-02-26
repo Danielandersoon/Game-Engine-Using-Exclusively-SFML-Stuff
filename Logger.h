@@ -1,6 +1,14 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 
+#define DEBUG_BUILD 1
+
+#if DEBUG_BUILD
+#define DEBUG_MODE
+#else
+#define RELEASE_MODE
+#endif
+
 #include <string>
 #include <iostream>
 #include <fstream>

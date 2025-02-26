@@ -67,6 +67,12 @@
     <Filter Include="Source Files\PhysicsEngine">
       <UniqueIdentifier>{d4525b64-c1cc-45c2-bb7d-bc38811d3eeb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\GameEngine\Components">
+      <UniqueIdentifier>{f27476d2-e6de-4ea9-bf88-11c665e01e80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\GameEngine\Components">
+      <UniqueIdentifier>{a89aa48f-3fff-426c-8cc5-9003fdf48a9c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -191,6 +197,12 @@
     </ClCompile>
     <ClCompile Include="PhysicsEngine\RigidBody.cpp">
       <Filter>Source Files\PhysicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsEngine\PhysicsWorld.cpp">
+      <Filter>Source Files\PhysicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderingEngine\Skybox.cpp">
+      <Filter>Source Files\RenderingEngine\3D</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -346,6 +358,33 @@
     </ClInclude>
     <ClInclude Include="PhysicsEngine\Rigidbody2D.h">
       <Filter>Header Files\PysicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsEngine\PhysicsWorld.h">
+      <Filter>Header Files\PysicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshRendererComponent.h">
+      <Filter>Header Files\GameEngine\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteRenderComponent.h">
+      <Filter>Header Files\GameEngine\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraComponent.h">
+      <Filter>Header Files\GameEngine\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderingEngine\Skybox.h">
+      <Filter>Header Files\RenderingEngine\3D</Filter>
+    </ClInclude>
+    <ClInclude Include="BoxCollisionComponent.h">
+      <Filter>Header Files\GameEngine\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="CapsuleCollisionComponent.h">
+      <Filter>Header Files\GameEngine\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="RigidbodyComponent.h">
+      <Filter>Header Files\GameEngine\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Rigidbody2DComponent.h">
+      <Filter>Header Files\GameEngine\Components</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

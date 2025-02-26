@@ -44,14 +44,13 @@ namespace GUESS::core {
         ~GameObject() = default;
 
         // Component management
-        template<typename T>
-        T* addComponent() {
-            static_assert(std::is_base_of<Component, T>::value, "T must inherit from Component");
-            auto component = std::make_unique<T>();
-            component->setOwner(this);
-            T* rawPtr = component.get();
+        template<typename T, typename... Args>
+        T* addComponent(Args&&... args) {
+            auto component = std::make_unique<T>(std::forward<Args>(args)...);
+            T* componentPtr = component.get();
             componentList.push_back(std::move(component));
-            return rawPtr;
+            componentPtr->setOwner(this);
+            return componentPtr;
         }
 
         template<typename T>

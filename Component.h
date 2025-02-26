@@ -11,6 +11,7 @@ namespace GUESS::core {
 	{
     protected:
         GameObject* owner = nullptr;
+        std::string name;
 
     public:
         virtual ~Component() = default;
@@ -20,8 +21,11 @@ namespace GUESS::core {
         virtual void fixedUpdate() const {}
         virtual void lateUpdate() const {}
 
+        // except this implementation... oops
         void setOwner(GameObject* newOwner) { owner = newOwner; }
         GameObject* getOwner() const { return owner; }
+        void setName(std::string name) { this->name = name; }
+        std::string getName() { return name; }
     };
 }
 

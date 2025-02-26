@@ -1,6 +1,7 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 #include <SFML/Graphics/View.hpp>
+#include "Skybox.h"
 #include "../GMath.h"
 
 namespace GUESS::rendering {
@@ -15,12 +16,15 @@ namespace GUESS::rendering {
         GUESS::core::math::Quaternion rotation;
         sf::View m_view;
 
+        std::unique_ptr<Skybox> skybox;
+
     public:
         Camera(float height, float width, float far = 1000.0f, float near = 0.1f, float fov = 60.0f);
 
         void setPosition(const GUESS::core::math::Vector3f& newPos);
         void setRotation(float angle);
         void setRotation(const GUESS::core::math::Quaternion& newRotation);
+        GUESS::core::math::Vector2f getSize() { return GUESS::core::math::Vector2f(m_width, m_height); };
         void move(const GUESS::core::math::Vector3f& offset);
         void rotate(float angle);
         void zoom(float factor);
@@ -43,6 +47,14 @@ namespace GUESS::rendering {
         GUESS::core::math::Matrix4x4 getProjectionMatrix() const;
 
         bool isInFrustum(const GUESS::core::math::AABB& bounds, const GUESS::core::math::Matrix4x4& worldMatrix) const;
+
+        void setSkybox(std::unique_ptr<Skybox> newSkybox) { skybox = std::move(newSkybox); }
+
+        void renderSkybox(sf::RenderTarget& target) {
+            if (skybox) {
+                skybox->render(*this, target);
+            }
+        }
     };
 }
 #endif

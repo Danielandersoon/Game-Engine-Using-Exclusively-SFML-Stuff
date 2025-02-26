@@ -1,3 +1,8 @@
+#ifndef PHYSICS_CONST_H
+#define PHYSICS_CONST_H
+
 namespace GUESS::physics {
-    const float GRAVITY = 9.81f;
+    constexpr float GRAVITY = 9.81f;
 }
+
+#endif

@@ -2,7 +2,8 @@
 
 int main() {
 
-	GUESS::core::InstanceManager instanceManager = GUESS::core::InstanceManager();
+    GUESS::core::InstanceManager instanceManager;
+    auto sceneManager = instanceManager.getInstanceByID(0)->getSceneManager();
 
 	return -1;
 }

@@ -15,7 +15,12 @@
 // Rendering system headers
 #include "./RenderingEngine/RenderManager.h"
 #include "./RenderingEngine/RenderingPipeline.h"
-#include "./RenderingEngine/MeshRendererComponenet.h"
+
+// Physics system headers
+#include "./PhysicsEngine/PhysicsWorld.h"
+#include "./PhysicsEngine/PhysicsManager.h"
+#include "./PhysicsEngine/Rigidbody2D.h"
+
 
 namespace GUESS::core {
 
@@ -36,6 +41,10 @@ namespace GUESS::core {
         GUESS::rendering::RenderManager m_renderManager;
         GUESS::rendering::RenderingPipeline m_renderingPipeline;
 
+        // Pysics systems
+        GUESS::physics::PhysicsWorld m_physicsWorld;
+        GUESS::physics::PhysicsManager m_physicsManager;
+
         // Fixed timestep settings
         const float FIXED_TIME_STEP = 1.0f / 60.0f;
         float m_accumulatedTime = 0.0f;
@@ -55,6 +64,8 @@ namespace GUESS::core {
         void lateUpdate();
 
         bool isRunning() const { return m_isRunning; }
+
+        SceneManager* getSceneManager() { return &m_sceneManager; };
     };
 }
 

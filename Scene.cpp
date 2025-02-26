@@ -1,5 +1,7 @@
 #include "Scene.h"
 
+#include "Logger.h"
+
 namespace GUESS::core {
     Scene::Scene(std::string sceneName) : m_sceneName(sceneName) , m_mainCamera(900.0f, 1440.0f, 1000.0f, 0.1f, 60.0f) {
         static unsigned int nextID = 0;
@@ -29,6 +31,7 @@ namespace GUESS::core {
     }
 
     void Scene::AddGameObject(std::unique_ptr<GameObject> gameObject) {
+        Logger::log(Logger::INFO, "Created new game object: " + gameObject.get()->getName());
         GameObjects.push_back(std::move(gameObject));
     }
 
@@ -36,9 +39,13 @@ namespace GUESS::core {
         GameObjects.erase(
             std::remove_if(GameObjects.begin(), GameObjects.end(),
                 [&objectName](const std::unique_ptr<GameObject>& obj) {
+            Logger::log(Logger::INFO, "Removed game object: " + objectName);
             return obj->getName() == objectName;
         }),
+
             GameObjects.end());
+        Logger::log(Logger::WARNING, "could not remove: " + objectName);
+
     }
 
     GameObject* Scene::FindGameObject(const std::string& objectName) {

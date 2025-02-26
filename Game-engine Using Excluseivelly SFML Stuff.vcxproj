@@ -145,6 +145,7 @@
     <ClCompile Include="PhysicsEngine\CapsuleCollider.cpp" />
     <ClCompile Include="PhysicsEngine\PhysicsManager.cpp" />
     <ClCompile Include="PhysicsEngine\PhysicsMaterial.cpp" />
+    <ClCompile Include="PhysicsEngine\PhysicsWorld.cpp" />
     <ClCompile Include="PhysicsEngine\RigidBody.cpp" />
     <ClCompile Include="PhysicsEngine\Rigidbody2D.cpp" />
     <ClCompile Include="RenderingEngine\Button.cpp" />
@@ -165,6 +166,7 @@
     <ClCompile Include="RenderingEngine\RenderQueue.cpp" />
     <ClCompile Include="RenderingEngine\Shader.cpp" />
     <ClCompile Include="RenderingEngine\ShadowMapper.cpp" />
+    <ClCompile Include="RenderingEngine\Skybox.cpp" />
     <ClCompile Include="RenderingEngine\SpriteRenderer.cpp" />
     <ClCompile Include="RenderingEngine\TileMap.cpp" />
     <ClCompile Include="RenderingEngine\UISystem.cpp" />
@@ -177,6 +179,9 @@
     <ClCompile Include="WindowManager.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BoxCollisionComponent.h" />
+    <ClInclude Include="CameraComponent.h" />
+    <ClInclude Include="CapsuleCollisionComponent.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="EventSystem.h" />
@@ -188,11 +193,13 @@
     <ClInclude Include="JSONValue.h" />
     <ClInclude Include="Logger.h" />
     <ClInclude Include="Manager.h" />
+    <ClInclude Include="MeshRendererComponent.h" />
     <ClInclude Include="PhysicsEngine\BoxCollider.h" />
     <ClInclude Include="PhysicsEngine\CapsuleCollider.h" />
     <ClInclude Include="PhysicsEngine\Collider.h" />
     <ClInclude Include="PhysicsEngine\PhysicsManager.h" />
     <ClInclude Include="PhysicsEngine\PhysicsMaterial.h" />
+    <ClInclude Include="PhysicsEngine\PhysicsWorld.h" />
     <ClInclude Include="PhysicsEngine\RigidBody.h" />
     <ClInclude Include="PhysicsEngine\Rigidbody2D.h" />
     <ClInclude Include="RenderingEngine\Button.h" />
@@ -216,6 +223,7 @@
     <ClInclude Include="RenderingEngine\RenderQueue.h" />
     <ClInclude Include="RenderingEngine\Shader.h" />
     <ClInclude Include="RenderingEngine\ShadowMapper.h" />
+    <ClInclude Include="RenderingEngine\Skybox.h" />
     <ClInclude Include="RenderingEngine\Sprite.h" />
     <ClInclude Include="RenderingEngine\SpriteRenderer.h" />
     <ClInclude Include="RenderingEngine\TileMap.h" />
@@ -223,9 +231,12 @@
     <ClInclude Include="RenderingEngine\UISystem.h" />
     <ClInclude Include="RenderingEngine\Vertex3d.h" />
     <ClInclude Include="ResourceManager.h" />
+    <ClInclude Include="Rigidbody2DComponent.h" />
+    <ClInclude Include="RigidbodyComponent.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SceneSerializer.h" />
+    <ClInclude Include="SpriteRenderComponent.h" />
     <ClInclude Include="TimingSystem.h" />
     <ClInclude Include="WindowManager.h" />
   </ItemGroup>

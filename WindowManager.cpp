@@ -1,5 +1,7 @@
 #include "WindowManager.h"
 
+#include "Logger.h"
+
 namespace GUESS::core {
 
     WindowManager::WindowManager()
@@ -12,8 +14,10 @@ namespace GUESS::core {
         if (!m_initialized) {
             m_initialized = true;
             m_running = true;
+            GUESS::core::Logger::log(GUESS::core::Logger::INFO, "windowManager Initialized sucessfuly");
             return CreateNewWindow(sf::VideoMode(640, 480, 32), sf::Vector2i(0, 0), "initWin");
         }
+        Logger::log(GUESS::core::Logger::ERROR, "Could not initialize the window manager");
         return true;
     }
 
@@ -40,9 +44,11 @@ namespace GUESS::core {
             winDat.window = std::make_unique<sf::Window>(vidMode, windowName);
             winDat.window->setPosition(startPosition);
             m_WindowDataVec.push_back(std::move(winDat));
+            GUESS::core::Logger::log(GUESS::core::Logger::INFO, "New Window " + windowName + " created");
             return true;
         }
-        catch (int e) {
+        catch (const std::exception& e) {
+            Logger::log(GUESS::core::Logger::ERROR, "Window creation failed: " + std::string(e.what()));
             return false;
         }
     }
@@ -65,11 +71,14 @@ namespace GUESS::core {
                 if (m_WindowDataVec[x].id == WindowID)
                 {
                     m_WindowDataVec.erase(m_WindowDataVec.begin() + x);
+                    GUESS::core::Logger::log(GUESS::core::Logger::INFO, "Window ID: " + std::to_string(WindowID) + "destroyed");
                     return true;
                 }
             }
         }
         catch (int e) {
+            Logger::log(GUESS::core::Logger::ERROR, "Could not Destroy window ID: " + WindowID);
+
             return false;
         }
     }

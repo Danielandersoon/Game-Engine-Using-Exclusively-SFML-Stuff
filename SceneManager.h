@@ -25,6 +25,7 @@ namespace GUESS::core {
         bool CreateNewScene(std::string sceneName);
         bool LoadScene(const std::string& sceneName);
         Scene* GetActiveScene();
+        void addScene(Scene&& scene) { m_Scenes.push_back(std::move(scene)); }
         bool DestroyScene(int SceneID);
         bool DestroySceneByName(std::string sceneName);
         unsigned int GetSceneID(Scene* scene_ptr);
