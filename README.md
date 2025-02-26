@@ -1,9 +1,57 @@
 # GUESS Engine (Game Engine Using Exclusively SFML Stuff)
 A modern C++ game engine built on SFML, designed for both 2D and 3D game development.
 
-## Features
+# Engine Architecture
+## InstanceManager
+### Engine
+#### Window
+#### Core Systems
+##### Rendering
+- 2D Pipeline
+  - Sprites
+  - TileMap
+  - UI Elements
+- 3D Pipeline
+  - Mesh Rendering
+  - PBR Materials
+  - Lighting
+  - Shadows
+  - Post Processing
+  - Particles
+  - Skybox
 
-### Core Systems
+##### Physics
+- RigidBody2D/3D
+- Box Collider
+- Capsule Collider
+- Physics Materials
+- Physics World
+
+##### Input
+- Keyboard
+- Mouse
+- Touch
+
+##### Events
+- Publisher/Subscriber System
+- Event Queue
+
+##### Scene Management
+- Scene Loading/Saving
+- GameObject System
+- Component System
+- Transform Hierarchy
+
+##### Utilities
+- JSON Parser/Serializer
+- Math Library
+- Logger
+- Timing System
+
+
+# Features
+
+## Core Systems
 - Multi-instance engine support
 - Event-driven architecture
 - Scene management with serialization
@@ -11,7 +59,7 @@ A modern C++ game engine built on SFML, designed for both 2D and 3D game develop
 - Input system supporting keyboard, mouse and touch
 - JSON-based serialization
 
-### Graphics
+## Graphics
 - Deferred rendering pipeline
 - PBR material system
 - Dynamic and baked lighting
@@ -21,8 +69,9 @@ A modern C++ game engine built on SFML, designed for both 2D and 3D game develop
 - Frustum culling
 - Mesh loading (OBJ, FBX, Blender)
 
-### 2D Features
+## 2D Features
 - Sprite rendering
 - Tilemap system
 - UI framework
 - 2D lighting
+
