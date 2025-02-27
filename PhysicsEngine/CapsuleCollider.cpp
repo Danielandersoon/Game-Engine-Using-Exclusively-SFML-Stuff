@@ -1,4 +1,4 @@
-#include "CapsuleCollider.h"
+#include "./CapsuleCollider.h"
 #include <cmath>
 
 namespace GUESS::physics {

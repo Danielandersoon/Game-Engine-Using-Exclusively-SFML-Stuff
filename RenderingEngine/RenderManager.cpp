@@ -1,4 +1,4 @@
-#include "RenderManager.h"
+#include "./RenderManager.h"
 
 namespace GUESS::rendering {
     RenderManager::RenderManager() : m_targetWindow(nullptr), m_isVsyncEnabled(true) {

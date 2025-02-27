@@ -3,8 +3,8 @@
 #include <vector>
 #include <SFML/Graphics/Texture.hpp>
 
-#include "Sprite.h"
-#include "Material.h"
+#include "./Sprite.h"
+#include "./Material.h"
 
 namespace GUESS::rendering::twod {
     class TileMap {

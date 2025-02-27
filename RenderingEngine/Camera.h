@@ -1,7 +1,7 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 #include <SFML/Graphics/View.hpp>
-#include "Skybox.h"
+#include "./Skybox.h"
 #include "../GMath.h"
 
 namespace GUESS::rendering {

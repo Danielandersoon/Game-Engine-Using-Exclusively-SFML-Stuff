@@ -2,7 +2,7 @@
 #define MATERIAL_H
 #include <SFML/Graphics.hpp>
 #include "../GMath.h"
-#include "Shader.h"
+#include "./Shader.h"
 
 namespace GUESS::rendering {
     class Material {

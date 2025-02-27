@@ -4,7 +4,7 @@
 #include <string>
 #include <SFML/Graphics.hpp>
 #include "../GMath.h"
-#include "Vertex3d.h"
+#include "./Vertex3d.h"
 
 namespace GUESS::rendering::threed {
     class Mesh {

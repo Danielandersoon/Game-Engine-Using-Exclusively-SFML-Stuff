@@ -1,4 +1,4 @@
-#include "SpriteRenderer.h"
+#include "./SpriteRenderer.h"
 
 namespace GUESS::rendering::twod {
     void SpriteRenderer::draw(const Sprite& sprite, Material& material) {

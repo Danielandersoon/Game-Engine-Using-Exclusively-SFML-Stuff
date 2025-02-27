@@ -1,4 +1,4 @@
-#include "LightManager.h"
+#include "./LightManager.h"
 
 namespace GUESS::rendering::threed {
     void LightManager::updateLightUniforms(Shader& shader) {

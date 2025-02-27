@@ -1,6 +1,6 @@
 #include <fstream>
-#include "Logger.h"
-#include "SceneSerializer.h"
+#include "./Logger.h"
+#include "./SceneSerializer.h"
 
 namespace GUESS::core {
     bool SceneSerializer::saveScene(Scene& scene, const std::string& filepath) {

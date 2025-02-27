@@ -1,12 +1,12 @@
 #ifndef RENDERING_PIPELINE_H
 #define RENDERING_PIPELINE_H
-#include "Mesh.h"
-#include "Camera.h"
-#include "Material.h"
-#include "GBuffer.h"
-#include "PostProcessor.h"
-#include "shadowMapper.h"
-#include "RenderQueue.h"
+#include "./Mesh.h"
+#include "./Camera.h"
+#include "./Material.h"
+#include "./Gbuffer.h"
+#include "./PostProcessor.h"
+#include "./ShadowMapper.h"
+#include "./RenderQueue.h"
 
 namespace GUESS::rendering {
     class RenderingPipeline {

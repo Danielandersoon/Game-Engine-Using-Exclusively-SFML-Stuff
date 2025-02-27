@@ -1,4 +1,4 @@
-#include "Light.h"
+#include "./Light.h"
 
 namespace GUESS::rendering::threed {
 

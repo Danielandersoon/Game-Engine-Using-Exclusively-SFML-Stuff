@@ -1,8 +1,8 @@
 #ifndef SCENE_SERIALIZER_H
 #define SCENE_SERIALIZER_H
 
-#include "Scene.h"
-#include "JsonParser.h"
+#include "./Scene.h"
+#include "./JsonParser.h"
 
 namespace GUESS::core {
     class SceneSerializer {

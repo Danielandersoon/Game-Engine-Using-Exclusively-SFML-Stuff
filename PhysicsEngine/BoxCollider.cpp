@@ -1,4 +1,4 @@
-#include "BoxCollider.h"
+#include "./BoxCollider.h"
 
 namespace GUESS::physics {
     BoxCollider::BoxCollider(const GUESS::core::math::Vector3f& dimensions) {

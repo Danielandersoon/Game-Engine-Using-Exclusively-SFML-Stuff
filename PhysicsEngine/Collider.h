@@ -2,7 +2,7 @@
 #define COLLIDER_H
 
 #include "../GMath.h"
-#include "RigidBody.h"
+#include "./RigidBody.h"
 
 namespace GUESS::physics {
     template <typename T>

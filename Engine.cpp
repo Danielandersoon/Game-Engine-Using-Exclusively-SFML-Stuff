@@ -1,7 +1,7 @@
-#include "Engine.h"
-#include "MeshRendererComponent.h"
-#include "RigidbodyComponent.h"
-#include "Rigidbody2DComponent.h"
+#include "./Engine.h"
+#include "./MeshRendererComponent.h"
+#include "./RigidbodyComponent.h"
+#include "./Rigidbody2DComponent.h"
 
 
 namespace GUESS::core {

@@ -2,15 +2,15 @@
 #define ENGINE_H
 
 // Core system headers
-#include "GameObject.h"
-#include "Scene.h"
-#include "Logger.h"
-#include "EventSystem.h"
-#include "InputSystem.h"
-#include "TimingSystem.h"
-#include "SceneManager.h"
-#include "WindowManager.h"
-#include "ResourceManager.h"
+#include "./GameObject.h"
+#include "./Scene.h"
+#include "./Logger.h"
+#include "./EventSystem.h"
+#include "./InputSystem.h"
+#include "./TimingSystem.h"
+#include "./SceneManager.h"
+#include "./WindowManager.h"
+#include "./ResourceManager.h"
 
 // Rendering system headers
 #include "./RenderingEngine/RenderManager.h"

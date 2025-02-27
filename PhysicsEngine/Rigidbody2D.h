@@ -1,8 +1,8 @@
 #ifndef RIGIDBODY_2D_H
 #define RIGIDBODY_2D_H
 
-#include "Collider.h"
-#include "RigidBody.h"
+#include "./Collider.h"
+#include "./RigidBody.h"
 
 namespace GUESS::physics {
     class RigidBody2D : public RigidBody<GUESS::core::math::Vector2f> {

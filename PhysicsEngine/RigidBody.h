@@ -2,7 +2,7 @@
 #define RIGIDBODY_H
 
 #include "../GMath.h"
-#include "PhysicsConst.h"
+#include "./PhysicsConst.h"
 
 namespace GUESS::physics {
     template <typename T>

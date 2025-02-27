@@ -1,4 +1,4 @@
-#include "Camera.h"
+#include "./Camera.h"
 
 namespace GUESS::rendering {
     Camera::Camera(float height, float width, float far, float near, float fov)

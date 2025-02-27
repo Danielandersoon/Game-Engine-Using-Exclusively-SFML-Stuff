@@ -3,9 +3,9 @@
 #include <unordered_map>
 #include <SFML/Graphics.hpp>
 #include "../Manager.h"
-#include "Camera.h"
-#include "Material.h"
-#include "Mesh.h"
+#include "./Camera.h"
+#include "./Material.h"
+#include "./Mesh.h"
 
 namespace GUESS::rendering {
     class RenderManager : public GUESS::core::Manager {

@@ -1,8 +1,8 @@
 #ifndef LIGHT_MANAGER_H
 #define LIGHT_MANAGER_H
 #include <vector>
-#include "Shader.h"
-#include "Light.h"
+#include "./Shader.h"
+#include "./Light.h"
 
 namespace GUESS::rendering::threed
 {

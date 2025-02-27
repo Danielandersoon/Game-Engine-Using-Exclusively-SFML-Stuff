@@ -1,4 +1,4 @@
-#include "InstanceManager.h"
+#include "./InstanceManager.h"
 
 namespace GUESS::core {
 

@@ -1,6 +1,6 @@
 #ifndef SHADOW_MAPPER_H
 #define SHADOW_MAPPER_H
-#include "Shader.h"
+#include "./Shader.h"
 #include <SFML/Graphics/RenderTexture.hpp>
 
 namespace GUESS::rendering::threed {

@@ -1,7 +1,7 @@
 #ifndef BOX_COLLIDER_H
 #define BOX_COLLIDER_H
 
-#include "Collider.h"
+#include "./Collider.h"
 
 namespace GUESS::physics {
     class BoxCollider : public Collider<GUESS::core::math::Vector3f> {

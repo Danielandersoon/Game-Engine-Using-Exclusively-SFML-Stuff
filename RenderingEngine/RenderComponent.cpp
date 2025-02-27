@@ -1,4 +1,4 @@
-#include "RenderComponent.h"
+#include "./RenderComponent.h"
 
 namespace GUESS::rendering {
 

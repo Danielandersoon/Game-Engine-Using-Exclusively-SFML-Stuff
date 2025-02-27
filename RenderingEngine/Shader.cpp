@@ -1,4 +1,4 @@
-#include "Shader.h"
+#include "./Shader.h"
 
 namespace GUESS::rendering {
     bool Shader::loadFromFile(const std::string& vertPath, const std::string& fragPath) {

@@ -1,4 +1,4 @@
-#include "Logger.h"
+#include "./Logger.h"
 
 #ifdef DEBUG_MODE
 

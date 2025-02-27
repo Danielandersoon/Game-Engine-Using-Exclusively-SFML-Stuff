@@ -1,6 +1,6 @@
 #include <fstream>
 #include <sstream>
-#include "Mesh.h"
+#include "./Mesh.h"
 #include "../Logger.h"
 
 namespace GUESS::rendering::threed {

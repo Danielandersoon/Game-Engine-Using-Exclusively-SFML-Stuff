@@ -2,7 +2,7 @@
 #define POST_PROCESSOR_H
 #include <vector>
 #include <SFML/Graphics/RenderTexture.hpp>
-#include "Effect.h"
+#include "./Effect.h"
 
 namespace GUESS::rendering
 {

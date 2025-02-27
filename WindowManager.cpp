@@ -1,6 +1,6 @@
-#include "WindowManager.h"
+#include "./WindowManager.h"
 
-#include "Logger.h"
+#include "./Logger.h"
 
 namespace GUESS::core {
 

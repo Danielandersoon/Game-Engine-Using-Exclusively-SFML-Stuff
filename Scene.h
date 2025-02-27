@@ -4,7 +4,7 @@
 #include <algorithm>
 #include "./InputSystem.h"
 #include "./RenderingEngine/Camera.h"
-#include "GameObject.h"
+#include "./GameObject.h"
 
 namespace GUESS::core {
     class Scene {

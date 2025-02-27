@@ -1,4 +1,4 @@
-#include "Gbuffer.h"
+#include "./Gbuffer.h"
 
 namespace GUESS::rendering {
     void GBuffer::create(unsigned int width, unsigned int height) {

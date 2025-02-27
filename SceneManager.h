@@ -1,8 +1,8 @@
 #ifndef SCENE_MANAGER_H
 #define SCENE_MANAGER_H
 #include <string>
-#include "Manager.h"
-#include "Scene.h"
+#include "./Manager.h"
+#include "./Scene.h"
 
 namespace GUESS::core {
     class SceneManager : public Manager {

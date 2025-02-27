@@ -1,8 +1,8 @@
 #ifndef RIGIDBODY2D_COMPONENT_H
 #define RIGIDBODY2D_COMPONENT_H
 
-#include "Component.h"
-#include "PhysicsEngine/RigidBody2D.h"
+#include "./Component.h"
+#include "./PhysicsEngine/RigidBody2D.h"
 
 namespace GUESS::core {
     class Rigidbody2DComponent : public Component {

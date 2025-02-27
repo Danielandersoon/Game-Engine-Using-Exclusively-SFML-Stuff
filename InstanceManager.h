@@ -1,8 +1,8 @@
 #ifndef INSTANCE_MANAGER_H
 #define INSTANCE_MANAGER_H
 #include <vector>
-#include "Manager.h"
-#include "Engine.h"
+#include "./Manager.h"
+#include "./Engine.h"
 namespace GUESS::core {
 
     class InstanceManager : Manager

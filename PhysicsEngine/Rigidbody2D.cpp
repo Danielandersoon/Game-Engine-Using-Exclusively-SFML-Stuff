@@ -1,4 +1,4 @@
-#include "Rigidbody2D.h"
+#include "./Rigidbody2D.h"
 
 namespace GUESS::physics {
     void RigidBody2D::update(float deltaTime) {

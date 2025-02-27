@@ -1,4 +1,4 @@
-#include "RenderingPipeline.h"
+#include "./RenderingPipeline.h"
 
 namespace GUESS::rendering {
     void RenderingPipeline::initialize(int width, int height) {

@@ -1,9 +1,9 @@
 #ifndef CAMERA_COMPONENT_H
 #define CAMERA_COMPONENT_H
 
-#include "Component.h"
+#include "./Component.h"
 #include "./RenderingEngine/Camera.h"
-#include "GameObject.h"
+#include "./GameObject.h"
 #include <memory>
 
 namespace GUESS::core {

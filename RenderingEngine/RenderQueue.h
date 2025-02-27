@@ -2,8 +2,8 @@
 #define RENDER_QUEUE_H
 #include <map>
 #include <vector>
-#include "RenderCommand.h"
-#include "Camera.h"
+#include "./RenderCommand.h"
+#include "./Camera.h"
 
 namespace GUESS::rendering {
     class RenderQueue {

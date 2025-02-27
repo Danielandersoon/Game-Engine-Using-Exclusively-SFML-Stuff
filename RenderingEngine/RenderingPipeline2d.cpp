@@ -1,7 +1,7 @@
-#include "RenderingPipeline2d.h"
-#include "RenderCommand.h"
-#include "Sprite.h"
-#include "TileMap.h"
+#include "./RenderingPipeline2d.h"
+#include "./RenderCommand.h"
+#include "./Sprite.h"
+#include "./TileMap.h"
 
 namespace GUESS::rendering::twod {
     void RenderingPipeline2D::submitSprite(const Sprite& sprite, Material& material) {

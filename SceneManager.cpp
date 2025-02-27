@@ -1,5 +1,5 @@
-#include "SceneManager.h"
-#include "Logger.h"
+#include "./SceneManager.h"
+#include "./Logger.h"
 
 namespace GUESS::core {
     bool SceneManager::Initialize() {

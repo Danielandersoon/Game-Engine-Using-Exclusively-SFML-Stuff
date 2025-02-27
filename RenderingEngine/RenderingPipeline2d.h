@@ -1,9 +1,9 @@
 #ifndef RENDERING_PIPELINE_2D_H
 #define RENDERING_PIPELINE_2D_H
 
-#include "RenderQueue.h"
-#include "PostProcessor.h"
-#include "Material.h"
+#include "./RenderQueue.h"
+#include "./PostProcessor.h"
+#include "./Material.h"
 
 namespace GUESS::rendering::twod {
 

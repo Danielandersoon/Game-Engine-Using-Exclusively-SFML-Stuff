@@ -1,7 +1,7 @@
 #ifndef GBUFFER_H
 #define GBUFFER_H
 #include <SFML/Graphics/RenderTexture.hpp>
-#include "Shader.h"
+#include "./Shader.h"
 
 namespace GUESS::rendering {
     class GBuffer {

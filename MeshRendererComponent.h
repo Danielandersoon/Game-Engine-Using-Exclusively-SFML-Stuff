@@ -1,7 +1,7 @@
 #ifndef MESH_RENDERER_COMPONENT_H
 #define MESH_RENDERER_COMPONENT_H
 
-#include "Component.h"
+#include "./Component.h"
 #include "./RenderingEngine/Mesh.h"
 #include "./RenderingEngine/Material.h"
 #include <memory>

@@ -6,7 +6,7 @@
 #include <string>
 #include "./RenderingEngine/Shader.h"
 #include "./RenderingEngine/Mesh.h"
-#include "Logger.h"
+#include "./Logger.h"
 
 namespace GUESS::core {
 

@@ -1,7 +1,7 @@
 #ifndef SPRITE_RENDERER_COMPONENT_H
 #define SPRITE_RENDERER_COMPONENT_H
 
-#include "Component.h"
+#include "./Component.h"
 #include "./RenderingEngine/Sprite.h"
 #include "./RenderingEngine/Material.h"
 #include <memory>

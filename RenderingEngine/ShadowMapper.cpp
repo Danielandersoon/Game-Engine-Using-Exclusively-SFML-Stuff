@@ -1,4 +1,4 @@
-#include "ShadowMapper.h"
+#include "./ShadowMapper.h"
 
 namespace GUESS::rendering::threed {
 

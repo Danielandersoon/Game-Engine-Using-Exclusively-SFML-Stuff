@@ -2,7 +2,7 @@
 #define PHYSICS_WORLD_H
 
 #include <vector>
-#include "Collider.h"
+#include "./Collider.h"
 
 namespace GUESS::physics {
     class PhysicsWorld {

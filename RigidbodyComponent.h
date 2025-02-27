@@ -1,9 +1,9 @@
 #ifndef RIGIDBODY_COMPONENT_H
 #define RIGIDBODY_COMPONENT_H
 
-#include "Component.h"
-#include "PhysicsEngine/RigidBody.h"
-#include "PhysicsEngine/Collider.h"
+#include "./Component.h"
+#include "./PhysicsEngine/RigidBody.h"
+#include "./PhysicsEngine/Collider.h"
 
 namespace GUESS::core {
     class RigidbodyComponent : public Component {

@@ -1,4 +1,4 @@
-#include "ParticleSystem.h"
+#include "./ParticleSystem.h"
 
 namespace GUESS::rendering {
     

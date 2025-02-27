@@ -1,7 +1,7 @@
 #ifndef PBRMATERIAL_H
 #define PBRMATERIAL_H
-#include "Material.h"
-#include "Shader.h"
+#include "./Material.h"
+#include "./Shader.h"
 namespace GUESS::rendering {
     class PBRMaterial : public Material {
     private:

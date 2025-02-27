@@ -1,4 +1,4 @@
-#include "PBRMaterial.h"
+#include "./PBRMaterial.h"
 #include "../Logger.h"
 
 namespace GUESS::rendering {

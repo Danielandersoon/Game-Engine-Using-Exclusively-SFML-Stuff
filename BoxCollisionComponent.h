@@ -1,9 +1,9 @@
 #ifndef BOX_COLLISION_COMPONENT_H
 #define BOX_COLLISION_COMPONENT_H
 
-#include "Component.h"
-#include "PhysicsEngine/BoxCollider.h"
-#include "PhysicsEngine/RigidBody.h"
+#include "./Component.h"
+#include "./PhysicsEngine/BoxCollider.h"
+#include "./PhysicsEngine/RigidBody.h"
 
 namespace GUESS::core {
     class BoxCollisionComponent : public Component {

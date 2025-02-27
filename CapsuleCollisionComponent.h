@@ -1,7 +1,8 @@
 #ifndef CAPSULE_COLLISION_COMPONENT_H 
 #define CAPSULE_COLLISION_COMPONENT_H
 
-#include "Component.h"
+#include "./Component.h"
+#include "./RigidbodyComponent.h"
 #include "../PhysicsEngine/CapsuleCollider.h"
 #include "../PhysicsEngine/RigidBody.h"
 
@@ -9,7 +10,7 @@ namespace GUESS::core {
     class CapsuleCollisionComponent : public Component {
     private:
         std::unique_ptr<GUESS::physics::CapsuleCollider> collider;
-        GUESS::physics::Rigidbody3D* rigidbody = nullptr;
+        GUESS::core::RigidbodyComponent* rigidbody = nullptr;
 
     public:
         void init() override {
@@ -17,7 +18,7 @@ namespace GUESS::core {
             collider = std::make_unique<GUESS::physics::CapsuleCollider>();
             
             // Try to get rigidbody if it exists
-            rigidbody = getOwner()->getComponent<GUESS::physics::Rigidbody3D>();
+            rigidbody = getOwner()->getComponent<GUESS::core::RigidbodyComponent>();
             if(rigidbody) {
                 rigidbody->setCollider(collider.get());
             }

@@ -1,4 +1,4 @@
-#include "LightBaker.h"
+#include "./LightBaker.h"
 #include <SFML/OpenGL.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include <cmath>

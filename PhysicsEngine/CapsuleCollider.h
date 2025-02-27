@@ -1,7 +1,7 @@
 #ifndef CAPSULE_COLLIDER_H
 #define CAPSULE_COLLIDER_H
 
-#include "Collider.h"
+#include "./Collider.h"
 
 namespace GUESS::physics {
     class CapsuleCollider : public Collider<GUESS::core::math::Vector3f> {

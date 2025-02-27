@@ -1,8 +1,8 @@
 #ifndef LIGHT_BAKER_H
 #define LIGHT_BAKER_H
-#include "Light.h"
-#include "Mesh.h"
-#include "Material.h"
+#include "./Light.h"
+#include "./Mesh.h"
+#include "./Material.h"
 
 namespace GUESS::rendering::threed
 {

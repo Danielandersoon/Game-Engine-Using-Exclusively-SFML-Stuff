@@ -1,4 +1,4 @@
-#include "Skybox.h"
+#include "./Skybox.h"
 #include <SFML/Graphics/RectangleShape.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 

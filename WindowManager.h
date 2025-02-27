@@ -1,7 +1,7 @@
 #ifndef WINDOW_MANAGER_H
 #define WINDOW_MANAGER_H
 #include <SFML/Graphics/RenderWindow.hpp>
-#include "Manager.h"
+#include "./Manager.h"
 namespace GUESS::core {
 
 	class WindowManager : Manager

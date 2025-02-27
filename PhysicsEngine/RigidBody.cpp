@@ -1,4 +1,4 @@
-#include "RigidBody.h"
+#include "./RigidBody.h"
 
 namespace GUESS::physics {
 }

@@ -4,8 +4,8 @@
 #include <memory>
 #include <type_traits>
 #include <string>
-#include "GMath.h"
-#include "Component.h"
+#include "./GMath.h"
+#include "./Component.h"
 namespace GUESS::core {
     struct Transform {
         GUESS::core::math::Vector3f position;
