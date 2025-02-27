@@ -21,7 +21,7 @@ namespace GUESS::core {
         // Serialize game objects
         std::vector<JsonValue> gameObjectsArray;
         for (const auto& gameObject : scene.GetGameObjects()) {
-            gameObjectsArray.push_back(serializeGameObject(gameObject.get()));
+            gameObjectsArray.push_back(serializeGameObject(gameObject.second.get()));
         }
         root.set("gameObjects", JsonValue(gameObjectsArray));
 

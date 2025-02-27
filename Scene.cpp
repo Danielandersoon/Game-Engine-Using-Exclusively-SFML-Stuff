@@ -13,8 +13,8 @@ namespace GUESS::core {
         if (!m_active) {
             m_active = true;
             // Initialize all GameObjects
-            for (auto& gameObject : GameObjects) {
-                gameObject -> update();
+            for (auto& [guid, gameObject] : GameObjects) {
+                gameObject->update();
             }
             return true;
         }
@@ -31,16 +31,16 @@ namespace GUESS::core {
     }
 
     void Scene::AddGameObject(std::unique_ptr<GameObject> gameObject) {
-        Logger::log(Logger::INFO, "Created new game object: " + gameObject.get()->getName());
-        GameObjects.push_back(std::move(gameObject));
+        Logger::log(Logger::INFO, "Created new game object: " + gameObject->getName());
+        int guid = gameObject->getGUID();
+        GameObjects[guid] = std::move(gameObject);
     }
 
     void Scene::RemoveGameObject(const std::string& objectName) {
         GameObjects.erase(
             std::remove_if(GameObjects.begin(), GameObjects.end(),
-                [&objectName](const std::unique_ptr<GameObject>& obj) {
-            Logger::log(Logger::INFO, "Removed game object: " + objectName);
-            return obj->getName() == objectName;
+                [&objectName](const auto& pair) {
+            return pair.second->getName() == objectName;
         }),
 
             GameObjects.end());
@@ -49,10 +49,16 @@ namespace GUESS::core {
     }
 
     GameObject* Scene::FindGameObject(const std::string& objectName) {
-        auto it = std::find_if(GameObjects.begin(), GameObjects.end(),
-            [&objectName](const std::unique_ptr<GameObject>& obj) {
+        auto it = std::find_if(GameObjects.begin(), GameObjects.end(),[&objectName](const std::unique_ptr<GameObject>& obj) 
+        {
             return obj->getName() == objectName;
         });
-        return it != GameObjects.end() ? it->get() : nullptr;
+        return it != GameObjects.end() ? it->second.get() : nullptr;
+    }
+
+    GameObject* Scene::FindGameObject(int guid)
+    {
+        auto it = GameObjects.find(guid);
+        return it != GameObjects.end() ? it->second.get() : nullptr;
     }
 }

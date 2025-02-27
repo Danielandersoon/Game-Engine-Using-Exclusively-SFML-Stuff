@@ -1,36 +1,160 @@
-﻿  Source.cpp
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(117,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  (compiling source file 'Source.cpp')
+﻿  TileMap.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/TileMap.cpp')
   
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(122,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  (compiling source file 'Source.cpp')
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/TileMap.cpp')
   
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(123,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  (compiling source file 'Source.cpp')
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/TileMap.cpp')
   
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(623,19): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-  (compiling source file 'Source.cpp')
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'RenderingEngine/TileMap.cpp')
   
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(624,19): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-  (compiling source file 'Source.cpp')
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(15,102): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(15,102): warning C4244:         with
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(15,102): warning C4244:         [
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(15,102): warning C4244:             T=double
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(15,102): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(15,102): warning C4244:         and
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(15,102): warning C4244:         [
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(15,102): warning C4244:             T=unsigned int
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(15,102): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(16,103): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(16,103): warning C4244:         with
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(16,103): warning C4244:         [
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(16,103): warning C4244:             T=double
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(16,103): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(16,103): warning C4244:         and
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(16,103): warning C4244:         [
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(16,103): warning C4244:             T=unsigned int
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(16,103): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(19,107): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(19,107): warning C4244:         with
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(19,107): warning C4244:         [
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(19,107): warning C4244:             T=double
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(19,107): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(19,107): warning C4244:         and
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(19,107): warning C4244:         [
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(19,107): warning C4244:             T=unsigned int
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(19,107): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(20,108): warning C4244: '=': conversion from 'T' to 'T', possible loss of data
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(20,108): warning C4244:         with
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(20,108): warning C4244:         [
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(20,108): warning C4244:             T=double
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(20,108): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(20,108): warning C4244:         and
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(20,108): warning C4244:         [
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(20,108): warning C4244:             T=unsigned int
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(20,108): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(40,87): warning C4244: 'argument': conversion from 'size_t' to 'T', possible loss of data
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(40,87): warning C4244:         with
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(40,87): warning C4244:         [
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(40,87): warning C4244:             T=float
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(40,87): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(40,71): warning C4244: 'argument': conversion from 'size_t' to 'T', possible loss of data
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(40,71): warning C4244:         with
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(40,71): warning C4244:         [
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(40,71): warning C4244:             T=float
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(40,71): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(54,86): error C2102: '&' requires l-value
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(54,37): error C2440: '=': cannot convert from 'sf::Shader **' to 'const sf::Shader *'
+      C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(54,37):
+      Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or parenthesized function-style cast
   
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(625,19): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-  (compiling source file 'Source.cpp')
+  Scene.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Scene.cpp')
   
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(665,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'Source.cpp')
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Scene.cpp')
   
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(666,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'Source.cpp')
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Scene.cpp')
   
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(667,15): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  (compiling source file 'Source.cpp')
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'Scene.cpp')
   
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(835,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  (compiling source file 'Source.cpp')
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xmemory(2218,17): error C2679: binary '=': no operator found which takes a right-hand operand of type 'std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>' (or there is no acceptable conversion)
+  (compiling source file 'Scene.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\utility(314,11):
+      could be 'std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>> &std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>::operator =(volatile const std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>> &)'
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xmemory(2218,17):
+          'std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>> &std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>::operator =(volatile const std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>> &)': cannot convert argument 2 from 'std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>' to 'volatile const std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>> &'
+              C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xmemory(2218,36):
+              A non-const reference may only be bound to an lvalue
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\utility(396,24):
+      or       'std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>> &std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>::operator =(std::pair<_Other1,_Other2> &&) noexcept(<expr>)'
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xmemory(2218,17):
+          'std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>> &std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>::operator =(std::pair<_Other1,_Other2> &&) noexcept(<expr>)': could not deduce template argument for '__formal'
+              C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\utility(393,9):
+              'std::enable_if_t<false,int>' : Failed to specialize alias template
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\utility(370,24):
+      or       'std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>> &std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>::operator =(const std::pair<_Other1,_Other2> &) noexcept(<expr>)'
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xmemory(2218,17):
+          'std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>> &std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>::operator =(const std::pair<_Other1,_Other2> &) noexcept(<expr>)': could not deduce template argument for '__formal'
+              C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\utility(367,9):
+              'std::enable_if_t<false,int>' : Failed to specialize alias template
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\utility(345,24):
+      or       'std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>> &std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>::operator =(_Identity<_Myself&&>::type) noexcept(<expr>)'
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xmemory(2218,17):
+          'std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>> &std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>::operator =(_Identity<_Myself&&>::type) noexcept(<expr>)': could not deduce template argument for '__formal'
+              C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\utility(342,9):
+              'std::enable_if_t<false,int>' : Failed to specialize alias template
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\utility(320,24):
+      or       'std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>> &std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>::operator =(_Identity<const _Myself&>::type) noexcept(<expr>)'
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xmemory(2218,17):
+          'std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>> &std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>::operator =(_Identity<const _Myself&>::type) noexcept(<expr>)': could not deduce template argument for '__formal'
+              C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\utility(317,9):
+              'std::enable_if_t<false,int>' : Failed to specialize alias template
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xmemory(2218,17):
+      while trying to match the argument list '(std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>, std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>)'
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xmemory(2218,17):
+      the template instantiation context (the oldest one first) is
+          C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\Scene.cpp(41,18):
+          see reference to function template instantiation '_FwdIt std::remove_if<std::_List_iterator<std::_List_val<std::_List_simple_types<_Ty>>>,GUESS::core::Scene::RemoveGameObject::<lambda_1>>(_FwdIt,const _FwdIt,_Pr)' being compiled
+          with
+          [
+              _FwdIt=std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>>>>,
+              _Ty=std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>,
+              _Pr=GUESS::core::Scene::RemoveGameObject::<lambda_1>
+          ]
   
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\TimingSystem.h(15,28): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
-  (compiling source file 'Source.cpp')
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(6472,13): error C2664: 'bool GUESS::core::Scene::FindGameObject::<lambda_1>::operator ()(const std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>> &) const': cannot convert argument 1 from 'std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>' to 'const std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>> &'
+  (compiling source file 'Scene.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(6472,19):
+      Reason: cannot convert from 'std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>' to 'const std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>'
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(6472,19):
+      No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
+      C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\Scene.cpp(53,9):
+      see declaration of 'GUESS::core::Scene::FindGameObject::<lambda_1>::operator ()'
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(6472,13):
+      while trying to match the argument list '(std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>)'
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(6472,13):
+      the template instantiation context (the oldest one first) is
+          C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\Scene.cpp(52,24):
+          see reference to function template instantiation '_InIt std::find_if<std::_List_iterator<std::_List_val<std::_List_simple_types<_Ty>>>,GUESS::core::Scene::FindGameObject::<lambda_1>>(_InIt,const _InIt,_Pr)' being compiled
+          with
+          [
+              _InIt=std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>>>>,
+              _Ty=std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>,
+              _Pr=GUESS::core::Scene::FindGameObject::<lambda_1>
+          ]
   
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\InstanceManager.h(36,1): warning C4715: 'GUESS::core::InstanceManager::getInstanceByID': not all control paths return a value
-  Game-engine Using Excluseivelly SFML Stuff.vcxproj -> C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\x64\Debug\Game-engine Using Excluseivelly SFML Stuff.exe
+  SceneSerializer.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'SceneSerializer.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'SceneSerializer.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'SceneSerializer.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'SceneSerializer.cpp')
+  
+  WindowManager.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\WindowManager.cpp(79,20): warning C4101: 'e': unreferenced local variable
+  Generating Code...
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\WindowManager.cpp(84,1): warning C4715: 'GUESS::core::WindowManager::DestroyWindow': not all control paths return a value

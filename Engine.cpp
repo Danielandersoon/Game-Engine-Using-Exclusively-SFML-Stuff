@@ -62,7 +62,7 @@ namespace GUESS::core {
         const auto& camera = currentScene.getMainCamera();
 
         // Process physics components
-        for (const auto& gameObject : currentScene.GetGameObjects()) {
+        for (const auto& [guid, gameObject] : currentScene.GetGameObjects()) {
             // Handle 3D physics
             if (auto* rb3d = gameObject->getComponent<GUESS::core::RigidbodyComponent>()) {
                 if (auto* collider = rb3d->getRigidbody()->getCollider()) {

@@ -1,6 +1,6 @@
 #ifndef GMATH_H
 #define GMATH_H
-#if _WIN32_
+#if _WIN32
 #include <intrin.h>
 #endif
 #include <chrono>

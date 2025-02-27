@@ -25,22 +25,26 @@ namespace GUESS::core {
         void setScale(const GUESS::core::math::Vector3f& scale) { this->scale = scale; };
     };
 
+    static int nextGUID = 0;
+
 	class GameObject
 	{
     private:
 
         std::string objectName = "GameObject";
         std::vector<std::unique_ptr<Component>> componentList;
-        GameObject* parentObject = 0;		   // starts as null assuming there is no parent. this can be set on creation
-        std::vector<std::unique_ptr<GameObject>> childObjects; /* this only stores the pointer to the direct child.
-                                                                  any grand-children are stored in this attribute in the direct child */
+        int guid;
+        int parentGuid = -1;
+        std::vector<int> childGuids;
         Transform m_transform;
 
         bool active = true;
 
     public:
         GameObject() = default;
-        explicit GameObject(const std::string& name);
+        GameObject(const std::string& name) : objectName(name) {
+            guid = ++nextGUID;
+        }
         ~GameObject() = default;
 
         // Component management
@@ -64,9 +68,15 @@ namespace GUESS::core {
         }
 
         // Hierarchy management
-        void addChild(std::unique_ptr<GameObject> child);
-        void removeChild(GameObject* child);
-        GameObject* getParent() const { return parentObject; }
+        void addChild(GameObject* gameObject) { childGuids.push_back(gameObject->getGUID()); };
+        void removeChild(int childGUID);
+        void addChild(int childGuid) { childGuids.push_back(childGuid); }
+        void setParent(GameObject* gameobject) { this->parentGuid = gameobject->getGUID(); }
+        void setParent(int parentGuid) { this->parentGuid = parentGuid; }
+        int getParentGuid() const { return parentGuid; }
+        const std::vector<int>& getChildGuids() const { return childGuids; }
+        int getGUID() const { return guid; }
+        void setGUID(int newGuid) { guid = newGuid; }
 
         // Object state
         void setActive(bool state) { active = state; }

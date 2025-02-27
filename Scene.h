@@ -10,7 +10,7 @@ namespace GUESS::core {
     class Scene {
 
     protected:
-        std::vector<std::unique_ptr<GameObject>> GameObjects;
+        std::unordered_map<int, std::unique_ptr<GameObject>> GameObjects;
         unsigned int ID;
         std::string m_sceneName;
         bool m_active;
@@ -36,8 +36,9 @@ namespace GUESS::core {
         void AddGameObject(std::unique_ptr<GameObject> gameObject);
         void RemoveGameObject(const std::string& objectName);
         GameObject* FindGameObject(const std::string& objectName);
+        GameObject* FindGameObject(int guid);
 
-        const std::vector<std::unique_ptr<GameObject>>& GetGameObjects() const { return GameObjects; }
+        const std::unordered_map<int, std::unique_ptr<GameObject>>& GetGameObjects() const { return GameObjects; };
         void setInputSystem(InputSystem* input) { m_inputSystem = input; }
 
         void update() {};

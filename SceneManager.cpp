@@ -73,8 +73,8 @@ namespace GUESS::core {
         if (m_initialized && m_running && m_activeScene) {
             // Update active scene's game objects
             for (auto& gameObject : m_activeScene->GetGameObjects()) {
-                if (gameObject -> isActive()) {
-                    gameObject -> update();
+                if (gameObject.second ->isActive()) {
+                    gameObject.second -> update();
                 }
             }
             return true;
