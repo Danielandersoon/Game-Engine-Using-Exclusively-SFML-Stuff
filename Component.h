@@ -29,4 +29,4 @@ namespace GUESS::core {
     };
 }
 
-#endif COMPONENT_H
+#endif

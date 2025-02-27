@@ -33,9 +33,10 @@ namespace GUESS::core {
                 if (inst.get()->getInstanceID() == i)
                     return m_instances[i].get();
             }
+            return nullptr;
         }
 
     };
 }
 
-#endif // !INSTANCE_MANAGER_H
+#endif// !INSTANCE_MANAGER_H

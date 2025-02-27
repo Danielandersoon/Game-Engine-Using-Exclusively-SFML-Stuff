@@ -16,4 +16,4 @@ namespace GUESS::core {
 	};
 }
 
-#endif TIMING_SYSTEM_H
+#endif

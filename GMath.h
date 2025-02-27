@@ -1,6 +1,8 @@
 #ifndef GMATH_H
 #define GMATH_H
+#if _WIN32_
 #include <intrin.h>
+#endif
 #include <chrono>
 #include <thread>
 
@@ -149,6 +151,9 @@ namespace GUESS::core::math {
         if (hyp == 0.0f) return 0.0f;
         return arccos(x / hyp);
     }
+
+
+    int floor(float x) { return (int)x; }
 
     template<typename T>
     struct Vector2 {
@@ -868,4 +873,4 @@ namespace GUESS::core::math {
 
 }
 
-#endif GMATH_H
+#endif

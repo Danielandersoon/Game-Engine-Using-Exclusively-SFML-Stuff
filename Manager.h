@@ -23,4 +23,4 @@ namespace GUESS::core {
         bool m_running = false;
     };
 }
-#endif // !MANAGER_H
+#endif// !MANAGER_H

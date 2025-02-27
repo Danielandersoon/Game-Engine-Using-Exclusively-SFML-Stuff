@@ -2,6 +2,7 @@
 #define PHYSICS_MATERIAL_H
 
 #include <string>
+#include "../GMath.h"
 
 namespace GUESS::physics {
     class PhysicsMaterial {
@@ -31,7 +32,7 @@ namespace GUESS::physics {
     
         // Combine friction values between two materials
         static float combineFriction(const PhysicsMaterial& a, const PhysicsMaterial& b) {
-            return std::sqrt(a.getDynamicFriction() * b.getDynamicFriction());
+            return GUESS::core::math::sqrt(a.getDynamicFriction() * b.getDynamicFriction());
         }
 
         // Combine restitution values between two materials
