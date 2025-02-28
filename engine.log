@@ -70,3 +70,17 @@
 [INFO] Registered physics material: Bouncy
 [INFO] Registered physics material: Sticky
 [INFO] Game initialized
+[INFO] Initializing game
+[INFO] Instance manager initialized
+[INFO] Initializing engine instance
+[INFO] windowManager Initialized sucessfuly
+[INFO] New Window initWin created
+[INFO] New Scene DefaultScene created.
+[INFO] Scene DefaultScene loaded.
+[INFO] Registered physics material: Ice
+[INFO] Registered physics material: Metal
+[INFO] Registered physics material: Rubber
+[INFO] Registered physics material: Wood
+[INFO] Registered physics material: Bouncy
+[INFO] Registered physics material: Sticky
+[INFO] Game initialized

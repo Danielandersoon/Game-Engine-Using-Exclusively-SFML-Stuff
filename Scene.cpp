@@ -37,21 +37,21 @@ namespace GUESS::core {
     }
 
     void Scene::RemoveGameObject(const std::string& objectName) {
-        GameObjects.erase(
-            std::remove_if(GameObjects.begin(), GameObjects.end(),
-                [&objectName](const auto& pair) {
-            return pair.second->getName() == objectName;
-        }),
-
-            GameObjects.end());
-        Logger::log(Logger::WARNING, "could not remove: " + objectName);
-
+        for (auto it = GameObjects.begin(); it != GameObjects.end(); ++it) {
+            if (it->second->getName() == objectName) {
+                GameObjects.erase(it);
+                Logger::log(Logger::INFO, "Removed game object: " + objectName);
+                return;
+            }
+        }
+        Logger::log(Logger::WARNING, "Could not find object to remove: " + objectName);
     }
 
+    
     GameObject* Scene::FindGameObject(const std::string& objectName) {
-        auto it = std::find_if(GameObjects.begin(), GameObjects.end(),[&objectName](const std::unique_ptr<GameObject>& obj) 
-        {
-            return obj->getName() == objectName;
+        auto it = std::find_if(GameObjects.begin(), GameObjects.end(),
+            [&objectName](const auto& pair) {
+            return pair.second->getName() == objectName;
         });
         return it != GameObjects.end() ? it->second.get() : nullptr;
     }

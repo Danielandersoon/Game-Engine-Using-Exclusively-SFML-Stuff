@@ -11,9 +11,17 @@ namespace GUESS::rendering::twod {
     private:
         struct Tile {
             Sprite sprite;
-            GUESS::rendering::Material material;
+            std::shared_ptr<GUESS::rendering::Material> material; 
             bool isVisible;
             int tileId;
+
+            Tile() = default;
+            Tile(const Tile& other) :
+                sprite(other.sprite),
+                material(other.material),
+                isVisible(other.isVisible),
+                tileId(other.tileId) {}
+
         };
 
         std::vector<std::vector<Tile>> tiles;

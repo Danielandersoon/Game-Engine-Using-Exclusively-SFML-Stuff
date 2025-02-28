@@ -153,7 +153,7 @@ namespace GUESS::core::math {
     }
 
 
-    int floor(float x) { return (int)x; }
+    inline int floor(float x) { return (int)x; }
 
     template<typename T>
     struct Vector2 {

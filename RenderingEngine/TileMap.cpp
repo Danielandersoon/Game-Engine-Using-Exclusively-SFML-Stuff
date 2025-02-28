@@ -49,9 +49,9 @@ namespace GUESS::rendering::twod {
         for (size_t y = 0; y < mapSize.y; y++) {
             for (size_t x = 0; x < mapSize.x; x++) {
                 if (tiles[y][x].isVisible) {
-                    tiles[y][x].material.bind();
+                    tiles[y][x].material->bind();
                     sf::RenderStates states;
-                    states.shader = &tiles[y][x].material.getShader().getNativeShader();
+                    states.shader = tiles[y][x].material->getShader().getNativeShader();
 
                     // Create a sprite from the tile's existing sprite
                     sf::Sprite renderSprite;

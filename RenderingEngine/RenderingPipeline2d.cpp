@@ -18,7 +18,7 @@ namespace GUESS::rendering::twod {
                 if (tile.isVisible) {
                     RenderCommand cmd;
                     cmd.geometry.sprite = &tile.sprite;
-                    cmd.material = &tile.material;
+                    cmd.material = tile.material.get();
                     cmd.is2D = true;
                     renderQueue.submit(cmd, 0);
                 }

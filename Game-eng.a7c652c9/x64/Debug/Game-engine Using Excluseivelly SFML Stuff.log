@@ -1,4 +1,393 @@
-﻿  TileMap.cpp
+﻿  Engine.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Engine.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Engine.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Engine.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'Engine.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\TimingSystem.h(15,28): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'Engine.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\Engine.cpp(32,29): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  GameObject.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'GameObject.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'GameObject.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'GameObject.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'GameObject.cpp')
+  
+  InstanceManager.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'InstanceManager.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'InstanceManager.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'InstanceManager.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'InstanceManager.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\TimingSystem.h(15,28): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'InstanceManager.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\InstanceManager.cpp(58,20): warning C4101: 'e': unreferenced local variable
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\InstanceManager.cpp(77,20): warning C4101: 'e': unreferenced local variable
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\InstanceManager.cpp(93,20): warning C4101: 'e': unreferenced local variable
+  BoxCollider.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'PhysicsEngine/BoxCollider.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'PhysicsEngine/BoxCollider.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'PhysicsEngine/BoxCollider.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'PhysicsEngine/BoxCollider.cpp')
+  
+  CapsuleCollider.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'PhysicsEngine/CapsuleCollider.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'PhysicsEngine/CapsuleCollider.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'PhysicsEngine/CapsuleCollider.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'PhysicsEngine/CapsuleCollider.cpp')
+  
+  PhysicsManager.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'PhysicsEngine/PhysicsManager.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'PhysicsEngine/PhysicsManager.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'PhysicsEngine/PhysicsManager.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'PhysicsEngine/PhysicsManager.cpp')
+  
+  PhysicsWorld.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'PhysicsEngine/PhysicsWorld.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'PhysicsEngine/PhysicsWorld.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'PhysicsEngine/PhysicsWorld.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'PhysicsEngine/PhysicsWorld.cpp')
+  
+  RigidBody.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'PhysicsEngine/RigidBody.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'PhysicsEngine/RigidBody.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'PhysicsEngine/RigidBody.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'PhysicsEngine/RigidBody.cpp')
+  
+  Rigidbody2D.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'PhysicsEngine/Rigidbody2D.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'PhysicsEngine/Rigidbody2D.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'PhysicsEngine/Rigidbody2D.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'PhysicsEngine/Rigidbody2D.cpp')
+  
+  Camera.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/Camera.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/Camera.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/Camera.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'RenderingEngine/Camera.cpp')
+  
+  Gbuffer.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/Gbuffer.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/Gbuffer.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/Gbuffer.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'RenderingEngine/Gbuffer.cpp')
+  
+  Light.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/Light.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/Light.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/Light.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'RenderingEngine/Light.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\Light.h(10,33): warning C4091: 'static ': ignored on left of 'const GUESS::rendering::threed::Light::LightType' when no variable is declared
+  (compiling source file 'RenderingEngine/Light.cpp')
+  
+  LightBaker.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/LightBaker.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/LightBaker.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/LightBaker.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'RenderingEngine/LightBaker.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\Light.h(10,33): warning C4091: 'static ': ignored on left of 'const GUESS::rendering::threed::Light::LightType' when no variable is declared
+  (compiling source file 'RenderingEngine/LightBaker.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\LightBaker.cpp(17,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\LightBaker.cpp(18,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\LightBaker.cpp(41,27): warning C4018: '<': signed/unsigned mismatch
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\LightBaker.cpp(42,31): warning C4018: '<': signed/unsigned mismatch
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\LightBaker.cpp(48,44): warning C4244: 'argument': conversion from 'T' to 'sf::Uint8', possible loss of data
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\LightBaker.cpp(48,44): warning C4244:         with
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\LightBaker.cpp(48,44): warning C4244:         [
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\LightBaker.cpp(48,44): warning C4244:             T=float
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\LightBaker.cpp(48,44): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\LightBaker.cpp(47,44): warning C4244: 'argument': conversion from 'T' to 'sf::Uint8', possible loss of data
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\LightBaker.cpp(47,44): warning C4244:         with
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\LightBaker.cpp(47,44): warning C4244:         [
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\LightBaker.cpp(47,44): warning C4244:             T=float
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\LightBaker.cpp(47,44): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\LightBaker.cpp(46,44): warning C4244: 'argument': conversion from 'T' to 'sf::Uint8', possible loss of data
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\LightBaker.cpp(46,44): warning C4244:         with
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\LightBaker.cpp(46,44): warning C4244:         [
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\LightBaker.cpp(46,44): warning C4244:             T=float
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\LightBaker.cpp(46,44): warning C4244:         ]
+  LightManager.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/LightManager.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/LightManager.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/LightManager.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'RenderingEngine/LightManager.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\Light.h(10,33): warning C4091: 'static ': ignored on left of 'const GUESS::rendering::threed::Light::LightType' when no variable is declared
+  (compiling source file 'RenderingEngine/LightManager.cpp')
+  
+  Material.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/Material.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/Material.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/Material.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'RenderingEngine/Material.cpp')
+  
+  Mesh.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/Mesh.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/Mesh.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/Mesh.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'RenderingEngine/Mesh.cpp')
+  
+  PBRMaterial.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/PBRMaterial.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/PBRMaterial.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/PBRMaterial.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'RenderingEngine/PBRMaterial.cpp')
+  
+  ParticleSystem.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/ParticleSystem.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/ParticleSystem.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/ParticleSystem.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'RenderingEngine/ParticleSystem.cpp')
+  
+  RenderManager.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/RenderManager.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/RenderManager.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/RenderManager.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'RenderingEngine/RenderManager.cpp')
+  
+  RenderQueue.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/RenderQueue.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/RenderQueue.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/RenderQueue.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'RenderingEngine/RenderQueue.cpp')
+  
+  Generating Code...
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\InstanceManager.cpp(81,1): warning C4715: 'GUESS::core::InstanceManager::destroyInstance': not all control paths return a value
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\InstanceManager.cpp(96,1): warning C4715: 'GUESS::core::InstanceManager::pauseInstance': not all control paths return a value
+  Compiling...
+  RenderingPipeline.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/RenderingPipeline.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/RenderingPipeline.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/RenderingPipeline.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'RenderingEngine/RenderingPipeline.cpp')
+  
+  RenderingPipeline2d.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/RenderingPipeline2d.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/RenderingPipeline2d.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/RenderingPipeline2d.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'RenderingEngine/RenderingPipeline2d.cpp')
+  
+  Shader.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/Shader.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/Shader.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/Shader.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'RenderingEngine/Shader.cpp')
+  
+  ShadowMapper.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/ShadowMapper.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/ShadowMapper.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/ShadowMapper.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'RenderingEngine/ShadowMapper.cpp')
+  
+  Skybox.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/Skybox.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/Skybox.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/Skybox.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'RenderingEngine/Skybox.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\Skybox.cpp(43,72): warning C4244: 'argument': conversion from 'T' to 'T', possible loss of data
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\Skybox.cpp(43,72): warning C4244:         with
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\Skybox.cpp(43,72): warning C4244:         [
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\Skybox.cpp(43,72): warning C4244:             T=unsigned int
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\Skybox.cpp(43,72): warning C4244:         ]
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\Skybox.cpp(43,72): warning C4244:         and
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\Skybox.cpp(43,72): warning C4244:         [
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\Skybox.cpp(43,72): warning C4244:             T=float
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\Skybox.cpp(43,72): warning C4244:         ]
+  SpriteRenderer.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/SpriteRenderer.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/SpriteRenderer.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'RenderingEngine/SpriteRenderer.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'RenderingEngine/SpriteRenderer.cpp')
+  
+  TileMap.cpp
 C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'RenderingEngine/TileMap.cpp')
   
@@ -57,10 +446,18 @@ C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\Renderi
 C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(40,71): warning C4244:         [
 C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(40,71): warning C4244:             T=float
 C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(40,71): warning C4244:         ]
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(54,86): error C2102: '&' requires l-value
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(54,37): error C2440: '=': cannot convert from 'sf::Shader **' to 'const sf::Shader *'
-      C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\RenderingEngine\TileMap.cpp(54,37):
-      Types pointed to are unrelated; conversion requires reinterpret_cast, C-style cast or parenthesized function-style cast
+  ResourceManager.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'ResourceManager.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'ResourceManager.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'ResourceManager.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'ResourceManager.cpp')
   
   Scene.cpp
 C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
@@ -75,72 +472,20 @@ C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h
 C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   (compiling source file 'Scene.cpp')
   
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xmemory(2218,17): error C2679: binary '=': no operator found which takes a right-hand operand of type 'std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>' (or there is no acceptable conversion)
-  (compiling source file 'Scene.cpp')
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\utility(314,11):
-      could be 'std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>> &std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>::operator =(volatile const std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>> &)'
-          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xmemory(2218,17):
-          'std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>> &std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>::operator =(volatile const std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>> &)': cannot convert argument 2 from 'std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>' to 'volatile const std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>> &'
-              C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xmemory(2218,36):
-              A non-const reference may only be bound to an lvalue
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\utility(396,24):
-      or       'std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>> &std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>::operator =(std::pair<_Other1,_Other2> &&) noexcept(<expr>)'
-          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xmemory(2218,17):
-          'std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>> &std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>::operator =(std::pair<_Other1,_Other2> &&) noexcept(<expr>)': could not deduce template argument for '__formal'
-              C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\utility(393,9):
-              'std::enable_if_t<false,int>' : Failed to specialize alias template
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\utility(370,24):
-      or       'std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>> &std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>::operator =(const std::pair<_Other1,_Other2> &) noexcept(<expr>)'
-          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xmemory(2218,17):
-          'std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>> &std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>::operator =(const std::pair<_Other1,_Other2> &) noexcept(<expr>)': could not deduce template argument for '__formal'
-              C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\utility(367,9):
-              'std::enable_if_t<false,int>' : Failed to specialize alias template
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\utility(345,24):
-      or       'std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>> &std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>::operator =(_Identity<_Myself&&>::type) noexcept(<expr>)'
-          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xmemory(2218,17):
-          'std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>> &std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>::operator =(_Identity<_Myself&&>::type) noexcept(<expr>)': could not deduce template argument for '__formal'
-              C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\utility(342,9):
-              'std::enable_if_t<false,int>' : Failed to specialize alias template
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\utility(320,24):
-      or       'std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>> &std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>::operator =(_Identity<const _Myself&>::type) noexcept(<expr>)'
-          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xmemory(2218,17):
-          'std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>> &std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>::operator =(_Identity<const _Myself&>::type) noexcept(<expr>)': could not deduce template argument for '__formal'
-              C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\utility(317,9):
-              'std::enable_if_t<false,int>' : Failed to specialize alias template
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xmemory(2218,17):
-      while trying to match the argument list '(std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>, std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>)'
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xmemory(2218,17):
-      the template instantiation context (the oldest one first) is
-          C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\Scene.cpp(41,18):
-          see reference to function template instantiation '_FwdIt std::remove_if<std::_List_iterator<std::_List_val<std::_List_simple_types<_Ty>>>,GUESS::core::Scene::RemoveGameObject::<lambda_1>>(_FwdIt,const _FwdIt,_Pr)' being compiled
-          with
-          [
-              _FwdIt=std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>>>>,
-              _Ty=std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>,
-              _Pr=GUESS::core::Scene::RemoveGameObject::<lambda_1>
-          ]
+  SceneManager.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'SceneManager.cpp')
   
-C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(6472,13): error C2664: 'bool GUESS::core::Scene::FindGameObject::<lambda_1>::operator ()(const std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>> &) const': cannot convert argument 1 from 'std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>' to 'const std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>> &'
-  (compiling source file 'Scene.cpp')
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(6472,19):
-      Reason: cannot convert from 'std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>' to 'const std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>'
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(6472,19):
-      No user-defined-conversion operator available that can perform this conversion, or the operator cannot be called
-      C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\Scene.cpp(53,9):
-      see declaration of 'GUESS::core::Scene::FindGameObject::<lambda_1>::operator ()'
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(6472,13):
-      while trying to match the argument list '(std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>)'
-      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\xutility(6472,13):
-      the template instantiation context (the oldest one first) is
-          C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\Scene.cpp(52,24):
-          see reference to function template instantiation '_InIt std::find_if<std::_List_iterator<std::_List_val<std::_List_simple_types<_Ty>>>,GUESS::core::Scene::FindGameObject::<lambda_1>>(_InIt,const _InIt,_Pr)' being compiled
-          with
-          [
-              _InIt=std::_List_iterator<std::_List_val<std::_List_simple_types<std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>>>>,
-              _Ty=std::pair<const int,std::unique_ptr<GUESS::core::GameObject,std::default_delete<GUESS::core::GameObject>>>,
-              _Pr=GUESS::core::Scene::FindGameObject::<lambda_1>
-          ]
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'SceneManager.cpp')
   
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'SceneManager.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'SceneManager.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\SceneManager.cpp(24,20): warning C4101: 'e': unreferenced local variable
   SceneSerializer.cpp
 C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'SceneSerializer.cpp')
@@ -154,7 +499,21 @@ C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h
 C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   (compiling source file 'SceneSerializer.cpp')
   
-  WindowManager.cpp
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\WindowManager.cpp(79,20): warning C4101: 'e': unreferenced local variable
+  Source.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Source.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Source.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Source.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'Source.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\TimingSystem.h(15,28): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'Source.cpp')
+  
   Generating Code...
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\WindowManager.cpp(84,1): warning C4715: 'GUESS::core::WindowManager::DestroyWindow': not all control paths return a value
+  Game-engine Using Excluseivelly SFML Stuff.vcxproj -> C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\x64\Debug\Game-engine Using Excluseivelly SFML Stuff.exe
