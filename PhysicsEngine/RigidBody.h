@@ -21,14 +21,15 @@ namespace GUESS::physics {
         T forceAccum = T();
     public:
         RigidBody() = default;
-        explicit RigidBody(float mass, float friction = 0.2f, float restitution = 0.8f, Collider<T>* collider_ptr_in = nullptr);
+        explicit RigidBody(float mass, float friction = 0.2f, float restitution = 0.8f, Collider<T>* collider_ptr_in = nullptr) 
+            : RigidBody<T>(mass, friction, restitution, collider_ptr_in) {};
         void applyForce(const T& force) { acceleration = acceleration + force; };
         T getPosition() const { return position; };
         T  getVelocity() const { return velocity; };
         T getAcceleration() const { return acceleration; };
-        void setPosition(float position) const { this->position = position; };
-        void setVelocity(float velocity) const { this->velocity = velocity; };
-        void setAcceleration(float acceleration) const { this->acceleration = acceleration; };
+        void setPosition(float position) { this->position = position; };
+        void setVelocity(T velocity) { this->velocity = velocity; };
+        void setAcceleration(float acceleration) { this->acceleration = acceleration; };
         float getMass() const { return mass; };
         float getFriction() const { return friction; };
         float getRestitution() const { return restitution; };

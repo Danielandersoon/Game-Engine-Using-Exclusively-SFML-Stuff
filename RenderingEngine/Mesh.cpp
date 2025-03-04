@@ -9,72 +9,111 @@ namespace GUESS::rendering::threed {
     }
 
     bool Mesh::loadFromOBJ(const std::string& filepath) {
-        std::ifstream file(filepath);
-        if (!file.is_open()) {
-            GUESS::core::Logger::log(GUESS::core::Logger::ERROR, "Failed to open OBJ file: " + filepath);
-            return false;
-        }
+        cleanup();
 
-        std::vector<GUESS::core::math::Vector3f> tempVertices;
-        std::vector<GUESS::core::math::Vector2f> tempUVs;
-        std::vector<GUESS::core::math::Vector3f> tempNormals;
-
-        std::string line;
-        while (std::getline(file, line)) {
-            std::istringstream iss(line);
-            std::string type;
-            iss >> type;
-
-            if (type == "v") {
-                float x, y, z;
-                iss >> x >> y >> z;
-                tempVertices.push_back(GUESS::core::math::Vector3f(x, y, z));
+        try {
+            std::ifstream file(filepath);
+            if (!file.is_open()) {
+                GUESS::core::Logger::log(GUESS::core::Logger::ERROR, "Failed to open OBJ file: " + filepath);
+                return false;
             }
-            else if (type == "vt") {
-                float u, v;
-                iss >> u >> v;
-                tempUVs.push_back(GUESS::core::math::Vector2f(u, v));
-            }
-            else if (type == "vn") {
-                float x, y, z;
-                iss >> x >> y >> z;
-                tempNormals.push_back(GUESS::core::math::Vector3f(x, y, z));
-            }
-            else if (type == "f") {
-                for (int i = 0; i < 3; i++) {
-                    std::string vertexData;
-                    iss >> vertexData;
 
-                    std::replace(vertexData.begin(), vertexData.end(), '/', ' ');
-                    std::istringstream vertexStream(vertexData);
+            std::vector<GUESS::core::math::Vector3f> tempVertices;
+            std::vector<GUESS::core::math::Vector2f> tempUVs;
+            std::vector<GUESS::core::math::Vector3f> tempNormals;
 
-                    unsigned int vertexIndex, uvIndex, normalIndex;
-                    vertexStream >> vertexIndex >> uvIndex >> normalIndex;
+            std::string line;
+            while (std::getline(file, line)) {
+                std::istringstream iss(line);
+                std::string type;
+                iss >> type;
 
-                    indices.push_back(vertexIndex - 1);
+                if (type == "v") {
+                    float x, y, z;
+                    iss >> x >> y >> z;
+                    tempVertices.push_back(GUESS::core::math::Vector3f(x, y, z));
+                }
+                else if (type == "vt") {
+                    float u, v;
+                    iss >> u >> v;
+                    tempUVs.push_back(GUESS::core::math::Vector2f(u, v));
+                }
+                else if (type == "vn") {
+                    float x, y, z;
+                    iss >> x >> y >> z;
+                    tempNormals.push_back(GUESS::core::math::Vector3f(x, y, z));
+                }
+                else if (type == "f") {
+                    for (int i = 0; i < 3; i++) {
+                        std::string vertexData;
+                        iss >> vertexData;
 
-                    Vertex3d vertex;
-                    if (vertexIndex <= tempVertices.size()) {
-                        vertex.position = tempVertices[vertexIndex - 1];
+                        std::replace(vertexData.begin(), vertexData.end(), '/', ' ');
+                        std::istringstream vertexStream(vertexData);
+
+                        unsigned int vertexIndex, uvIndex, normalIndex;
+                        vertexStream >> vertexIndex >> uvIndex >> normalIndex;
+
+                        indices.push_back(vertexIndex - 1);
+
+                        Vertex3d vertex;
+                        if (vertexIndex <= tempVertices.size()) {
+                            vertex.position = tempVertices[vertexIndex - 1];
+                        }
+                        if (uvIndex <= tempUVs.size()) {
+                            vertex.texCoords = GUESS::core::math::Vector2f(tempUVs[uvIndex - 1].x, tempUVs[uvIndex - 1].y);
+                        }
+                        if (normalIndex <= tempNormals.size()) {
+                            vertex.normal = tempNormals[normalIndex - 1];
+                            vertex.color = sf::Color(
+                                static_cast<sf::Uint8>((vertex.normal.x + 1.0f) * 127.5f),
+                                static_cast<sf::Uint8>((vertex.normal.y + 1.0f) * 127.5f),
+                                static_cast<sf::Uint8>((vertex.normal.z + 1.0f) * 127.5f)
+                            );
+                        }
+                        vertices.push_back(vertex);
                     }
-                    if (uvIndex <= tempUVs.size()) {
-                        vertex.texCoords = GUESS::core::math::Vector2f(tempUVs[uvIndex - 1].x, tempUVs[uvIndex - 1].y);
-                    }
-                    if (normalIndex <= tempNormals.size()) {
-                        vertex.normal = tempNormals[normalIndex - 1];
-                        vertex.color = sf::Color(
-                            static_cast<sf::Uint8>((vertex.normal.x + 1.0f) * 127.5f),
-                            static_cast<sf::Uint8>((vertex.normal.y + 1.0f) * 127.5f),
-                            static_cast<sf::Uint8>((vertex.normal.z + 1.0f) * 127.5f)
-                        );
-                    }
-                    vertices.push_back(vertex);
                 }
             }
-        }
-        calculateBoundingBox();
+            vertexBuffer = std::make_unique<sf::VertexBuffer>();
+            vertexBuffer->create(vertices.size());
+            std::vector<sf::Vertex> sfmlVertices;
+            sfmlVertices.reserve(vertices.size());
+            for (const auto& vertex : vertices) {
+                sf::Vertex sfmlVertex;
+                sfmlVertex.position = sf::Vector2f(vertex.position.x, vertex.position.y);
+                sfmlVertex.color = vertex.color;
+                sfmlVertex.texCoords = sf::Vector2f(vertex.texCoords.x, vertex.texCoords.y);
+                sfmlVertices.push_back(sfmlVertex);
+            }
+            indexBuffer->update(sfmlVertices.data());
 
-        return true;
+            indexBuffer = std::make_unique<sf::VertexBuffer>();
+            indexBuffer->create(indices.size());
+            std::vector<sf::Vertex> indexVertices;
+            indexVertices.reserve(indices.size());
+            for (const auto& index : indices) {
+                sf::Vertex indexVertex;
+                // Map the index to vertex data
+                const auto& vertex = vertices[index];
+                indexVertex.position = sf::Vector2f(vertex.position.x, vertex.position.y);
+                indexVertex.color = vertex.color;
+                indexVertex.texCoords = sf::Vector2f(vertex.texCoords.x, vertex.texCoords.y);
+                indexVertices.push_back(indexVertex);
+            }
+            indexBuffer->update(indexVertices.data());
+
+
+
+            calculateBoundingBox();
+            return true;
+        }
+        catch (const std::exception& e) {
+            cleanup();
+            GUESS::core::Logger::log(GUESS::core::Logger::ERROR,
+                "Failed to load mesh: " + std::string(e.what()));
+            return false;
+        }
     }
 
     bool Mesh::loadFromFBX(const std::string& filepath) {

@@ -7,52 +7,62 @@ namespace GUESS::rendering {
         queues[priority].push_back(cmd);
     }
 
-    void RenderQueue::execute(const Camera& camera, sf::RenderTarget& renderTarget) {
-        // Sort by material to minimize state changes
+    void RenderQueue::execute(const Camera& camera, sf::RenderTarget& target) {
         for (auto& [priority, commands] : queues) {
-            std::sort(commands.begin(), commands.end(),
-                [](const RenderCommand& a, const RenderCommand& b) {
-                return a.material < b.material;
-            });
+            for (auto& cmd : commands) {
+                if (cmd.geometry.mesh) {
+                    float distance = (camera.getPosition() - cmd.geometry.mesh->getPosition()).magnitude();
 
-            Material* currentMaterial = nullptr;
-            std::vector<sf::Vertex> batchedVertices;
+                    // Select appropriate LOD level
+                    GUESS::rendering::threed::Mesh* lodMesh = selectLOD(cmd.geometry.mesh, distance);
 
-            for (const auto& cmd : commands) {
-                // New material - flush existing batch
-                if (currentMaterial != cmd.material) {
-                    if (!batchedVertices.empty()) {
-                        renderTarget.draw(batchedVertices.data(), batchedVertices.size(),
-                            sf::Triangles, sf::RenderStates(currentMaterial->getShader().getNativeShader()));
-                        batchedVertices.clear();
+                    // Only render if mesh is in camera frustum
+                    if (camera.isInFrustum(lodMesh->getBoundingBox(), lodMesh->getTransform())) {
+                        if (cmd.material) {
+                            const_cast<Material*>(cmd.material)->bind();
+
+                            sf::RenderStates states;
+                            states.shader = cmd.material->getShader().getNativeShader();
+                            if (const sf::VertexBuffer* vb = lodMesh->getVertexArray()) {
+                                target.draw(*vb, states);
+                            }
+                        }
                     }
-                    currentMaterial = const_cast<Material*>(cmd.material);
-                    currentMaterial->bind();
                 }
-
-                // Add to current batch
-                const auto& mesh = cmd.geometry.mesh;
-                const auto& vertices = mesh->getVertices();
-                const auto& indices = mesh->getIndices();
-
-                // Transform and add vertices to batch
-                for (unsigned int index : indices) {
-                    const auto& vertex = vertices[index];
-                    sf::Vertex transformedVertex;
-                    auto worldPos = cmd.geometry.mesh->getTransform() * vertex.position;
-                    transformedVertex.position = sf::Vector2f(worldPos.x, worldPos.y);
-                    transformedVertex.color = vertex.color;
-                    transformedVertex.texCoords = sf::Vector2f(vertex.texCoords.x, vertex.texCoords.y);
-                    batchedVertices.push_back(transformedVertex);
-                }
-            }
-
-            // Flush final batch
-            if (!batchedVertices.empty()) {
-                renderTarget.draw(batchedVertices.data(), batchedVertices.size(),
-                    sf::Triangles, sf::RenderStates(currentMaterial->getShader().getNativeShader()));
             }
         }
     }
+
+    void RenderQueue::addLODLevel(GUESS::rendering::threed::Mesh* baseMesh, float distance, std::shared_ptr<GUESS::rendering::threed::Mesh> lodMesh) {
+        LODLevel level;
+        level.distance = distance;
+        level.mesh = lodMesh;
+        lodLevels[baseMesh].push_back(level);
+
+        // Sort LOD levels by distance
+        std::sort(lodLevels[baseMesh].begin(), lodLevels[baseMesh].end(),
+            [](const LODLevel& a, const LODLevel& b) {
+            return a.distance < b.distance;
+        });
+    }
+
+    GUESS::rendering::threed::Mesh* RenderQueue::selectLOD(GUESS::rendering::threed::Mesh* mesh, float distance) {
+        auto it = lodLevels.find(mesh);
+        if (it == lodLevels.end()) {
+            return mesh; // No LOD levels defined, return original mesh
+        }
+
+        // Find appropriate LOD level based on distance
+        for (const auto& level : it->second) {
+            if (distance > level.distance) {
+                return level.mesh.get();
+            }
+        }
+
+        return mesh; // Use original mesh if distance is closer than LOD thresholds
+    }
+
+
+
 }
 

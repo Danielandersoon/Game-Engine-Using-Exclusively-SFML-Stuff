@@ -12,12 +12,13 @@ namespace GUESS::rendering::twod {
 namespace GUESS::rendering {
     struct RenderCommand {
         union {
-            const GUESS::rendering::threed::Mesh* mesh;
+            GUESS::rendering::threed::Mesh* mesh;
             const GUESS::rendering::twod::Sprite* sprite;
         } geometry;
         const GUESS::rendering::Material* material;
         bool is2D;
         bool useInstancing = false;
+
     };
 }
 #endif

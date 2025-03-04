@@ -20,6 +20,8 @@ namespace GUESS::rendering {
         enum class LightType { Point, Directional, Spot };
         LightType type;
 
+        bool m_isValid = false;
+
     public:
         Shader() = default;
         bool loadFromFile(const std::string& vertexPath, const std::string& fragmentPath);
@@ -39,7 +41,9 @@ namespace GUESS::rendering {
         void setAmbient(const GUESS::core::math::Vector3f& ambient);
 
         void setupInstancing();
-        sf::Shader* getNativeShader() { return &shader; }
+        const sf::Shader* getNativeShader() const { return &shader; }
+
+        bool isValid() const { return m_isValid; }
     };
 }
 #endif

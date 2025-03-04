@@ -19,10 +19,27 @@ namespace GUESS::rendering::threed {
         GUESS::core::math::Vector3f m_scale;
 
         GUESS::core::math::AABB m_boundingBox;
+
+        std::unique_ptr<sf::VertexBuffer> vertexBuffer;
+        std::unique_ptr<sf::VertexBuffer> indexBuffer;
+
         void calculateBoundingBox();
 
     public:
         Mesh();
+        Mesh(Mesh&& other) noexcept = default;
+        Mesh& operator=(Mesh&& other) noexcept = default;
+
+        ~Mesh() {
+            cleanup();
+        }
+
+        void cleanup() {
+            vertices.clear();
+            indices.clear();
+            vertexBuffer.reset();
+            indexBuffer.reset();
+        }
         bool loadFromOBJ(const std::string& filepath);
         bool loadFromFBX(const std::string& filepath);
         bool loadFromBlend(const std::string& filepath);
@@ -42,6 +59,8 @@ namespace GUESS::rendering::threed {
         const GUESS::core::math::Matrix4x4& getTransform() const { return m_transform; }
         void updateTransform();
 
+        const GUESS::core::math::Vector3f& getPosition() const { return m_position; }
+        const sf::VertexBuffer* getVertexArray() const { return vertexBuffer.get(); }
         const GUESS::core::math::AABB& getBoundingBox() const { return m_boundingBox; }
 
         void addInstance(const GUESS::core::math::Matrix4x4& transform) {

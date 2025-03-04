@@ -69,16 +69,50 @@ namespace GUESS::core {
         return false;
     }
 
-    bool SceneManager::Update() {
-        if (m_initialized && m_running && m_activeScene) {
-            // Update active scene's game objects
-            for (auto& gameObject : m_activeScene->GetGameObjects()) {
-                if (gameObject.second ->isActive()) {
-                    gameObject.second -> update();
-                }
+    bool SceneManager::transitionToScene(const std::string& sceneName) {
+        // Find the target scene
+        for (auto& scene : m_Scenes) {
+            if (scene.GetSceneName() == sceneName) {
+                m_nextScene = &scene;
+                m_isTransitioning = true;
+                m_transitionTimer = 0.0f;
+                return true;
             }
-            return true;
         }
         return false;
     }
+
+    bool SceneManager::Update() {
+        if (!m_initialized || !m_running) {
+            return false;
+        }
+
+        if (m_isTransitioning) {
+            m_transitionTimer += 1.0f / 60.0f; // Assuming 60 FPS, use actual delta time in practice
+            float t = m_transitionTimer / m_transitionDuration;
+
+            if (t >= 1.0f) {
+                // Transition complete
+                if (m_activeScene) {
+                    m_activeScene->CloseScene();
+                }
+                m_activeScene = m_nextScene;
+                m_activeScene->LoadScene();
+                m_isTransitioning = false;
+                m_nextScene = nullptr;
+            }
+        }
+
+        // Update active scene's game objects
+        if (m_activeScene) {
+            for (auto& gameObject : m_activeScene->GetGameObjects()) {
+                if (gameObject.second->isActive()) {
+                    gameObject.second->update();
+                }
+            }
+        }
+
+        return true;
+    }
+
 }

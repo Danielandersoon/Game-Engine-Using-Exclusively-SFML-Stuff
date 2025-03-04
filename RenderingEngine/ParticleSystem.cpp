@@ -1,70 +1,104 @@
 #include "./ParticleSystem.h"
 
 namespace GUESS::rendering {
-    
-    ParticleSystem::ParticleSystem(unsigned int count) : maxParticles(count) {
+
+    ParticleSystem::ParticleSystem(unsigned int count) :
+        maxParticles(count),
+        activeParticles(0),
+        emissionRate(0),
+        emissionAccumulator(0) {
+
+        // Initialize particle pool
+        particlePool.resize(maxParticles);
         particles.reserve(maxParticles);
-        vertices.setPrimitiveType(sf::Points);
+
+        // Setup vertex buffer for instancing
+        vertices.setPrimitiveType(sf::Quads);
+        vertices.resize(4); // Base quad for instancing
+
+        // Setup base quad vertices
+        float halfSize = 0.5f;
+        vertices[0].position = sf::Vector2f(-halfSize, -halfSize);
+        vertices[1].position = sf::Vector2f(halfSize, -halfSize);
+        vertices[2].position = sf::Vector2f(halfSize, halfSize);
+        vertices[3].position = sf::Vector2f(-halfSize, halfSize);
+
+        // Setup UV coordinates
+        vertices[0].texCoords = sf::Vector2f(0, 0);
+        vertices[1].texCoords = sf::Vector2f(1, 0);
+        vertices[2].texCoords = sf::Vector2f(1, 1);
+        vertices[3].texCoords = sf::Vector2f(0, 1);
     }
 
     void ParticleSystem::update(float deltaTime) {
-        // Update existing particles
-        for (auto it = particles.begin(); it != particles.end();) {
-            it->lifetime -= deltaTime;
-            if (it->lifetime <= 0) {
-                it = particles.erase(it);
-            } else {
-                it->position = it->position + it->velocity * deltaTime;
-                it->color.a = static_cast<sf::Uint8>((it->lifetime / 2.0f) * 255);
-                ++it;
-            }
-        }
+        // Update emission
+        emissionAccumulator += deltaTime * emissionRate;
 
-        // Update vertex array
-        vertices.clear();
-        for (const auto& particle : particles) {
-            sf::Vertex vertex;
-            vertex.position = sf::Vector2f(particle.position.x, particle.position.y);
-            vertex.color = particle.color;
-            vertex.texCoords = sf::Vector2f(0, 0);
-            vertices.append(vertex);
+        // Update physics and lifetime
+        updatePhysics(deltaTime);
+
+        // Update instance transforms
+        instanceTransforms.clear();
+        for (size_t i = 0; i < activeParticles; ++i) {
+            Particle& p = particlePool[i];
+
+            // Calculate alpha based on lifetime
+            float alpha = p.lifetime / p.initialLifetime;
+            sf::Uint8 colorAlpha = static_cast<sf::Uint8>(alpha * 255);
+
+            // Create transform matrix
+            sf::Transform transform;
+            transform.translate(p.position.x, p.position.y);
+            transform.scale(p.size, p.size);
+
+            instanceTransforms.push_back(transform);
         }
     }
 
-    void ParticleSystem::emit(const GUESS::core::math::Vector3f& position,
-                            const GUESS::core::math::Vector3f& direction,
-                            float spread,
-                            float speed,
-                            float lifetime,
-                            float size,
-                            const sf::Color& color) {
-        if (particles.size() >= maxParticles) return;
+    void ParticleSystem::updatePhysics(float deltaTime) {
+        for (size_t i = 0; i < activeParticles;) {
+            Particle& p = particlePool[i];
 
-        GUESS::core::math::Random random;
-        
-        Particle particle;
-        particle.position = position;
-        
-        // Calculate random direction within spread cone
-        float angle = random.nextFloat(-spread, spread);
-        GUESS::core::math::Quaternion rotation = 
-            GUESS::core::math::Quaternion::fromEuler(0, 0, angle);
-        particle.velocity = rotation * direction * speed;
-        
-        particle.color = color;
-        particle.lifetime = lifetime;
-        particle.size = size;
-        
-        particles.push_back(particle);
+            p.lifetime -= deltaTime;
+            if (p.lifetime <= 0) {
+                recyclePArticle(i);
+                continue;
+            }
+
+            // Update physics
+            p.velocity = p.velocity + (p.acceleration * deltaTime);
+            p.position = p.position + (p.velocity * deltaTime);
+
+            ++i;
+        }
     }
 
     void ParticleSystem::render(sf::RenderTarget& target) {
+        if (activeParticles == 0) return;
+
         sf::RenderStates states;
         states.texture = &particleTexture;
-        target.draw(vertices, states);
+        states.blendMode = sf::BlendAdd;
+
+        // Render all particles using instancing
+        for (const auto& transform : instanceTransforms) {
+            states.transform = transform;
+            target.draw(vertices, states);
+        }
     }
 
-    void ParticleSystem::setTexture(const std::string& texturePath) {
-        particleTexture.loadFromFile(texturePath);
+    Particle* ParticleSystem::getNextFreeParticle() {
+        if (activeParticles >= maxParticles) return nullptr;
+        return &particlePool[activeParticles++];
+    }
+
+    void ParticleSystem::recyclePArticle(size_t index) {
+        if (index >= activeParticles) return;
+
+        // Move last active particle to this slot
+        if (index < activeParticles - 1) {
+            particlePool[index] = particlePool[activeParticles - 1];
+        }
+        --activeParticles;
     }
 }

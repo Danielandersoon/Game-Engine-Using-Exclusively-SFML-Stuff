@@ -1,17 +1,6 @@
 #include "./Shader.h"
 
 namespace GUESS::rendering {
-    bool Shader::loadFromFile(const std::string& vertPath, const std::string& fragPath) {
-        vertexPath = vertPath;
-        fragmentPath = fragPath;
-
-        if (!shader.loadFromFile(vertexPath, fragmentPath)) {
-            GUESS::core::Logger::log(GUESS::core::Logger::ERROR, "Failed to load shader files: " + vertexPath + ", " + fragmentPath);
-            return false;
-        }
-        return true;
-    }
-
     void Shader::setUniform(const std::string& name, float value) {
         shader.setUniform(name, value);
     }
@@ -43,10 +32,33 @@ namespace GUESS::rendering {
         shader.setUniform(name, texture);
     }
 
+    bool Shader::loadFromFile(const std::string& vertPath, const std::string& fragPath) {
+        if (vertPath.empty() || fragPath.empty()) {
+            GUESS::core::Logger::log(GUESS::core::Logger::ERROR, "Empty shader path provided");
+            m_isValid = false;
+            return false;
+        }
 
+        vertexPath = vertPath;
+        fragmentPath = fragPath;
+
+        if (!shader.loadFromFile(vertexPath, fragmentPath)) {
+            GUESS::core::Logger::log(GUESS::core::Logger::ERROR, "Failed to load shader files: " + vertexPath + ", " + fragmentPath);
+            m_isValid = false;
+            return false;
+        }
+
+        m_isValid = true;
+        return true;
+    }
 
     void Shader::bind() {
-        sf::Shader::bind(&shader);
+        if (m_isValid) {
+            sf::Shader::bind(&shader);
+        }
+        else {
+            GUESS::core::Logger::log(GUESS::core::Logger::WARNING, "Attempting to bind invalid shader");
+        }
     }
 
     void Shader::unbind() {

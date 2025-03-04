@@ -25,10 +25,33 @@ namespace GUESS::rendering::twod {
             }
         }
     }
-    void RenderingPipeline2D::render(GUESS::rendering::Camera& camera, sf::RenderTarget& target)
-    {
-        renderQueue.execute(camera, target);
+    struct SpriteBatch {
+        std::vector<sf::Vertex> vertices;
+        const sf::Texture* texture;
+        Material* material;
+    };
 
+    std::map<const sf::Texture*, SpriteBatch> batches;
+
+    void RenderingPipeline2D::render(Camera& camera, sf::RenderTarget& target) {
+        // Render all batches
+        for (auto& [texture, batch] : batches) {
+            if (batch.vertices.empty()) continue;
+
+            batch.material->bind();
+
+            sf::RenderStates states;
+            states.shader = batch.material->getShader().getNativeShader();
+            states.texture = batch.texture;
+
+            target.draw(batch.vertices.data(), batch.vertices.size(), sf::Quads, states);
+        }
+
+        // Clear batches for next frame
+        batches.clear();
+
+        // Apply post-processing
         postProcessor.process();
     }
+
 }

@@ -21,6 +21,16 @@ namespace GUESS::rendering::twod {
         const sf::Vector2f& getPosition() const { return position; };
         const sf::Vector2f& getScale() const { return scale; };
         float getRotation() const { return rotation; };
+
+        sf::Sprite toSFMLSprite() const {
+            sf::Sprite sprite;
+            sprite.setTexture(texture);
+            sprite.setPosition(position);
+            sprite.setScale(scale);
+            sprite.setRotation(rotation);
+            return sprite;
+        }
+
     };
 }
 

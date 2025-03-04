@@ -7,10 +7,7 @@
 namespace GUESS::physics {
     class RigidBody2D : public RigidBody<GUESS::core::math::Vector2f> {
     public:
-        RigidBody2D(float mass = 1.0f, float friction = 0.5f, float restitution = 0.5f, Collider<GUESS::core::math::Vector2f>* collider_ptr_in = nullptr)
-            : RigidBody<GUESS::core::math::Vector2f>(mass, friction, restitution, collider_ptr_in) {}
         void update(float deltaTime);
-
 
         void addTorque(float torque) { this->torque = torque; };
         void setRotation(float angle) { rotation = angle; };

@@ -22,6 +22,10 @@ namespace GUESS::physics {
 
         void step(float deltaTime);
         void checkCollisions();
+
+        void resolveCollision(RigidBody<GUESS::core::math::Vector2f>* bodyA, RigidBody<GUESS::core::math::Vector2f>* bodyB);
+        void resolveCollision(RigidBody<GUESS::core::math::Vector3f>* bodyA, RigidBody<GUESS::core::math::Vector3f>* bodyB);
+
     };
 }
 

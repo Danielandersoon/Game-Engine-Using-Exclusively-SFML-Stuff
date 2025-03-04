@@ -24,17 +24,38 @@ namespace GUESS::core {
     bool WindowManager::Shutdown()
     {
         if (m_initialized) {
-            std::vector<int> instances = GetAllWindowIDs();
-            for (int id : instances) {
-                DestroyWindow(id);
-            }
-            m_WindowDataVec.clear();
+            cleanupAllWindows();
             m_windowCounter = 0;
             m_initialized = false;
             m_running = false;
+            GUESS::core::Logger::log(GUESS::core::Logger::INFO, "WindowManager shutdown successfully");
         }
-        return true;;
+        return true;
     }
+
+    bool WindowManager::DestroyWindow(int WindowID)
+    {
+        try {
+            auto it = std::find_if(m_WindowDataVec.begin(), m_WindowDataVec.end(),
+                [WindowID](const WindowData& data) { return data.id == WindowID; });
+
+            if (it != m_WindowDataVec.end()) {
+                it->cleanup();
+                m_WindowDataVec.erase(it);
+                GUESS::core::Logger::log(GUESS::core::Logger::INFO,
+                    "Window ID: " + std::to_string(WindowID) + " destroyed");
+                return true;
+            }
+            return false;
+        }
+        catch (const std::exception& e) {
+            Logger::log(GUESS::core::Logger::ERROR,
+                "Could not Destroy window ID: " + std::to_string(WindowID) +
+                " Error: " + std::string(e.what()));
+            return false;
+        }
+    }
+
 
     bool WindowManager::CreateNewWindow(sf::VideoMode vidMode, sf::Vector2i startPosition, std::string windowName) {
         try {
@@ -61,26 +82,6 @@ namespace GUESS::core {
             return true;
         }
         return false;
-    }
-
-    bool WindowManager::DestroyWindow(int WindowID)
-    {
-        try {
-            for (int x = 0; x < m_WindowDataVec.size(); x++)
-            {
-                if (m_WindowDataVec[x].id == WindowID)
-                {
-                    m_WindowDataVec.erase(m_WindowDataVec.begin() + x);
-                    GUESS::core::Logger::log(GUESS::core::Logger::INFO, "Window ID: " + std::to_string(WindowID) + "destroyed");
-                    return true;
-                }
-            }
-        }
-        catch (int e) {
-            Logger::log(GUESS::core::Logger::ERROR, "Could not Destroy window ID: " + WindowID);
-
-            return false;
-        }
     }
 
     unsigned int WindowManager::GetWindowID(sf::Window* window_ptr)

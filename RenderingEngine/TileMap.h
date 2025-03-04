@@ -28,12 +28,18 @@ namespace GUESS::rendering::twod {
         sf::Vector2u tileSize;
         sf::Vector2u mapSize;
 
+        sf::Texture textureAtlas;
+        std::vector<sf::IntRect> tileTextureRects;
+
     public:
         void loadFromFile(const std::string& path);
         void setTileSize(sf::Vector2u size) { tileSize = size; }
         void setMapSize(sf::Vector2u size) { mapSize = size; }
         void render(sf::RenderTarget& target);
         const std::vector<std::vector<Tile>>& getTiles() const { return tiles; }
+        bool loadTextureAtlas(const std::string& texturePath, unsigned int tileWidth, unsigned int tileHeight);
+        void setTileTextureRect(int tileId, const sf::IntRect& rect);
+
     };
 }
 

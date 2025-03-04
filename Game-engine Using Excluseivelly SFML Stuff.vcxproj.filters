@@ -204,6 +204,9 @@
     <ClCompile Include="RenderingEngine\Skybox.cpp">
       <Filter>Source Files\RenderingEngine\3D</Filter>
     </ClCompile>
+    <ClCompile Include="RenderingEngine\Effect.cpp">
+      <Filter>Source Files\RenderingEngine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">

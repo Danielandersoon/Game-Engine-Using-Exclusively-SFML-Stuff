@@ -10,7 +10,10 @@ namespace GUESS::core {
         std::vector<Scene> m_Scenes;
         Scene* m_activeScene;
         unsigned int m_SceneCounter = 0;
-
+        float m_transitionDuration = 1.0f;
+        float m_transitionTimer = 0.0f;
+        Scene* m_nextScene = nullptr;
+        bool m_isTransitioning = false;
 
     public:
         SceneManager() : m_activeScene(nullptr) {}
@@ -31,6 +34,9 @@ namespace GUESS::core {
         unsigned int GetSceneID(Scene* scene_ptr);
         std::vector<int> GetAllSceneIDs();
         unsigned int GetSceneIDByName(std::string sceneName);
+
+        void setTransitionDuration(float duration) { m_transitionDuration = duration; }
+        bool transitionToScene(const std::string& sceneName);
 
         Scene& getCurrentScene();
     };

@@ -150,6 +150,7 @@
     <ClCompile Include="PhysicsEngine\Rigidbody2D.cpp" />
     <ClCompile Include="RenderingEngine\Button.cpp" />
     <ClCompile Include="RenderingEngine\Camera.cpp" />
+    <ClCompile Include="RenderingEngine\Effect.cpp" />
     <ClCompile Include="RenderingEngine\Gbuffer.cpp" />
     <ClCompile Include="RenderingEngine\Light.cpp" />
     <ClCompile Include="RenderingEngine\LightBaker.cpp" />

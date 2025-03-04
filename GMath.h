@@ -320,7 +320,7 @@ namespace GUESS::core::math {
             w /= mag; x /= mag; y /= mag; z /= mag;
         }
 
-        Vector3f toEuler() {
+        Vector3f toEuler() const {
             Vector3f euler;
 
             // Roll (x-axis rotation)

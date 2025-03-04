@@ -1,4 +1,5 @@
 #include "./PostProcessor.h"
+#include <algorithm>
 #include <SFML/Graphics/Sprite.hpp>
 
 namespace GUESS::rendering {
@@ -10,20 +11,10 @@ namespace GUESS::rendering {
 
     void PostProcessor::process() {
         for (const auto& effect : effects) {
-            mainBuffer.display();
-            pingPongBuffer.clear();
-
-            // Create sprite from main buffer's texture
-            sf::Sprite sprite(mainBuffer.getTexture());
-
-            // Draw to ping pong buffer
-            pingPongBuffer.draw(sprite);
-            pingPongBuffer.display();
-
-            // Copy ping pong buffer back to main buffer
-            mainBuffer.clear();
-            sprite.setTexture(pingPongBuffer.getTexture());
-            mainBuffer.draw(sprite);
+            if (effect->isEnabled()) {
+                effect->apply(mainBuffer, pingPongBuffer);
+                swapBuffers(mainBuffer, pingPongBuffer);
+            }
         }
     }
 }

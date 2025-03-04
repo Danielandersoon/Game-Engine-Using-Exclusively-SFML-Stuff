@@ -1,5 +1,9 @@
 #include "./PhysicsWorld.h"
 #include "./PhysicsConst.h"
+#include "./PhysicsManager.h"
+#include "./RigidBody.h"
+#include "./RigidBody.h"
+#include "./Rigidbody2D.h"
 #include "../Logger.h"
 
 namespace GUESS::physics {
@@ -62,4 +66,67 @@ namespace GUESS::physics {
             }
         }
     }
+
+    void PhysicsWorld::resolveCollision(RigidBody<GUESS::core::math::Vector2f>* bodyA, RigidBody<GUESS::core::math::Vector2f>* bodyB) {
+        // Calculate relative velocity
+        auto relativeVel = bodyB->getVelocity() - bodyA->getVelocity();
+
+        // Calculate combined restitution and friction
+        float restitution = std::min(bodyA->getRestitution(), bodyB->getRestitution());
+        float friction = GUESS::core::math::sqrt(bodyA->getFriction() * bodyB->getFriction());
+
+        // Apply impulse
+        float relativeVelMagnitude = relativeVel.magnitude();
+        auto normalizedVel = relativeVel.normalized();
+        float impulseMag = -(1.0f + restitution) * relativeVelMagnitude;
+        impulseMag /= (1.0f / bodyA->getMass() + 1.0f / bodyB->getMass());
+        auto impulse = normalizedVel * impulseMag;
+
+        bodyA->addForce((impulse * -1.0) * (1.0f / bodyA->getMass()));
+        bodyB->addForce(impulse * (1.0f / bodyB->getMass()));
+
+        // Apply friction
+        auto tangent = relativeVel - (relativeVel.normalized() * relativeVel.dot(relativeVel.normalized()));
+        if (tangent.magnitude() > 0.0001f) {
+            tangent = tangent.normalized();
+            float frictionImpulse = -relativeVel.dot(tangent);
+            frictionImpulse /= (1.0f / bodyA->getMass() + 1.0f / bodyB->getMass());
+            frictionImpulse *= friction;
+
+            bodyA->setVelocity(bodyA->getVelocity().x - tangent.x * frictionImpulse * (1.0f / bodyA->getMass()));
+            bodyB->setVelocity(bodyB->getVelocity().x + tangent.x * frictionImpulse * (1.0f / bodyB->getMass()));
+        }
+    }
+
+    void PhysicsWorld::resolveCollision(RigidBody<GUESS::core::math::Vector3f>* bodyA, RigidBody<GUESS::core::math::Vector3f>* bodyB) {
+        // Calculate relative velocity
+        auto relativeVel = bodyB->getVelocity() - bodyA->getVelocity();
+
+        // Calculate combined restitution and friction
+        float restitution = std::min(bodyA->getRestitution(), bodyB->getRestitution());
+        float friction = GUESS::core::math::sqrt(bodyA->getFriction() * bodyB->getFriction());
+
+        // Apply impulse
+        float relativeVelMagnitude = relativeVel.magnitude();
+        auto normalizedVel = relativeVel.normalized();
+        float impulseMag = -(1.0f + restitution) * relativeVelMagnitude;
+        impulseMag /= (1.0f / bodyA->getMass() + 1.0f / bodyB->getMass());
+        auto impulse = normalizedVel * impulseMag;
+
+        bodyA->addForce((impulse * -1.0) * (1.0f / bodyA->getMass()));
+        bodyB->addForce(impulse * (1.0f / bodyB->getMass()));
+
+        // Apply friction
+        auto tangent = relativeVel - (relativeVel.normalized() * relativeVel.dot(relativeVel.normalized()));
+        if (tangent.magnitude() > 0.0001f) {
+            tangent = tangent.normalized();
+            float frictionImpulse = -relativeVel.dot(tangent);
+            frictionImpulse /= (1.0f / bodyA->getMass() + 1.0f / bodyB->getMass());
+            frictionImpulse *= friction;
+
+            bodyA->setVelocity(bodyA->getVelocity().x - tangent.x * frictionImpulse * (1.0f / bodyA->getMass()));
+            bodyB->setVelocity(bodyB->getVelocity().x + tangent.x * frictionImpulse * (1.0f / bodyB->getMass()));
+        }
+    }
+
 }

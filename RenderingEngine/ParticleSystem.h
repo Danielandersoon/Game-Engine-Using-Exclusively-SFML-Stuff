@@ -9,8 +9,10 @@ namespace GUESS::rendering {
     struct Particle {
         GUESS::core::math::Vector3f position;
         GUESS::core::math::Vector3f velocity;
+        GUESS::core::math::Vector3f acceleration;
         sf::Color color;
         float lifetime;
+        float initialLifetime;
         float size;
     };
 
@@ -20,6 +22,15 @@ namespace GUESS::rendering {
         sf::VertexArray vertices;
         sf::Texture particleTexture;
         unsigned int maxParticles;
+
+        std::vector<Particle> particlePool;
+        size_t activeParticles;
+
+        sf::VertexBuffer instanceBuffer;
+        std::vector<sf::Transform> instanceTransforms;
+
+        float emissionRate;
+        float emissionAccumulator;
         
     public:
         ParticleSystem(unsigned int count = 1000);
@@ -33,6 +44,11 @@ namespace GUESS::rendering {
                  const sf::Color& color);
         void render(sf::RenderTarget& target);
         void setTexture(const std::string& texturePath);
+        void setEmissionRate(float particlesPerSecond);
+        void updatePhysics(float deltaTime);
+        void recyclePArticle(size_t index);
+        Particle* getNextFreeParticle();
+
     };
 }
 #endif

@@ -22,23 +22,19 @@ namespace GUESS::physics {
         float getDynamicFriction() const { return dynamicFriction; }
         float getRestitution() const { return restitution; }
         float getDensity() const { return density; }
-        const std::string& getName() const { return name; }
+        std::string getName() const { return name; }
 
         // Setters
-        void setStaticFriction(float value) { staticFriction = value; }
-        void setDynamicFriction(float value) { dynamicFriction = value; }
-        void setRestitution(float value) { restitution = value; }
-        void setDensity(float value) { density = value; }
+        void setStaticFriction(float value);
+        void setDynamicFriction(float value);
+        void setRestitution(float value);
+        void setDensity(float value);
     
         // Combine friction values between two materials
-        static float combineFriction(const PhysicsMaterial& a, const PhysicsMaterial& b) {
-            return GUESS::core::math::sqrt(a.getDynamicFriction() * b.getDynamicFriction());
-        }
+        static float combineFriction(const PhysicsMaterial& a, const PhysicsMaterial& b);
 
         // Combine restitution values between two materials
-        static float combineRestitution(const PhysicsMaterial& a, const PhysicsMaterial& b) {
-            return std::min(a.getRestitution(), b.getRestitution());
-        }
+        static float combineRestitution(const PhysicsMaterial& a, const PhysicsMaterial& b);
     };
 }
 

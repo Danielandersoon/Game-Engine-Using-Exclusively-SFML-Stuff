@@ -4,19 +4,37 @@
 #include "./Manager.h"
 namespace GUESS::core {
 
-	class WindowManager : Manager
-	{
-	private:
-		struct WindowData {
-			std::unique_ptr<sf::Window> window;
-			int id;
-		};
-		int m_windowCounter = 0;
-		std::vector<WindowData> m_WindowDataVec;
 
-	public:
-		WindowManager();
-		virtual ~WindowManager() override = default;
+    class WindowManager : Manager
+    {
+    private:
+        struct WindowData {
+            std::unique_ptr<sf::Window> window;
+            int id;
+            void cleanup() {
+                if (window) {
+                    window->close();
+                    window.reset();
+                }
+            }
+        };
+
+        int m_windowCounter = 0;
+        std::vector<WindowData> m_WindowDataVec;
+
+        // Add cleanup method
+        void cleanupAllWindows() {
+            for (auto& windowData : m_WindowDataVec) {
+                windowData.cleanup();
+            }
+            m_WindowDataVec.clear();
+        }
+
+    public:
+        WindowManager();
+        virtual ~WindowManager() {
+            Shutdown();
+        }
 		virtual bool Initialize() override;
 		virtual bool Shutdown() override;
 		virtual bool Update() override;

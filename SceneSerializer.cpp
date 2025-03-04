@@ -1,6 +1,12 @@
 #include <fstream>
 #include "./Logger.h"
 #include "./SceneSerializer.h"
+#include "./BoxCollisionComponent.h"
+#include "./MeshRendererComponent.h"
+#include "./Rigidbody2DComponent.h"
+#include "./RigidbodyComponent.h"
+#include "./SpriteRenderComponent.h"
+#include "./CameraComponent.h"
 
 namespace GUESS::core {
     bool SceneSerializer::saveScene(Scene& scene, const std::string& filepath) {
@@ -77,6 +83,7 @@ namespace GUESS::core {
         return true;
     }
 
+
     JsonValue SceneSerializer::serializeGameObject(const GameObject* gameObject) {
         JsonValue objValue(std::map<std::string, JsonValue>{});
 
@@ -105,40 +112,119 @@ namespace GUESS::core {
         return objValue;
     }
 
-    std::unique_ptr<GameObject> SceneSerializer::deserializeGameObject(const JsonValue& jsonObj) {
-        const auto& objData = jsonObj.get<std::map<std::string, JsonValue>>();
-
-        // Create game object with name
-        auto gameObject = std::make_unique<GameObject>(
-            objData.at("name").get<std::string>()
-        );
-
-        // Set active state
-        gameObject->setActive(objData.at("active").get<bool>());
-
-        // Deserialize transform
-        const auto& transformData = objData.at("transform").get<std::map<std::string, JsonValue>>();
-        GUESS::core::math::Vector3f position = deserializeVector3(transformData.at("position"));
-        GUESS::core::math::Vector3f rotation = deserializeVector3(transformData.at("rotation"));
-        GUESS::core::math::Vector3f scale = deserializeVector3(transformData.at("scale"));
-
-        // Set the transform values
-        gameObject->getTransform().setPosition(position);
-        gameObject->getTransform().setRotation(rotation);
-        gameObject->getTransform().setScale(scale);
-
-        // Deserialize components
-        deserializeComponents(gameObject.get(), objData.at("components"));
-
-        return gameObject;
-    }
     JsonValue SceneSerializer::serializeComponents(const GameObject* gameObject) {
         JsonValue components(std::vector<JsonValue>{});
-        // Add component serialization logic here
+
+        // Serialize MeshRenderer component
+        if (auto* meshRenderer = gameObject->getComponent<MeshRendererComponent>()) {
+            JsonValue meshRendererData(std::map<std::string, JsonValue>{});
+            meshRendererData.set("type", JsonValue("MeshRenderer"));
+            meshRendererData.set("meshPath", JsonValue(meshRenderer->meshPath));
+            meshRendererData.set("castShadows", JsonValue(meshRenderer->castShadows));
+            meshRendererData.set("receiveShadows", JsonValue(meshRenderer->receiveShadows));
+            components.append(meshRendererData);
+        }
+
+        // Serialize SpriteRenderer component
+        if (auto* spriteRenderer = gameObject->getComponent<SpriteRendererComponent>()) {
+            JsonValue spriteRendererData(std::map<std::string, JsonValue>{});
+            spriteRendererData.set("type", JsonValue("SpriteRenderer"));
+            spriteRendererData.set("spritePath", JsonValue(spriteRenderer->spritePath));
+            spriteRendererData.set("flipX", JsonValue(spriteRenderer->flipX));
+            spriteRendererData.set("flipY", JsonValue(spriteRenderer->flipY));
+            components.append(spriteRendererData);
+        }
+
+        // Serialize Camera component
+        if (auto* camera = gameObject->getComponent<CameraComponent>()) {
+            JsonValue cameraData(std::map<std::string, JsonValue>{});
+            cameraData.set("type", JsonValue("Camera"));
+            cameraData.set("fieldOfView", JsonValue(static_cast<double>(camera->fieldOfView)));
+            cameraData.set("nearPlane", JsonValue(static_cast<double>(camera->nearPlane)));
+            cameraData.set("farPlane", JsonValue(static_cast<double>(camera->farPlane)));
+            cameraData.set("isMainCamera", JsonValue(camera->isMainCamera));
+            components.append(cameraData);
+        }
+
+        // Serialize Rigidbody components
+        if (auto* rb3d = gameObject->getComponent<RigidbodyComponent>()) {
+            JsonValue rbData(std::map<std::string, JsonValue>{});
+            rbData.set("type", JsonValue("Rigidbody3D"));
+            components.append(rbData);
+        }
+
+        if (auto* rb2d = gameObject->getComponent<Rigidbody2DComponent>()) {
+            JsonValue rbData(std::map<std::string, JsonValue>{});
+            rbData.set("type", JsonValue("Rigidbody2D"));
+            components.append(rbData);
+        }
+
         return components;
     }
 
     void SceneSerializer::deserializeComponents(GameObject* gameObject, const JsonValue& jsonObj) {
-        // Add component deserialization logic here
+        const auto& components = jsonObj.get<std::vector<JsonValue>>();
+
+        for (const auto& componentData : components) {
+            const auto& data = componentData.get<std::map<std::string, JsonValue>>();
+            std::string type = data.at("type").get<std::string>();
+
+            if (type == "MeshRenderer") {
+                auto* meshRenderer = gameObject->addComponent<MeshRendererComponent>();
+                meshRenderer->meshPath = data.at("meshPath").get<std::string>();
+                meshRenderer->castShadows = data.at("castShadows").get<bool>();
+                meshRenderer->receiveShadows = data.at("receiveShadows").get<bool>();
+                meshRenderer->loadMesh(meshRenderer->meshPath);
+            }
+            else if (type == "SpriteRenderer") {
+                auto* spriteRenderer = gameObject->addComponent<SpriteRendererComponent>();
+                spriteRenderer->spritePath = data.at("spritePath").get<std::string>();
+                spriteRenderer->flipX = data.at("flipX").get<bool>();
+                spriteRenderer->flipY = data.at("flipY").get<bool>();
+                spriteRenderer->loadSprite(spriteRenderer->spritePath);
+            }
+            else if (type == "Camera") {
+                auto* camera = gameObject->addComponent<CameraComponent>();
+                camera->fieldOfView = static_cast<float>(data.at("fieldOfView").get<double>());
+                camera->nearPlane = static_cast<float>(data.at("nearPlane").get<double>());
+                camera->farPlane = static_cast<float>(data.at("farPlane").get<double>());
+                camera->isMainCamera = data.at("isMainCamera").get<bool>();
+            }
+            else if (type == "Rigidbody3D") {
+                gameObject->addComponent<RigidbodyComponent>();
+            }
+            else if (type == "Rigidbody2D") {
+                gameObject->addComponent<Rigidbody2DComponent>();
+            }
+        }
     }
+
+    std::unique_ptr<GameObject> SceneSerializer::deserializeGameObject(const JsonValue& jsonObj) {
+        const auto& data = jsonObj.get<std::map<std::string, JsonValue>>();
+
+        // Create new game object
+        auto gameObject = std::make_unique<GameObject>();
+
+        // Set basic properties
+        gameObject->setName(data.at("name").get<std::string>());
+        gameObject->setActive(data.at("active").get<bool>());
+
+        // Deserialize transform
+        const auto& transformData = data.at("transform").get<std::map<std::string, JsonValue>>();
+        auto position = deserializeVector3(transformData.at("position"));
+        auto rotation = deserializeVector3(transformData.at("rotation"));
+        auto scale = deserializeVector3(transformData.at("scale"));
+
+        gameObject->getTransform().setPosition(position);
+        gameObject->getTransform().setRotation(GUESS::core::math::Quaternion::fromEuler(rotation.x, rotation.y, rotation.z));
+        gameObject->getTransform().setScale(scale);
+
+        // Deserialize components
+        if (data.find("components") != data.end()) {
+            deserializeComponents(gameObject.get(), data.at("components"));
+        }
+
+        return gameObject;
+    }
+
 }
