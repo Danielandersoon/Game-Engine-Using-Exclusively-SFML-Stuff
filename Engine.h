@@ -16,11 +16,6 @@
 #include "./RenderingEngine/RenderManager.h"
 #include "./RenderingEngine/RenderingPipeline.h"
 
-// Physics system headers
-#include "./PhysicsEngine/PhysicsWorld.h"
-#include "./PhysicsEngine/PhysicsManager.h"
-#include "./PhysicsEngine/Rigidbody2D.h"
-
 
 namespace GUESS::core {
 
@@ -41,13 +36,10 @@ namespace GUESS::core {
         GUESS::rendering::RenderManager m_renderManager;
         GUESS::rendering::RenderingPipeline m_renderingPipeline;
 
-        // Pysics systems
-        GUESS::physics::PhysicsWorld m_physicsWorld;
-        GUESS::physics::PhysicsManager m_physicsManager;
-
         // Fixed timestep settings
-        const float FIXED_TIME_STEP = 1.0f / 60.0f;
-        float m_accumulatedTime = 0.0f;
+        const float FIXED_TIME_STEP = 1.0f / 60.0f; // ~ 60 steps s^-1
+        float m_accumulatedTime = 0.0f; // this is the exact value of the fixed timesetep dt
+        float m_deltaTime = 0.0f;
 
     public:
         Engine(int instanceID);
@@ -60,7 +52,7 @@ namespace GUESS::core {
         void start();
         void stop();
         void update();
-        void fixedUpdate();
+        void fixedUpdate(float fixedDeltaTime);
         void lateUpdate();
 
         bool isRunning() const { return m_isRunning; }

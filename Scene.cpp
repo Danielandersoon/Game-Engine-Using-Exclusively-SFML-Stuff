@@ -15,6 +15,8 @@ namespace GUESS::core {
             for (auto& [guid, gameObject] : GameObjects) {
                 gameObject->update();
             }
+            // Initialize physics systems
+            m_physicsManager.initializeDefaultMaterials();
             return true;
         }
         return false;

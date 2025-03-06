@@ -19,9 +19,14 @@ namespace GUESS::physics {
         float restitution = 0.8f;
         Collider<T>* collider_ptr;
         T forceAccum = T();
+
+        float submergedVolume = 0.0f;
+        float fluidDensity = 1000.0f; // Default water density in kg/m³
+        float volume = 1.0f;
+
     public:
         RigidBody() = default;
-        explicit RigidBody(float mass, float friction = 0.2f, float restitution = 0.8f, Collider<T>* collider_ptr_in = nullptr) 
+        explicit RigidBody(float mass, float friction = 0.2f, float restitution = 0.8f, Collider<T>* collider_ptr_in = nullptr)
             : RigidBody<T>(mass, friction, restitution, collider_ptr_in) {};
         void applyForce(const T& force) { acceleration = acceleration + force; };
         T getPosition() const { return position; };
@@ -40,9 +45,33 @@ namespace GUESS::physics {
         void setCollider(Collider<T>* col) { collider_ptr = col; }
         void clearForces() { forceAccum = T(); }
         void addForce(const T& force) { forceAccum = forceAccum + force; }
+        void setSubmergedVolume(float volume) { submergedVolume = volume; }
+        void setFluidDensity(float density) { fluidDensity = density; }
+        void setVolume(float vol) { volume = vol; }
+
+        void calculateBuoyancy() {
+            if (submergedVolume > 0.0f) {
+                // Archimedes principle: Buoyant force = fluid density * submerged volume * gravity
+                float buoyantForce = fluidDensity * submergedVolume * GRAVITY;
+
+                // The force acts upward
+                T buoyancyForce;
+                if constexpr (std::is_same_v<T, GUESS::core::math::Vector2f>) {
+                    buoyancyForce = T(0.0f, buoyantForce);
+                }
+                else {
+                    buoyancyForce = T(0.0f, buoyantForce, 0.0f);
+                }
+
+                addForce(buoyancyForce);
+            }
+        }
+
+
         void update(float deltaTime) {
             acceleration = acceleration + (forceAccum * (1.0f / mass));
 
+            calculateBuoyancy();
             if (!collider_ptr->checkCollision(*collider_ptr)) {
                 // No collisions, just apply gravity ontop of existing accelaration.
                 acceleration = acceleration + ((mass * GRAVITY) * deltaTime);
@@ -60,6 +89,6 @@ namespace GUESS::physics {
     };
 
     using Rigidbody3D = RigidBody<GUESS::core::math::Vector3f>;
-}
+};
 
 #endif

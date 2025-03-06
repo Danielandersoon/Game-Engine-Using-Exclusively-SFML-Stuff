@@ -129,4 +129,27 @@ namespace GUESS::physics {
         }
     }
 
+    void PhysicsWorld::updateThermodynamics(float deltaTime)
+    {
+        std::vector<std::shared_ptr<ThermodynamicBody>> thermalBodies = envManager.getThermalBodies();
+        // Update all thermal bodies in one pass
+        for (auto body : thermalBodies) {
+            body->updateTemperature(deltaTime, this);
+        }
+        // Process heat transfer in batches
+        for (size_t i = 0; i < thermalBodies.size(); i += BATCH_SIZE) {
+            processThermalBatch(i, std::min(i + BATCH_SIZE, thermalBodies.size()));
+        }
+    }
+
+    void PhysicsWorld::processThermalBatch(size_t start, size_t end) {
+        std::vector<std::shared_ptr<ThermodynamicBody>> thermalBodies = envManager.getThermalBodies();
+        for (size_t i = start; i < end; i++) {
+            for (size_t j = i + 1; j < thermalBodies.size(); j++) {
+                thermalBodies[i]->transferHeat(thermalBodies[j].get());
+            }
+        }
+    }
+
+
 }

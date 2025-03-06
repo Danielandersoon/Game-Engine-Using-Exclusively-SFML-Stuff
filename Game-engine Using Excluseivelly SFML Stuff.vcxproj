@@ -149,6 +149,8 @@
     <ClCompile Include="PhysicsEngine\PhysicsWorld.cpp" />
     <ClCompile Include="PhysicsEngine\RigidBody.cpp" />
     <ClCompile Include="PhysicsEngine\Rigidbody2D.cpp" />
+    <ClCompile Include="PhysicsEngine\ThermodynamicBody.cpp" />
+    <ClCompile Include="PhysicsEngine\ThermodynamicBodyComponent.cpp" />
     <ClCompile Include="RenderingEngine\Button.cpp" />
     <ClCompile Include="RenderingEngine\Camera.cpp" />
     <ClCompile Include="RenderingEngine\Effect.cpp" />
@@ -199,11 +201,14 @@
     <ClInclude Include="PhysicsEngine\BoxCollider.h" />
     <ClInclude Include="PhysicsEngine\CapsuleCollider.h" />
     <ClInclude Include="PhysicsEngine\Collider.h" />
+    <ClInclude Include="PhysicsEngine\EnvironmentManager.h" />
     <ClInclude Include="PhysicsEngine\PhysicsManager.h" />
     <ClInclude Include="PhysicsEngine\PhysicsMaterial.h" />
     <ClInclude Include="PhysicsEngine\PhysicsWorld.h" />
     <ClInclude Include="PhysicsEngine\RigidBody.h" />
     <ClInclude Include="PhysicsEngine\Rigidbody2D.h" />
+    <ClInclude Include="PhysicsEngine\ThermodynamicBody.h" />
+    <ClInclude Include="PhysicsEngine\ThermodynamicBodyComponent.h" />
     <ClInclude Include="RenderingEngine\Button.h" />
     <ClInclude Include="RenderingEngine\Camera.h" />
     <ClInclude Include="RenderingEngine\Effect.h" />

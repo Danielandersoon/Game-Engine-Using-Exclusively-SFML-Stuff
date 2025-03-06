@@ -10,9 +10,6 @@ namespace GUESS::core {
         // Initialize managers
         m_sceneManager.Initialize();
 
-        // Initialize physics systems
-        m_physicsManager.initializeDefaultMaterials();
-
         start();
     }
 
@@ -29,14 +26,14 @@ namespace GUESS::core {
         while (m_isRunning) {
             // Update timing
             m_timingSystem.TimingUpdate();
-            float deltaTime = m_timingSystem.DeltaTime();
+            m_deltaTime = m_timingSystem.DeltaTime();
 
             // Accumulate time for fixed updates
-            m_accumulatedTime += deltaTime;
+            m_accumulatedTime += m_deltaTime;
 
             // Handle fixed time step updates
             while (m_accumulatedTime >= FIXED_TIME_STEP) {
-                fixedUpdate();
+                fixedUpdate(m_accumulatedTime);
                 m_accumulatedTime -= FIXED_TIME_STEP;
             }
 
@@ -95,8 +92,7 @@ namespace GUESS::core {
 
 
 
-    void Engine::fixedUpdate() {
-        m_physicsWorld.step(FIXED_TIME_STEP);
+    void Engine::fixedUpdate(float fixedDeltaTime) {
     }
 
     void Engine::lateUpdate() {

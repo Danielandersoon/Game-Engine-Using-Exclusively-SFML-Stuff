@@ -208,7 +208,13 @@
       <Filter>Source Files\RenderingEngine</Filter>
     </ClCompile>
     <ClCompile Include="Component.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\GameEngine\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsEngine\ThermodynamicBodyComponent.cpp">
+      <Filter>Source Files\GameEngine\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsEngine\ThermodynamicBody.cpp">
+      <Filter>Source Files\PhysicsEngine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -390,6 +396,15 @@
       <Filter>Header Files\GameEngine\Components</Filter>
     </ClInclude>
     <ClInclude Include="Rigidbody2DComponent.h">
+      <Filter>Header Files\GameEngine\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsEngine\ThermodynamicBody.h">
+      <Filter>Header Files\PysicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsEngine\EnvironmentManager.h">
+      <Filter>Header Files\PysicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsEngine\ThermodynamicBodyComponent.h">
       <Filter>Header Files\GameEngine\Components</Filter>
     </ClInclude>
   </ItemGroup>

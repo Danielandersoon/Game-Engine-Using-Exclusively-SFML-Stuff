@@ -1,4 +1,21 @@
-﻿  Scene.cpp
+﻿  Engine.cpp
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Engine.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Engine.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'Engine.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'Engine.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\TimingSystem.h(15,28): warning C4244: 'return': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'Engine.cpp')
+  
+C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\Engine.cpp(29,51): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Scene.cpp
 C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'Scene.cpp')
   
@@ -11,20 +28,6 @@ C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h
 C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
   (compiling source file 'Scene.cpp')
   
-  SceneManager.cpp
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  (compiling source file 'SceneManager.cpp')
-  
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(124,21): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-  (compiling source file 'SceneManager.cpp')
-  
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(125,51): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-  (compiling source file 'SceneManager.cpp')
-  
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(840,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  (compiling source file 'SceneManager.cpp')
-  
-C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\SceneManager.cpp(24,20): warning C4101: 'e': unreferenced local variable
   Source.cpp
 C:\Users\danie\Documents\GitHub\Game-Engine-Using-Exclusively-SFML-Stuff\GMath.h(119,25): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'Source.cpp')
