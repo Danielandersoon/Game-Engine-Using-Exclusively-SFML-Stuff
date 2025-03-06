@@ -10,7 +10,6 @@
 namespace GUESS::core {
     class MeshRendererComponent : public Component {
     public:
-        // Public attributes for Unity-like behavior
         std::string meshPath;
         std::shared_ptr<GUESS::rendering::threed::Mesh> mesh;
         std::shared_ptr<GUESS::rendering::Material> material;
@@ -20,7 +19,7 @@ namespace GUESS::core {
         MeshRendererComponent() = default;
 
         void init() override {
-            setName("mesh render componenet");
+            setName("mesh render component");
             if (!meshPath.empty()) {
                 loadMesh(meshPath);
             }
@@ -28,12 +27,9 @@ namespace GUESS::core {
 
         void loadMesh(const std::string& path) {
             mesh = std::make_shared<GUESS::rendering::threed::Mesh>();
-
-            // Get file extension
             size_t dotPos = path.find_last_of('.');
             if (dotPos != std::string::npos) {
                 std::string extension = path.substr(dotPos);
-
                 if (extension == ".obj") {
                     mesh->loadFromOBJ(path);
                 }
@@ -47,15 +43,12 @@ namespace GUESS::core {
             meshPath = path;
         }
 
-
         void setMaterial(std::shared_ptr<GUESS::rendering::Material> newMaterial) {
             material = newMaterial;
         }
 
-        std::shared_ptr<GUESS::rendering::threed::Mesh> getMesh() { return mesh; };
+        std::shared_ptr<GUESS::rendering::threed::Mesh> getMesh() { return mesh; }
         std::shared_ptr<GUESS::rendering::Material> getMaterial() { return material; }
-
     };
 }
-
 #endif

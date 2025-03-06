@@ -1,5 +1,4 @@
 #include "./Scene.h"
-
 #include "./Logger.h"
 
 namespace GUESS::core {
@@ -31,9 +30,7 @@ namespace GUESS::core {
     }
 
     void Scene::AddGameObject(std::unique_ptr<GameObject> gameObject) {
-        Logger::log(Logger::INFO, "Created new game object: " + gameObject->getName());
-        int guid = gameObject->getGUID();
-        GameObjects[guid] = std::move(gameObject);
+        GameObjects[gameObject.get()->getGUID()] = std::move(gameObject);
     }
 
     void Scene::RemoveGameObject(const std::string& objectName) {
@@ -56,8 +53,7 @@ namespace GUESS::core {
         return it != GameObjects.end() ? it->second.get() : nullptr;
     }
 
-    GameObject* Scene::FindGameObject(int guid)
-    {
+    GameObject* Scene::FindGameObject(int guid) {
         auto it = GameObjects.find(guid);
         return it != GameObjects.end() ? it->second.get() : nullptr;
     }

@@ -10,7 +10,6 @@
 namespace GUESS::core {
     class SpriteRendererComponent : public Component {
     public:
-        // Public attributes
         std::string spritePath;
         GUESS::rendering::twod::Sprite sprite;
         std::shared_ptr<GUESS::rendering::Material> material;
@@ -38,5 +37,4 @@ namespace GUESS::core {
         }
     };
 }
-
 #endif

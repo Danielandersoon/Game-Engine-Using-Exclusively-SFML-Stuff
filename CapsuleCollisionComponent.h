@@ -3,12 +3,13 @@
 
 #include "./Component.h"
 #include "./RigidbodyComponent.h"
-#include "../PhysicsEngine/CapsuleCollider.h"
-#include "../PhysicsEngine/RigidBody.h"
+#include "./PhysicsEngine/CapsuleCollider.h"
+#include "./PhysicsEngine/RigidBody.h"
+#include "./Scene.h"
 
 namespace GUESS::core {
     class CapsuleCollisionComponent : public Component {
-    private:
+    public:
         std::unique_ptr<GUESS::physics::CapsuleCollider> collider;
         GUESS::core::RigidbodyComponent* rigidbody = nullptr;
 
@@ -16,17 +17,17 @@ namespace GUESS::core {
         void init() override {
             setName("capsule collision component");
             collider = std::make_unique<GUESS::physics::CapsuleCollider>();
-            
-            // Try to get rigidbody if it exists
-            rigidbody = getOwner()->getComponent<GUESS::core::RigidbodyComponent>();
-            if(rigidbody) {
-                rigidbody->setCollider(collider.get());
+
+            auto owner = m_ownerScene->FindGameObject(getOwner());
+            rigidbody = owner->getComponent<GUESS::core::RigidbodyComponent>();
+            if (rigidbody) {
+                rigidbody->getRigidbody()->setCollider(collider.get());
             }
         }
 
-        void update() override {
-            // Update collider transform from GameObject
-            const auto& transform = getOwner()->getTransform();
+        void update() {
+            auto owner = m_ownerScene->FindGameObject(getOwner());
+            const auto& transform = owner->getTransform();
             collider->setPosition(transform.getPosition());
             collider->setRotation(transform.getRotation().toEuler().y);
             collider->setScale(transform.getScale());

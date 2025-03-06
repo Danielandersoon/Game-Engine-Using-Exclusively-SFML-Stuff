@@ -207,6 +207,9 @@
     <ClCompile Include="RenderingEngine\Effect.cpp">
       <Filter>Source Files\RenderingEngine</Filter>
     </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h">

@@ -1,15 +1,15 @@
 #ifndef CAMERA_COMPONENT_H
 #define CAMERA_COMPONENT_H
+#include <memory>
 
 #include "./Component.h"
 #include "./RenderingEngine/Camera.h"
 #include "./GameObject.h"
-#include <memory>
+#include "./Scene.h"
 
 namespace GUESS::core {
     class CameraComponent : public Component {
     public:
-        // Public attributes for Unity-like behavior
         float fieldOfView = 60.0f;
         float nearPlane = 0.1f;
         float farPlane = 1000.0f;
@@ -25,9 +25,9 @@ namespace GUESS::core {
         }
 
         void update() {
-            // Update camera position/rotation based on GameObject transform
-            camera.setPosition(getOwner()->getTransform().getPosition());
-            camera.setRotation(getOwner()->getTransform().getRotation());
+            auto owner = m_ownerScene->FindGameObject(getOwner());
+            camera.setPosition(owner->getTransform().getPosition());
+            camera.setRotation(owner->getTransform().getRotation());
         }
 
         void setFieldOfView(float fov) {
@@ -54,5 +54,4 @@ namespace GUESS::core {
         }
     };
 }
-
 #endif

@@ -4,12 +4,13 @@
 #include "./Component.h"
 #include "./PhysicsEngine/RigidBody.h"
 #include "./PhysicsEngine/Collider.h"
+#include "./Scene.h"
 
 namespace GUESS::core {
     class RigidbodyComponent : public Component {
-    private:
+    public:
         std::unique_ptr<GUESS::physics::Rigidbody3D> rigidbody;
-        
+
     public:
         void init() override {
             setName("rigidbody component");
@@ -17,15 +18,14 @@ namespace GUESS::core {
         }
 
         void update() {
-            // Update transform from physics simulation
             const auto& pos = rigidbody->getPosition();
-            getOwner()->getTransform().setPosition(pos);
+            m_ownerScene.get()->FindGameObject(getOwner())->getTransform().setPosition(pos);
         }
 
         void setMass(float mass) { rigidbody->setMass(mass); }
         void setFriction(float friction) { rigidbody->setFriction(friction); }
         void setRestitution(float restitution) { rigidbody->setRestitution(restitution); }
-        
+
         void addForce(const GUESS::core::math::Vector3f& force) {
             rigidbody->addForce(force);
         }

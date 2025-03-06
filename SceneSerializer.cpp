@@ -76,7 +76,7 @@ namespace GUESS::core {
         const auto& gameObjects = root.get<std::map<std::string, JsonValue>>()["gameObjects"]
             .get<std::vector<JsonValue>>();
         for (const auto& objValue : gameObjects) {
-            scene.AddGameObject(deserializeGameObject(objValue));
+            scene.AddGameObject(std::move(deserializeGameObject(objValue)));
         }
 
         scene.LoadScene();
