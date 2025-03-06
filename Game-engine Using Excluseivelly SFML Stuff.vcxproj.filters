@@ -73,6 +73,12 @@
     <Filter Include="Header Files\GameEngine\Components">
       <UniqueIdentifier>{a89aa48f-3fff-426c-8cc5-9003fdf48a9c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\PysicsEngine\Fluid CA">
+      <UniqueIdentifier>{19fe1702-f7c0-4591-8e67-7edfc6b0c0a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\PhysicsEngine\Fluid CA">
+      <UniqueIdentifier>{5e530616-de5f-48a9-95a7-b51f04ae25f9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -215,6 +221,18 @@
     </ClCompile>
     <ClCompile Include="PhysicsEngine\ThermodynamicBody.cpp">
       <Filter>Source Files\PhysicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsEngine\FluidGrid.cpp">
+      <Filter>Source Files\PhysicsEngine\Fluid CA</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsEngine\FluidCell.cpp">
+      <Filter>Source Files\PhysicsEngine\Fluid CA</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsEngine\FluidSimulator.cpp">
+      <Filter>Source Files\PhysicsEngine\Fluid CA</Filter>
+    </ClCompile>
+    <ClCompile Include="FluidSimulationComponent.h.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -405,6 +423,18 @@
       <Filter>Header Files\PysicsEngine</Filter>
     </ClInclude>
     <ClInclude Include="PhysicsEngine\ThermodynamicBodyComponent.h">
+      <Filter>Header Files\GameEngine\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsEngine\FluidSimulator.h">
+      <Filter>Header Files\PysicsEngine\Fluid CA</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsEngine\FluidGrid.h">
+      <Filter>Header Files\PysicsEngine\Fluid CA</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsEngine\FluidCell.h">
+      <Filter>Header Files\PysicsEngine\Fluid CA</Filter>
+    </ClInclude>
+    <ClInclude Include="FluidSimulationComponent.h">
       <Filter>Header Files\GameEngine\Components</Filter>
     </ClInclude>
   </ItemGroup>

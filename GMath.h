@@ -5,8 +5,12 @@
 #endif
 #include <chrono>
 #include <thread>
+#include <future>
+#include <vector>
 
 namespace GUESS::core::math {
+
+    static const size_t THREAD_COUNT = std::thread::hardware_concurrency();
 
     constexpr float PI = 3.14159265359f;
     inline float toRadians(float degrees) { return degrees * (PI / 180); };
@@ -152,7 +156,6 @@ namespace GUESS::core::math {
         return arccos(x / hyp);
     }
 
-
     inline int floor(float x) { return (int)x; }
 
     template<typename T>
@@ -212,14 +215,33 @@ namespace GUESS::core::math {
         }
 
         Matrix4x4 operator*(const Matrix4x4& other) const {
-            Matrix4x4 result;
+            /*Matrix4x4 result;
             for (int i = 0; i < 4; i++)
                 for (int j = 0; j < 4; j++) {
                     result.m[i][j] = 0;
                     for (int k = 0; k < 4; k++)
                         result.m[i][j] += m[i][k] * other.m[k][j];
                 }
+            return result;*/
+            Matrix4x4 result;
+            std::vector<std::future<void>> futures;
+
+            for (int i = 0; i < 4; i++) {
+                futures.push_back(std::async(std::launch::async, [&](int row) {
+                    for (int j = 0; j < 4; j++) {
+                        result.m[row][j] = 0;
+                        for (int k = 0; k < 4; k++) {
+                            result.m[row][j] += this->m[row][k] * other.m[k][j];
+                        }
+                    }
+                }, i));
+            }
+
+            for (auto& f : futures) {
+                f.wait();
+            }
             return result;
+
         }
 
         Vector3f operator*(const Vector3f& vec) const {
@@ -419,24 +441,28 @@ namespace GUESS::core::math {
             : min(min), max(max) {}
 
         AABB transform(const Matrix4x4& matrix) const {
-            // Transform all 8 corners of the AABB
-            Vector3f corners[8] = {
-                Vector3f(min.x, min.y, min.z),
-                Vector3f(max.x, min.y, min.z),
-                Vector3f(min.x, max.y, min.z),
-                Vector3f(max.x, max.y, min.z),
-                Vector3f(min.x, min.y, max.z),
-                Vector3f(max.x, min.y, max.z),
-                Vector3f(min.x, max.y, max.z),
-                Vector3f(max.x, max.y, max.z)
-            };
+            std::vector<Vector3f> corners(8);
+            corners[0] = Vector3f(this->min.x, this->min.y, this->min.z);
+            corners[1] = Vector3f(this->max.x, this->min.y, this->min.z);
+            corners[2] = Vector3f(this->min.x, this->max.y, this->min.z);
+            corners[3] = Vector3f(this->max.x, this->max.y, this->min.z);
+            corners[4] = Vector3f(this->min.x, this->min.y, this->max.z);
+            corners[5] = Vector3f(this->max.x, this->min.y, this->max.z);
+            corners[6] = Vector3f(this->min.x, this->max.y, this->max.z);
+            corners[7] = Vector3f(this->max.x, this->max.y, this->max.z);
 
-            // Transform each corner and find new bounds
-            Vector3f newMin = matrix * corners[0];
+            std::vector<std::future<Vector3f>> futures;
+            for (int i = 0; i < 8; i++) {
+                futures.push_back(std::async(std::launch::async, [&matrix](Vector3f corner) {
+                    return matrix * corner;
+                }, corners[i]));
+            }
+
+            Vector3f newMin = futures[0].get();
             Vector3f newMax = newMin;
 
-            for (int i = 1; i < 8; i++) {
-                Vector3f transformed = matrix * corners[i];
+            for (size_t i = 1; i < futures.size(); i++) {
+                Vector3f transformed = futures[i].get();
                 newMin.x = std::min(newMin.x, transformed.x);
                 newMin.y = std::min(newMin.y, transformed.y);
                 newMin.z = std::min(newMin.z, transformed.z);
@@ -780,7 +806,10 @@ namespace GUESS::core::math {
     class Random {
     private:
         RandomState state;
-
+        static Random& getThreadLocal() {
+            static thread_local Random instance;
+            return instance;
+        }
         // Xorshift64* algorithm
         uint64_t xorshift64() {
             state.state ^= state.state >> 12;
@@ -794,6 +823,7 @@ namespace GUESS::core::math {
             state.state = state.state * 6364136223846793005ULL + 1;
             return state.state;
         }
+
 
     public:
         Random() : state() {}
@@ -809,9 +839,13 @@ namespace GUESS::core::math {
             return min + (xorshift64() % (max - min));
         }
 
-        // Generate float in range [0, 1)
-        float nextFloat() {
+        // Generate float in range [0, 1]
+        float threadUnsafeNextFloat() {
             return (xorshift64() >> 11) * (1.0f / (float)(1ULL << 53));
+        }
+
+        float nextFloat() {
+            return getThreadLocal().threadUnsafeNextFloat();
         }
 
         // Generate float in range [min, max)

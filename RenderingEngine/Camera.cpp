@@ -22,6 +22,39 @@ namespace GUESS::rendering {
         m_view.setCenter(0.0f, 0.0f);
     }
 
+    Camera& Camera::operator=(const Camera& other)
+    {
+        if (this != &other) {
+            m_height = other.m_height;
+            m_width = other.m_width;
+            m_far = other.m_far;
+            m_near = other.m_near;
+            FOV = other.FOV;
+            position = other.position;
+            rotation = other.rotation;
+            m_view = other.m_view;
+            m_frustum = other.m_frustum;
+        }
+        return *this;
+    }
+
+    Camera::Camera(const Camera& other) noexcept
+        : m_height(other.m_height),
+        m_width(other.m_width),
+        m_far(other.m_far),
+        m_near(other.m_near),
+        FOV(other.FOV),
+        m_frustum(other.m_frustum),
+        position(other.position),
+        rotation(other.rotation),
+        m_view(other.m_view)
+    {
+        // Deep copy the skybox if it exists
+        if (other.skybox) {
+            skybox = std::make_unique<Skybox>(*other.skybox);
+        }
+    }
+
     void Camera::setPosition(const GUESS::core::math::Vector3f& newPos) {
         position = newPos;
         updateView();

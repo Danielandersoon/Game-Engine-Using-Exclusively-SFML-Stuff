@@ -9,8 +9,6 @@
 
         struct ThermalMaterial {
             float density;
-            float specificHeat;
-            float thermalConductivity;
             float meltingPoint;
             float boilingPoint;
         };
@@ -22,11 +20,13 @@
             float specificHeatCapacity{ 1000.0f }; // J/kg·K
             float conductivity{ 0.5f }; // W/m·K
             float surfaceArea{ 1.0f }; // m²
+            ThermalMaterial thermalMaterial;
 
         public:
             ThermodynamicBody() = default;
-            ThermodynamicBody(float temp, float capacity, float conduct, float area)
-                : temperature(temp), specificHeatCapacity(capacity), conductivity(conduct), surfaceArea(area) {}
+            ThermodynamicBody(float temp, float capacity, float conduct, float area, float density, float meltingPoint, float boilingPoint)
+                : temperature(temp), specificHeatCapacity(capacity), conductivity(conduct), surfaceArea(area) {
+                thermalMaterial.boilingPoint = boilingPoint; thermalMaterial.density = density; thermalMaterial.meltingPoint = meltingPoint; }
 
             void updateTemperature(float deltaTime, PhysicsWorld* pWorld);
             void transferHeat(ThermodynamicBody* other);
@@ -37,6 +37,10 @@
             float getHeatCapacity() const { return specificHeatCapacity; }
             float getConductivity() const { return conductivity; }
             float getSurfaceArea() const { return surfaceArea; }
+
+            float getDensity() { return thermalMaterial.density; }
+            float getMeltingPoint() { return thermalMaterial.meltingPoint; }
+            float getBoilingPoint() { return thermalMaterial.boilingPoint; }
 
             void setHeatCapacity(float capacity) { specificHeatCapacity = capacity; }
             void setConductivity(float conduct) { conductivity = conduct; }

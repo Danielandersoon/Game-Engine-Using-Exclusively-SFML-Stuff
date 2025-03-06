@@ -21,6 +21,9 @@ namespace GUESS::rendering {
     public:
         Camera(float height, float width, float far = 1000.0f, float near = 0.1f, float fov = 60.0f);
 
+        Camera& operator=(const Camera& other);
+        Camera(const Camera& other) noexcept;
+
         void setPosition(const GUESS::core::math::Vector3f& newPos);
         void setRotation(float angle);
         void setRotation(const GUESS::core::math::Quaternion& newRotation);

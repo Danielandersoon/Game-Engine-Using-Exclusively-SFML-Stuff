@@ -38,32 +38,32 @@ namespace GUESS::physics {
     }
 
     void PhysicsWorld::checkCollisions() {
-        // Check 2D collisions
-        for (size_t i = 0; i < bodies2D.size(); i++) {
-            for (size_t j = i + 1; j < bodies2D.size(); j++) {
-                auto colliderA = bodies2D[i]->getCollider();
-                auto colliderB = bodies2D[j]->getCollider();
+        size_t batchSize2D = bodies2D.size() / NUM_THREADS;
+        size_t batchSize3D = bodies3D.size() / NUM_THREADS;
 
-                if (colliderA && colliderB &&
-                    colliderA->checkCollision(*colliderB)) {
-                    colliderA->onCollisionEnter(*colliderB);
-                    colliderB->onCollisionEnter(*colliderA);
-                }
-            }
+        std::vector<std::future<void>> futures;
+
+        // Launch 2D collision detection threads
+        for (size_t i = 0; i < NUM_THREADS; i++) {
+            size_t start = i * batchSize2D;
+            size_t end = (i == NUM_THREADS - 1) ? bodies2D.size() : (i + 1) * batchSize2D;
+
+            futures.push_back(std::async(std::launch::async,
+                &PhysicsWorld::processCollisionBatch, this, start, end, std::ref(bodies2D)));
         }
 
-        // Check 3D collisions
-        for (size_t i = 0; i < bodies3D.size(); i++) {
-            for (size_t j = i + 1; j < bodies3D.size(); j++) {
-                auto colliderA = bodies3D[i]->getCollider();
-                auto colliderB = bodies3D[j]->getCollider();
+        // Launch 3D collision detection threads
+        for (size_t i = 0; i < NUM_THREADS; i++) {
+            size_t start = i * batchSize3D;
+            size_t end = (i == NUM_THREADS - 1) ? bodies3D.size() : (i + 1) * batchSize3D;
 
-                if (colliderA && colliderB &&
-                    colliderA->checkCollision(*colliderB)) {
-                    colliderA->onCollisionEnter(*colliderB);
-                    colliderB->onCollisionEnter(*colliderA);
-                }
-            }
+            futures.push_back(std::async(std::launch::async,
+                &PhysicsWorld::processCollisionBatch3D, this, start, end, std::ref(bodies3D)));
+        }
+
+        // Wait for all threads to complete
+        for (auto& future : futures) {
+            future.wait();
         }
     }
 
@@ -151,5 +151,41 @@ namespace GUESS::physics {
         }
     }
 
+    void PhysicsWorld::processCollisionBatch(size_t start, size_t end,
+        std::vector<RigidBody<GUESS::core::math::Vector2f>*>& bodies) {
+        static std::mutex localMutex;
+        std::lock_guard<std::mutex> lock(localMutex);
 
+        for (size_t i = start; i < end; i++) {
+            for (size_t j = i + 1; j < bodies.size(); j++) {
+                auto colliderA = bodies[i]->getCollider();
+                auto colliderB = bodies[j]->getCollider();
+
+                if (colliderA && colliderB && colliderA->checkCollision(*colliderB)) {
+                    std::lock_guard<std::mutex> lock(localMutex);
+                    colliderA->onCollisionEnter(*colliderB);
+                    colliderB->onCollisionEnter(*colliderA);
+                }
+            }
+        }
+    }
+
+    void PhysicsWorld::processCollisionBatch3D(size_t start, size_t end,
+        std::vector<RigidBody<GUESS::core::math::Vector3f>*>& bodies) {
+        static std::mutex localMutex;
+        std::lock_guard<std::mutex> lock(localMutex);
+
+        for (size_t i = start; i < end; i++) {
+            for (size_t j = i + 1; j < bodies.size(); j++) {
+                auto colliderA = bodies[i]->getCollider();
+                auto colliderB = bodies[j]->getCollider();
+
+                if (colliderA && colliderB && colliderA->checkCollision(*colliderB)) {
+                    std::lock_guard<std::mutex> lock(localMutex);
+                    colliderA->onCollisionEnter(*colliderB);
+                    colliderB->onCollisionEnter(*colliderA);
+                }
+            }
+        }
+    }
 }

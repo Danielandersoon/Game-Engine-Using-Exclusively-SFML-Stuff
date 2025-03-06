@@ -1,13 +1,14 @@
 #ifndef SCENE_MANAGER_H
 #define SCENE_MANAGER_H
 #include <string>
+#include <memory>
 #include "./Manager.h"
-#include "./Scene.h"
 
 namespace GUESS::core {
+    class Scene;
     class SceneManager : public Manager {
     private:
-        std::vector<Scene> m_Scenes;
+        std::vector<std::unique_ptr<Scene>> m_Scenes;
         Scene* m_activeScene;
         unsigned int m_SceneCounter = 0;
         float m_transitionDuration = 1.0f;
@@ -28,7 +29,7 @@ namespace GUESS::core {
         bool CreateNewScene(std::string sceneName);
         bool LoadScene(const std::string& sceneName);
         Scene* GetActiveScene();
-        void addScene(Scene&& scene) { m_Scenes.push_back(std::move(scene)); }
+        void addScene(Scene&& scene);
         bool DestroyScene(int SceneID);
         bool DestroySceneByName(std::string sceneName);
         unsigned int GetSceneID(Scene* scene_ptr);

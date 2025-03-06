@@ -1,7 +1,19 @@
 #include "./Engine.h"
+
+// Physics components
 #include "./MeshRendererComponent.h"
 #include "./RigidbodyComponent.h"
 #include "./Rigidbody2DComponent.h"
+#include "./BoxCollisionComponent.h"
+#include "./PhysicsEngine/ThermodynamicBodyComponent.h"
+#include "./CapsuleCollisionComponent.h"
+#include "./FluidSimulationComponent.h"
+
+// Render components
+#include "./SpriteRenderComponent.h"
+#include "./MeshRendererComponent.h"
+#include "./CameraComponent.h"
+
 
 
 namespace GUESS::core {

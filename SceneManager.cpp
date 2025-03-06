@@ -1,4 +1,5 @@
 #include "./SceneManager.h"
+#include "./Scene.h"
 #include "./Logger.h"
 
 namespace GUESS::core {
@@ -17,7 +18,7 @@ namespace GUESS::core {
     bool SceneManager::CreateNewScene(std::string sceneName) {
         try {
             m_SceneCounter++;
-            m_Scenes.emplace_back(sceneName);
+            m_Scenes.push_back(std::make_unique<Scene>(std::move(sceneName)));
             GUESS::core::Logger::log(GUESS::core::Logger::INFO, "New Scene " + sceneName + " created.");
             return true;
         }
@@ -29,28 +30,38 @@ namespace GUESS::core {
 
     bool SceneManager::LoadScene(const std::string& sceneName) {
         for (auto& scene : m_Scenes) {
-            if (scene.GetSceneName() == sceneName) {
+            if (scene->GetSceneName() == sceneName) {
                 if (m_activeScene) {
                     m_activeScene->CloseScene();
                 }
-                m_activeScene = &scene;
-                GUESS::core::Logger::log(GUESS::core::Logger::INFO, "Scene " + sceneName + " loaded.");
+                m_activeScene = scene.get();
                 return m_activeScene->LoadScene();
             }
         }
         return false;
     }
-
     Scene* SceneManager::GetActiveScene() {
         return m_activeScene;
+    }
+
+    void SceneManager::addScene(Scene&& scene)
+    {
+        auto localscene = std::make_unique<Scene>(scene.GetSceneName());
+        localscene.get()->setActive(scene.IsActive());
+        localscene.get()->setInputSystem(scene.getInputSystem());
+        localscene.get()->setMainCamera(std::make_unique<GUESS::rendering::Camera>(scene.getMainCamera()));
+        localscene.get()->setPhysicsWorld(std::move(*scene.getPhysicsWorld()));
+        localscene.get()->setPhysicsManager(std::move(*scene.getPhysicsManager()));
+        m_Scenes.emplace_back(std::move(localscene));
+
     }
 
     Scene& SceneManager::getCurrentScene()
     {
         if (m_Scenes.empty()) {
-            m_Scenes.emplace_back(Scene("defaultScene"));
+            m_Scenes.emplace_back(std::move(std::make_unique<Scene>("defaultScene")));
         } else if (m_activeScene == nullptr) {
-            m_activeScene = &m_Scenes[0];
+            m_activeScene = m_Scenes[0].get();
             m_activeScene->LoadScene();
         }
         
@@ -72,8 +83,8 @@ namespace GUESS::core {
     bool SceneManager::transitionToScene(const std::string& sceneName) {
         // Find the target scene
         for (auto& scene : m_Scenes) {
-            if (scene.GetSceneName() == sceneName) {
-                m_nextScene = &scene;
+            if (scene->GetSceneName() == sceneName) {
+                m_nextScene = scene.get();
                 m_isTransitioning = true;
                 m_transitionTimer = 0.0f;
                 return true;

@@ -9,6 +9,9 @@ namespace GUESS::physics {
         CapsuleCollider(float radius = 1.0f, float height = 2.0f);
 
         bool checkCollision(const Collider<GUESS::core::math::Vector3f>& other) override;
+        void onCollisionEnter(Collider<GUESS::core::math::Vector3f>& other) override {};
+        void onCollisionStay(Collider<GUESS::core::math::Vector3f>& other) override {};
+        void onCollisionExit(Collider<GUESS::core::math::Vector3f>& other) override {};
 
         void setRadius(float r) { radius = r; }
         void setHeight(float h) { height = h; }

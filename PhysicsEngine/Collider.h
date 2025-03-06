@@ -50,6 +50,6 @@ namespace GUESS::physics {
         T scale;
         RigidBody<T>* attachedRigidbody;
     };
-}
+};
 
 #endif
