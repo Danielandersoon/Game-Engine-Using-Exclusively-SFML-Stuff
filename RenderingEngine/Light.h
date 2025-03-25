@@ -4,18 +4,18 @@
 #include "../GMath.h"
 
 namespace GUESS::rendering::threed {
-
+    const enum class LightType { Point, Directional, Spot };
     class Light {
-    public:
-        static const enum class LightType { Point, Directional, Spot };
     private:
         GUESS::core::math::Vector3f position;
-        GUESS::core::math::Vector3f colour;
+        GUESS::core::math::Vector3f colour = GUESS::core::math::Vector3f(255.f, 255.f, 255.f);
         GUESS::core::math::Quaternion rotation;
-        float intensity;
+        float intensity = 1;
+        float range = 10;
         LightType type;
         GUESS::core::math::Matrix4x4 m_lightSpaceMatrix;
         sf::Texture m_shadowMap;
+        GUESS::core::math::Quaternion rotation;
 
     public:
         Light(LightType type);
@@ -28,6 +28,10 @@ namespace GUESS::rendering::threed {
         void setShadowMap(const sf::Texture& shadowMap);
         void setLightSpaceMatrix(const GUESS::core::math::Matrix4x4& matrix);
         void setForward(const GUESS::core::math::Vector3f& forward);
+        void setRotation(GUESS::core::math::Quaternion q_in) { rotation = q_in; }
+        GUESS::core::math::Quaternion getRotation() { return rotation; }
+        void setRange(float r_in) { range = r_in; }
+        float getRange() { return range; }
 
         const GUESS::core::math::Vector3f& getPosition() const { return position; }
         const GUESS::core::math::Vector3f& getColor() const { return colour; }

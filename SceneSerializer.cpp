@@ -1,12 +1,22 @@
 #include <fstream>
 #include "./Logger.h"
 #include "./SceneSerializer.h"
+// collision components
+#include "./CapsuleCollisionComponent.h"
 #include "./BoxCollisionComponent.h"
-#include "./MeshRendererComponent.h"
 #include "./Rigidbody2DComponent.h"
 #include "./RigidbodyComponent.h"
+
+// render components
 #include "./SpriteRenderComponent.h"
 #include "./CameraComponent.h"
+#include "./MeshRendererComponent.h"
+#include "./LightComponents.h"
+
+// physics components
+#include "./PhysicsEngine/ThermodynamicBodyComponent.h"
+#include "./FluidSimulationComponent.h"
+
 
 namespace GUESS::core {
     bool SceneSerializer::saveScene(Scene& scene, const std::string& filepath) {
@@ -124,7 +134,6 @@ namespace GUESS::core {
             meshRendererData.set("receiveShadows", JsonValue(meshRenderer->receiveShadows));
             components.append(meshRendererData);
         }
-
         // Serialize SpriteRenderer component
         if (auto* spriteRenderer = gameObject->getComponent<SpriteRendererComponent>()) {
             JsonValue spriteRendererData(std::map<std::string, JsonValue>{});
@@ -134,7 +143,6 @@ namespace GUESS::core {
             spriteRendererData.set("flipY", JsonValue(spriteRenderer->flipY));
             components.append(spriteRendererData);
         }
-
         // Serialize Camera component
         if (auto* camera = gameObject->getComponent<CameraComponent>()) {
             JsonValue cameraData(std::map<std::string, JsonValue>{});
@@ -145,18 +153,61 @@ namespace GUESS::core {
             cameraData.set("isMainCamera", JsonValue(camera->isMainCamera));
             components.append(cameraData);
         }
-
         // Serialize Rigidbody components
         if (auto* rb3d = gameObject->getComponent<RigidbodyComponent>()) {
             JsonValue rbData(std::map<std::string, JsonValue>{});
             rbData.set("type", JsonValue("Rigidbody3D"));
             components.append(rbData);
         }
-
         if (auto* rb2d = gameObject->getComponent<Rigidbody2DComponent>()) {
             JsonValue rbData(std::map<std::string, JsonValue>{});
             rbData.set("type", JsonValue("Rigidbody2D"));
             components.append(rbData);
+        }
+        if (auto* boxCollision = gameObject->getComponent<BoxCollisionComponent>()) {
+            JsonValue collisionData(std::map<std::string, JsonValue>{});
+            collisionData.set("type", JsonValue("BoxCollision"));
+
+            // Serialize size
+            collisionData.set("size", serializeVector3(boxCollision->collider.get()->getScale()));
+
+            // Serialize offset
+            collisionData.set("offset", serializeVector3(boxCollision->collider.get()->getCenter()));
+
+            // Serialize physics properties
+            collisionData.set("isTrigger", JsonValue(boxCollision->collider.get()->getTrigger()));
+
+            components.append(collisionData);
+        }
+        if (auto* light = gameObject->getComponent<LightComponent>()) {
+            JsonValue lightData(std::map<std::string, JsonValue>{});
+            lightData.set("type", JsonValue("Light"));
+            switch (light->type)
+            {
+            case GUESS::rendering::threed::LightType::Directional:
+                lightData.set("lightType", JsonValue(1.00));
+            case GUESS::rendering::threed::LightType::Point:
+                lightData.set("lightType", JsonValue(2.00));
+            case GUESS::rendering::threed::LightType::Spot:
+                lightData.set("lightType", JsonValue(3.00));
+
+            default:
+                Logger::log(Logger::ERROR, "Failed to serialize scene");
+                return;
+            }
+
+            // Serialize color as RGB values
+            std::vector<JsonValue> colorValues;
+            auto color = light->colour;
+            colorValues.push_back(JsonValue(static_cast<double>(color.x)));
+            colorValues.push_back(JsonValue(static_cast<double>(color.y)));
+            colorValues.push_back(JsonValue(static_cast<double>(color.z)));
+            lightData.set("color", JsonValue(colorValues));
+
+            lightData.set("intensity", JsonValue(static_cast<double>(light->intensity)));
+            lightData.set("range", JsonValue(static_cast<double>(light->range)));
+
+            components.append(lightData);
         }
 
         return components;
@@ -196,6 +247,48 @@ namespace GUESS::core {
             else if (type == "Rigidbody2D") {
                 gameObject->addComponent<Rigidbody2DComponent>();
             }
+            else if (type == "BoxCollision") {
+                auto* boxCollision = gameObject->addComponent<BoxCollisionComponent>();
+
+                // Set size
+                boxCollision->getCollider()->setScale(deserializeVector3(data.at("size")));
+
+                // Set offset
+                boxCollision->getCollider()->setPosition(deserializeVector3(data.at("offset")));
+
+                // Set physics properties
+                boxCollision->getCollider()->setTrigger(data.at("isTrigger").get<bool>());
+            }
+            else if (type == "Light") {
+                auto* light = gameObject->addComponent<LightComponent>();
+
+                // light->lightType = static_cast<LightType>(data.at("lightType").get<int>()));
+                double lighttype_double = data.at("lightType").get<double>();
+                
+                if (lighttype_double == 1.00)
+                    light->type = GUESS::rendering::threed::LightType::Directional;
+                else if (lighttype_double == 2.00)
+                    light->type = GUESS::rendering::threed::LightType::Point;
+                else if (lighttype_double == 3.00)
+                    light->type = GUESS::rendering::threed::LightType::Spot;
+                else {
+                    Logger::log(Logger::ERROR, "Failed to load scene, scene file has been altered");
+                    return;
+                }
+
+                // Deserialize color
+                const auto& colorValues = data.at("color").get<std::vector<JsonValue>>();
+                sf::Color color(
+                    static_cast<sf::Uint8>(colorValues[0].get<double>() * 255),
+                    static_cast<sf::Uint8>(colorValues[1].get<double>() * 255),
+                    static_cast<sf::Uint8>(colorValues[2].get<double>() * 255)
+                );
+                light->colour = GUESS::core::math::Vector3f(color.r, color.g, color.b);
+
+                light->intensity = static_cast<float>(data.at("intensity").get<double>());
+                light->range = static_cast<float>(data.at("range").get<double>());
+            }
+
         }
     }
 
@@ -225,6 +318,33 @@ namespace GUESS::core {
         }
 
         return gameObject;
+    }
+
+
+    JsonValue SceneSerializer::serializeTransform(const Transform& transform) {
+        JsonValue transformValue(std::map<std::string, JsonValue>{});
+
+        GUESS::core::math::Vector3f position = transform.getPosition();
+        GUESS::core::math::Vector3f rotation = transform.getRotation().toEuler();
+        GUESS::core::math::Vector3f scale = transform.getScale();
+
+        transformValue.set("position", serializeVector3(position));
+        transformValue.set("rotation", serializeVector3(rotation));
+        transformValue.set("scale", serializeVector3(scale));
+
+        return transformValue;
+    }
+
+    void SceneSerializer::deserializeTransform(Transform& transform, const JsonValue& jsonObj) {
+        const auto& transformData = jsonObj.get<std::map<std::string, JsonValue>>();
+
+        auto position = deserializeVector3(transformData.at("position"));
+        auto rotation = deserializeVector3(transformData.at("rotation"));
+        auto scale = deserializeVector3(transformData.at("scale"));
+
+        transform.setPosition(position);
+        transform.setRotation(GUESS::core::math::Quaternion::fromEuler(rotation.x, rotation.y, rotation.z));
+        transform.setScale(scale);
     }
 
 }
