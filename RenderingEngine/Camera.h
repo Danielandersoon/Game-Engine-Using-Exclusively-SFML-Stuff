@@ -10,6 +10,7 @@ namespace GUESS::rendering {
         float m_height, m_width;
         float m_far, m_near;
         float FOV; // Degrees
+        float m_aspectRatio;
 
         GUESS::core::math::Frustum m_frustum;
         GUESS::core::math::Vector3f position;
@@ -31,10 +32,13 @@ namespace GUESS::rendering {
         void move(const GUESS::core::math::Vector3f& offset);
         void rotate(float angle);
         void zoom(float factor);
+        void setViewportSize(float width, float height);
 
         const GUESS::core::math::Vector3f& getPosition() const { return position; }
         const GUESS::core::math::Quaternion& getRotation() const { return rotation; }
         const sf::View& getView() const { return m_view; }
+        float getFov() const { return FOV; }
+        float getAspectRatio() const { return m_aspectRatio; }
 
         void updateView();
         bool isVisible(const GUESS::core::math::Vector3f& point) const;

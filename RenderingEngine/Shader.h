@@ -5,6 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include "../GMath.h"
 #include "../Logger.h"
+#include "Light.h"
 
 namespace GUESS::rendering {
     class Shader {
@@ -17,8 +18,7 @@ namespace GUESS::rendering {
         GUESS::core::math::Vector3f color;
         float intensity;
 
-        enum class LightType { Point, Directional, Spot };
-        LightType type;
+        threed::LightType type;
 
         bool m_isValid = false;
 

@@ -3,23 +3,14 @@
 namespace GUESS::rendering {
     Camera::Camera(float height, float width, float far, float near, float fov)
         : m_height(height), m_width(width), m_far(far), m_near(near), FOV(fov),
+        m_aspectRatio(height != 0.0f ? width / height : 1.0f),
         position(0.0f, 0.0f), rotation(1.0f, 0.0f, 0.0f, 0.0f) {
 
-        // Create perspective projection matrix for the frustum
-        GUESS::core::math::Matrix4x4 projectionMatrix =
-            GUESS::core::math::Matrix4x4::perspective(
-                GUESS::core::math::toRadians(FOV),
-                m_width / m_height,
-                m_near,
-                m_far
-            );
+        setProjectionMatrix(m_aspectRatio);
 
-        // Update the frustum planes based on the projection matrix
-        m_frustum.updateFromMatrix(projectionMatrix);
-
-        // Initialize SFML view
+        // Initialize SFML view - center it at the middle of the view area
         m_view.setSize(m_width, m_height);
-        m_view.setCenter(0.0f, 0.0f);
+        m_view.setCenter(m_width / 2.0f, m_height / 2.0f);
     }
 
     Camera& Camera::operator=(const Camera& other)
@@ -30,6 +21,7 @@ namespace GUESS::rendering {
             m_far = other.m_far;
             m_near = other.m_near;
             FOV = other.FOV;
+            m_aspectRatio = other.m_aspectRatio;
             position = other.position;
             rotation = other.rotation;
             m_view = other.m_view;
@@ -44,6 +36,7 @@ namespace GUESS::rendering {
         m_far(other.m_far),
         m_near(other.m_near),
         FOV(other.FOV),
+        m_aspectRatio(other.m_aspectRatio),
         m_frustum(other.m_frustum),
         position(other.position),
         rotation(other.rotation),
@@ -85,6 +78,19 @@ namespace GUESS::rendering {
         updateView();
     }
 
+    void Camera::setViewportSize(float width, float height) {
+        if (width <= 0.0f || height <= 0.0f) {
+            return;
+        }
+
+        m_width = width;
+        m_height = height;
+        m_aspectRatio = m_width / m_height;
+        m_view.setSize(m_width, m_height);
+        setProjectionMatrix(m_aspectRatio);
+        updateView();
+    }
+
     void Camera::updateView() {
         m_view.setCenter(position.x, position.y);
         m_view.setRotation(GUESS::core::math::toDegrees(
@@ -97,9 +103,10 @@ namespace GUESS::rendering {
     }
 
     void Camera::setProjectionMatrix(float aspectRatio) {
+        m_aspectRatio = aspectRatio;
         GUESS::core::math::Matrix4x4 projectionMatrix = GUESS::core::math::Matrix4x4::perspective(
             GUESS::core::math::toRadians(FOV),
-            aspectRatio,
+            m_aspectRatio,
             m_near,
             m_far
         );
@@ -136,7 +143,7 @@ namespace GUESS::rendering {
     GUESS::core::math::Matrix4x4 Camera::getProjectionMatrix() const {
         return GUESS::core::math::Matrix4x4::perspective(
             GUESS::core::math::toRadians(FOV),
-            m_width / m_height,
+            m_aspectRatio,
             m_near,
             m_far
         );

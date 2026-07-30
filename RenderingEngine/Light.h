@@ -4,7 +4,7 @@
 #include "../GMath.h"
 
 namespace GUESS::rendering::threed {
-    const enum class LightType { Point, Directional, Spot };
+    enum class LightType { Point, Directional, Spot };
     class Light {
     private:
         GUESS::core::math::Vector3f position;
@@ -15,9 +15,9 @@ namespace GUESS::rendering::threed {
         LightType type;
         GUESS::core::math::Matrix4x4 m_lightSpaceMatrix;
         sf::Texture m_shadowMap;
-        GUESS::core::math::Quaternion rotation;
 
     public:
+        Light();
         Light(LightType type);
         void setPosition(const GUESS::core::math::Vector3f& pos) { position = pos; }
         void setColor(const GUESS::core::math::Vector3f& col) { colour = col; }

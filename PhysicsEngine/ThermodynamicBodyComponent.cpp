@@ -3,7 +3,7 @@
 
 void GUESS::core::ThermodynamicBodyComponent::update()
 {
-    thermodynamicBody.get()->updateTemperature(m_ownerScene.get()->FixedDeltaTime(), m_ownerScene.get()->getPhysicsWorld());
+    thermodynamicBody->updateTemperature(m_ownerScene->FixedDeltaTime(), m_ownerScene->getPhysicsWorld());
 
     temperature = thermodynamicBody.get()->getTemperature();
     specificHeatCapacity = thermodynamicBody.get()->getHeatCapacity();

@@ -4,6 +4,8 @@
 #include "./Component.h"
 #include "./RenderingEngine/Mesh.h"
 #include "./RenderingEngine/Material.h"
+#include "./Logger.h"
+#include <filesystem>
 #include <memory>
 #include <string>
 
@@ -27,18 +29,44 @@ namespace GUESS::core {
 
         void loadMesh(const std::string& path) {
             mesh = std::make_shared<GUESS::rendering::threed::Mesh>();
+            std::string resolvedPath = path;
+
+            // Resolve common runtime working-directory differences (e.g. x64/Debug).
+            if (!std::filesystem::exists(resolvedPath)) {
+                static const char* fallbackPrefixes[] = {
+                    "./", "../", "../../", "../../../"
+                };
+
+                for (const char* prefix : fallbackPrefixes) {
+                    std::string candidate = std::string(prefix) + path;
+                    if (std::filesystem::exists(candidate)) {
+                        resolvedPath = candidate;
+                        break;
+                    }
+                }
+            }
+
+            bool loaded = false;
             size_t dotPos = path.find_last_of('.');
             if (dotPos != std::string::npos) {
                 std::string extension = path.substr(dotPos);
                 if (extension == ".obj") {
-                    mesh->loadFromOBJ(path);
+                    loaded = mesh->loadFromOBJ(resolvedPath);
                 }
                 else if (extension == ".fbx") {
-                    mesh->loadFromFBX(path);
+                    loaded = mesh->loadFromFBX(resolvedPath);
                 }
                 else if (extension == ".blend") {
-                    mesh->loadFromBlend(path);
+                    loaded = mesh->loadFromBlend(resolvedPath);
                 }
+            }
+
+            if (!loaded || mesh->getVertices().empty() || mesh->getIndices().empty()) {
+                GUESS::core::Logger::log(
+                    GUESS::core::Logger::ERROR,
+                    "Mesh load failed or produced empty geometry. Requested='" + path +
+                    "', resolved='" + resolvedPath + "'"
+                );
             }
             meshPath = path;
         }

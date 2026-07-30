@@ -44,26 +44,26 @@ namespace GUESS::rendering::threed {
                     tempNormals.push_back(GUESS::core::math::Vector3f(x, y, z));
                 }
                 else if (type == "f") {
-                    for (int i = 0; i < 3; i++) {
-                        std::string vertexData;
-                        iss >> vertexData;
+                    std::vector<unsigned int> faceVertexIndices;
+                    std::string vertexData;
+
+                    while (iss >> vertexData) {
+                        unsigned int vertexIndex = 0;
+                        unsigned int uvIndex = 0;
+                        unsigned int normalIndex = 0;
 
                         std::replace(vertexData.begin(), vertexData.end(), '/', ' ');
                         std::istringstream vertexStream(vertexData);
-
-                        unsigned int vertexIndex, uvIndex, normalIndex;
                         vertexStream >> vertexIndex >> uvIndex >> normalIndex;
 
-                        indices.push_back(vertexIndex - 1);
-
                         Vertex3d vertex;
-                        if (vertexIndex <= tempVertices.size()) {
+                        if (vertexIndex > 0 && vertexIndex <= tempVertices.size()) {
                             vertex.position = tempVertices[vertexIndex - 1];
                         }
-                        if (uvIndex <= tempUVs.size()) {
+                        if (uvIndex > 0 && uvIndex <= tempUVs.size()) {
                             vertex.texCoords = GUESS::core::math::Vector2f(tempUVs[uvIndex - 1].x, tempUVs[uvIndex - 1].y);
                         }
-                        if (normalIndex <= tempNormals.size()) {
+                        if (normalIndex > 0 && normalIndex <= tempNormals.size()) {
                             vertex.normal = tempNormals[normalIndex - 1];
                             vertex.color = sf::Color(
                                 static_cast<sf::Uint8>((vertex.normal.x + 1.0f) * 127.5f),
@@ -71,39 +71,24 @@ namespace GUESS::rendering::threed {
                                 static_cast<sf::Uint8>((vertex.normal.z + 1.0f) * 127.5f)
                             );
                         }
+
                         vertices.push_back(vertex);
+                        faceVertexIndices.push_back(static_cast<unsigned int>(vertices.size() - 1));
+                    }
+
+                    // Fan triangulation supports both triangles and quads from OBJ faces.
+                    if (faceVertexIndices.size() >= 3) {
+                        for (size_t i = 1; i + 1 < faceVertexIndices.size(); ++i) {
+                            indices.push_back(faceVertexIndices[0]);
+                            indices.push_back(faceVertexIndices[i]);
+                            indices.push_back(faceVertexIndices[i + 1]);
+                        }
                     }
                 }
             }
-            vertexBuffer = std::make_unique<sf::VertexBuffer>();
-            vertexBuffer->create(vertices.size());
-            std::vector<sf::Vertex> sfmlVertices;
-            sfmlVertices.reserve(vertices.size());
-            for (const auto& vertex : vertices) {
-                sf::Vertex sfmlVertex;
-                sfmlVertex.position = sf::Vector2f(vertex.position.x, vertex.position.y);
-                sfmlVertex.color = vertex.color;
-                sfmlVertex.texCoords = sf::Vector2f(vertex.texCoords.x, vertex.texCoords.y);
-                sfmlVertices.push_back(sfmlVertex);
-            }
-            indexBuffer->update(sfmlVertices.data());
 
-            indexBuffer = std::make_unique<sf::VertexBuffer>();
-            indexBuffer->create(indices.size());
-            std::vector<sf::Vertex> indexVertices;
-            indexVertices.reserve(indices.size());
-            for (const auto& index : indices) {
-                sf::Vertex indexVertex;
-                // Map the index to vertex data
-                const auto& vertex = vertices[index];
-                indexVertex.position = sf::Vector2f(vertex.position.x, vertex.position.y);
-                indexVertex.color = vertex.color;
-                indexVertex.texCoords = sf::Vector2f(vertex.texCoords.x, vertex.texCoords.y);
-                indexVertices.push_back(indexVertex);
-            }
-            indexBuffer->update(indexVertices.data());
-
-
+            // Note: VertexBuffer creation is deferred to avoid requiring OpenGL context during mesh loading
+            // Buffers will be created lazily when first needed for rendering
 
             calculateBoundingBox();
             return true;

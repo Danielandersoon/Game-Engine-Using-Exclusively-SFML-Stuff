@@ -21,13 +21,13 @@ namespace GUESS::rendering::threed {
 
                 for (const auto& light : lights) {
                     switch (light.getType()) {
-                    case Light::LightType::Point:
+					case LightType::Point:
                         calculatePointLightContribution(texel, light);
                         break;
-                    case Light::LightType::Directional:
+                    case LightType::Directional:
                         calculateDirectionalLightContribution(texel, light);
                         break;
-                    case Light::LightType::Spot:
+                    case LightType::Spot:
                         calculateSpotLightContribution(texel, light);
                         break;
                     }

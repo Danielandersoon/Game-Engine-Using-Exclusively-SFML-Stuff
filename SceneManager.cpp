@@ -12,7 +12,7 @@ namespace GUESS::core {
             return LoadScene("DefaultScene");
         }
         Logger::log(GUESS::core::Logger::ERROR, "Could not initialize the scene manager");
-        return true;
+        return false;
     }
 
     bool SceneManager::CreateNewScene(std::string sceneName) {
@@ -60,11 +60,13 @@ namespace GUESS::core {
     {
         if (m_Scenes.empty()) {
             m_Scenes.emplace_back(std::move(std::make_unique<Scene>("defaultScene")));
+            m_activeScene = m_Scenes.back().get();
+            m_activeScene->LoadScene();
         } else if (m_activeScene == nullptr) {
             m_activeScene = m_Scenes[0].get();
             m_activeScene->LoadScene();
         }
-        
+
     return *m_activeScene;
     }
 

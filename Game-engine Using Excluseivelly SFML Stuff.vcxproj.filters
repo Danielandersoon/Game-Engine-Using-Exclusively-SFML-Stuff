@@ -437,8 +437,17 @@
     <ClInclude Include="FluidSimulationComponent.h">
       <Filter>Header Files\GameEngine\Components</Filter>
     </ClInclude>
+    <ClInclude Include="PhysicsEngine\BoxColliderComponent.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsEngine\PhysicsConst.h">
+      <Filter>Header Files\PysicsEngine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
+    <None Include="shaders\default_mesh.frag" />
+    <None Include="shaders\default_mesh.vert" />
+    <None Include="COLLISION_DEBUG_GUIDE.md" />
   </ItemGroup>
 </Project>

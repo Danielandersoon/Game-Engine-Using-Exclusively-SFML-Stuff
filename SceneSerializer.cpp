@@ -3,6 +3,7 @@
 #include "./SceneSerializer.h"
 // collision components
 #include "./CapsuleCollisionComponent.h"
+#include "./PhysicsEngine/BoxColliderComponent.h"
 #include "./BoxCollisionComponent.h"
 #include "./Rigidbody2DComponent.h"
 #include "./RigidbodyComponent.h"
@@ -164,19 +165,33 @@ namespace GUESS::core {
             rbData.set("type", JsonValue("Rigidbody2D"));
             components.append(rbData);
         }
-        if (auto* boxCollision = gameObject->getComponent<BoxCollisionComponent>()) {
+        if (auto* boxCollider3D = gameObject->getComponent<BoxColliderComponent>()) {
+            JsonValue collisionData(std::map<std::string, JsonValue>{});
+            collisionData.set("type", JsonValue("BoxCollider3D"));
+
+            // Persist world-space dimensions for stable reload behavior.
+            GUESS::core::math::Vector3f worldSize(1.0f, 1.0f, 1.0f);
+            bool isTrigger = false;
+            if (boxCollider3D->collider) {
+                worldSize = boxCollider3D->collider->getDimensions() * boxCollider3D->collider->getScale();
+                isTrigger = boxCollider3D->collider->getTrigger();
+            }
+
+            collisionData.set("size", serializeVector3(worldSize));
+            collisionData.set("isStatic", JsonValue(boxCollider3D->isStatic));
+            collisionData.set("isTrigger", JsonValue(isTrigger));
+
+            components.append(collisionData);
+        }
+        else if (auto* boxCollision = gameObject->getComponent<BoxCollisionComponent>()) {
+            // Legacy serialization fallback
             JsonValue collisionData(std::map<std::string, JsonValue>{});
             collisionData.set("type", JsonValue("BoxCollision"));
-
-            // Serialize size
-            collisionData.set("size", serializeVector3(boxCollision->collider.get()->getScale()));
-
-            // Serialize offset
-            collisionData.set("offset", serializeVector3(boxCollision->collider.get()->getCenter()));
-
-            // Serialize physics properties
-            collisionData.set("isTrigger", JsonValue(boxCollision->collider.get()->getTrigger()));
-
+            if (boxCollision->collider) {
+                collisionData.set("size", serializeVector3(boxCollision->collider.get()->getScale()));
+                collisionData.set("offset", serializeVector3(boxCollision->collider.get()->getCenter()));
+                collisionData.set("isTrigger", JsonValue(boxCollision->collider.get()->getTrigger()));
+            }
             components.append(collisionData);
         }
         if (auto* light = gameObject->getComponent<LightComponent>()) {
@@ -186,14 +201,16 @@ namespace GUESS::core {
             {
             case GUESS::rendering::threed::LightType::Directional:
                 lightData.set("lightType", JsonValue(1.00));
+                break;
             case GUESS::rendering::threed::LightType::Point:
                 lightData.set("lightType", JsonValue(2.00));
+                break;
             case GUESS::rendering::threed::LightType::Spot:
                 lightData.set("lightType", JsonValue(3.00));
-
+                break;
             default:
                 Logger::log(Logger::ERROR, "Failed to serialize scene");
-                return;
+                return JsonValue(std::vector<JsonValue>{});
             }
 
             // Serialize color as RGB values
@@ -247,17 +264,23 @@ namespace GUESS::core {
             else if (type == "Rigidbody2D") {
                 gameObject->addComponent<Rigidbody2DComponent>();
             }
-            else if (type == "BoxCollision") {
-                auto* boxCollision = gameObject->addComponent<BoxCollisionComponent>();
+            else if (type == "BoxCollider3D" || type == "BoxCollision") {
+                GUESS::core::math::Vector3f worldSize(1.0f, 1.0f, 1.0f);
+                if (data.find("size") != data.end()) {
+                    worldSize = deserializeVector3(data.at("size"));
+                }
 
-                // Set size
-                boxCollision->getCollider()->setScale(deserializeVector3(data.at("size")));
+                bool isStatic = false;
+                if (data.find("isStatic") != data.end()) {
+                    isStatic = data.at("isStatic").get<bool>();
+                }
 
-                // Set offset
-                boxCollision->getCollider()->setPosition(deserializeVector3(data.at("offset")));
+                bool isTrigger = false;
+                if (data.find("isTrigger") != data.end()) {
+                    isTrigger = data.at("isTrigger").get<bool>();
+                }
 
-                // Set physics properties
-                boxCollision->getCollider()->setTrigger(data.at("isTrigger").get<bool>());
+                gameObject->addComponent<BoxColliderComponent>(worldSize, isStatic, isTrigger);
             }
             else if (type == "Light") {
                 auto* light = gameObject->addComponent<LightComponent>();

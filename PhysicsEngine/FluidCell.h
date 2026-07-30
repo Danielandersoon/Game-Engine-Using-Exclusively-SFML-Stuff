@@ -27,6 +27,7 @@ namespace GUESS::physics {
             temperature(293.15f),
             velocity(0.0f, 0.0f),
             state(liquid),
+            thermalProperties(nullptr),
             cellSize(size) {
             properties = { 1000.0f, 1.0f, 0.0f }; // Default to water properties
             mass = properties.density * (cellSize * cellSize);

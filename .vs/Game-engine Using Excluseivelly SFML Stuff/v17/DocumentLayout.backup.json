@@ -1,42 +1,117 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\danie\\Documents\\GitHub\\Game-Engine-Using-Exclusively-SFML-Stuff\\",
+  "WorkspaceRootPath": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\GitHub\\Game-Engine-Using-Exclusively-SFML-Stuff\\SceneManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:SceneManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PHYSICSENGINE\\PHYSICSCONST.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:PHYSICSENGINE\\PHYSICSCONST.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\GitHub\\Game-Engine-Using-Exclusively-SFML-Stuff\\Scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:Scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\GitHub\\Game-Engine-Using-Exclusively-SFML-Stuff\\RenderingEngine\\Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:RenderingEngine\\Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\GitHub\\Game-Engine-Using-Exclusively-SFML-Stuff\\RenderingEngine\\Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:RenderingEngine\\Camera.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\GitHub\\Game-Engine-Using-Exclusively-SFML-Stuff\\SceneManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:SceneManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\GitHub\\Game-Engine-Using-Exclusively-SFML-Stuff\\Scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:Scene.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\GitHub\\Game-Engine-Using-Exclusively-SFML-Stuff\\PhysicsEngine\\PhysicsWorld.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\PhysicsWorld.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:PhysicsEngine\\PhysicsWorld.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\GitHub\\Game-Engine-Using-Exclusively-SFML-Stuff\\PhysicsEngine\\PhysicsWorld.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\PhysicsWorld.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:PhysicsEngine\\PhysicsWorld.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\GitHub\\Game-Engine-Using-Exclusively-SFML-Stuff\\GMath.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:Source.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\BoxColliderComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:PhysicsEngine\\BoxColliderComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\Collider.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:PhysicsEngine\\Collider.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\BoxCollider.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:PhysicsEngine\\BoxCollider.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\BoxCollider.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:PhysicsEngine\\BoxCollider.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\RigidBody.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:PhysicsEngine\\RigidBody.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\RigidbodyComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:RigidbodyComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\GMath.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:GMath.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\RigidBody.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:PhysicsEngine\\RigidBody.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\Scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:Scene.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\Engine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:Engine.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\RenderingEngine\\LightManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:RenderingEngine\\LightManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\RenderingEngine\\RenderManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:RenderingEngine\\RenderManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\Component.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:Component.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\GameObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:GameObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\RenderingEngine\\ShadowMapper.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:RenderingEngine\\ShadowMapper.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\RenderingEngine\\LightManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:RenderingEngine\\LightManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\BoxCollisionComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:BoxCollisionComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\Rigidbody2DComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:Rigidbody2DComponent.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\ThermodynamicBodyComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:PhysicsEngine\\ThermodynamicBodyComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\GameObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:GameObject.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\xhash||{3B902123-F8A7-4915-9F01-361F908088D0}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\RenderingEngine\\RenderManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:RenderingEngine\\RenderManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\shaders\\default_mesh.vert||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:shaders\\default_mesh.vert||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\shaders\\default_mesh.frag||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A7C652C9-F5E4-4C32-A346-E20D9977BC1C}|Game-engine Using Excluseivelly SFML Stuff.vcxproj|solutionrelative:shaders\\default_mesh.frag||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -46,128 +121,346 @@
       "DocumentGroups": [
         {
           "DockedWidth": 193,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Camera.cpp",
-              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\Game-Engine-Using-Exclusively-SFML-Stuff\\RenderingEngine\\Camera.cpp",
-              "RelativeDocumentMoniker": "RenderingEngine\\Camera.cpp",
-              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\Game-Engine-Using-Exclusively-SFML-Stuff\\RenderingEngine\\Camera.cpp",
-              "RelativeToolTip": "RenderingEngine\\Camera.cpp",
-              "ViewState": "AgIAACAAAAAAAAAAAAAowDcAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-06T21:24:21.24Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Scene.cpp",
-              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\Game-Engine-Using-Exclusively-SFML-Stuff\\Scene.cpp",
-              "RelativeDocumentMoniker": "Scene.cpp",
-              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\Game-Engine-Using-Exclusively-SFML-Stuff\\Scene.cpp",
-              "RelativeToolTip": "Scene.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-06T20:43:28.419Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Camera.h",
-              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\Game-Engine-Using-Exclusively-SFML-Stuff\\RenderingEngine\\Camera.h",
-              "RelativeDocumentMoniker": "RenderingEngine\\Camera.h",
-              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\Game-Engine-Using-Exclusively-SFML-Stuff\\RenderingEngine\\Camera.h",
-              "RelativeToolTip": "RenderingEngine\\Camera.h",
-              "ViewState": "AgIAABEAAAAAAAAAAAAYwBgAAAAMAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "BoxColliderComponent.h",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\BoxColliderComponent.h",
+              "RelativeDocumentMoniker": "PhysicsEngine\\BoxColliderComponent.h",
+              "ToolTip": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\BoxColliderComponent.h",
+              "RelativeToolTip": "PhysicsEngine\\BoxColliderComponent.h",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-06T20:35:11.045Z",
+              "WhenOpened": "2026-06-07T22:12:54.465Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PhysicsWorld.cpp",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\PhysicsWorld.cpp",
+              "RelativeDocumentMoniker": "PhysicsEngine\\PhysicsWorld.cpp",
+              "ToolTip": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\PhysicsWorld.cpp",
+              "RelativeToolTip": "PhysicsEngine\\PhysicsWorld.cpp",
+              "ViewState": "AgIAADsAAAAAAAAAAAAvwNAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-07T22:46:32.58Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "SceneManager.cpp",
-              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\Game-Engine-Using-Exclusively-SFML-Stuff\\SceneManager.cpp",
-              "RelativeDocumentMoniker": "SceneManager.cpp",
-              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\Game-Engine-Using-Exclusively-SFML-Stuff\\SceneManager.cpp*",
-              "RelativeToolTip": "SceneManager.cpp*",
-              "ViewState": "AgIAACkAAAAAAAAAAAAtwD0AAABRAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-06T14:20:04.07Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SceneManager.h",
-              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\Game-Engine-Using-Exclusively-SFML-Stuff\\SceneManager.h",
-              "RelativeDocumentMoniker": "SceneManager.h",
-              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\Game-Engine-Using-Exclusively-SFML-Stuff\\SceneManager.h",
-              "RelativeToolTip": "SceneManager.h",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAAAsAAAAYAAAAAAAAAA==",
+              "Title": "PhysicsConst.h",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\PhysicsConst.h",
+              "RelativeDocumentMoniker": "PhysicsEngine\\PhysicsConst.h",
+              "ToolTip": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\PhysicsConst.h",
+              "RelativeToolTip": "PhysicsEngine\\PhysicsConst.h",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAvwA0AAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-06T14:19:11.575Z",
+              "WhenOpened": "2026-06-07T22:33:41.671Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "PhysicsWorld.cpp",
-              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\Game-Engine-Using-Exclusively-SFML-Stuff\\PhysicsEngine\\PhysicsWorld.cpp",
-              "RelativeDocumentMoniker": "PhysicsEngine\\PhysicsWorld.cpp",
-              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\Game-Engine-Using-Exclusively-SFML-Stuff\\PhysicsEngine\\PhysicsWorld.cpp",
-              "RelativeToolTip": "PhysicsEngine\\PhysicsWorld.cpp",
-              "ViewState": "AgIAAKsAAAAAAAAAAAAUwLcAAAA/AAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Source.cpp",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\Source.cpp",
+              "RelativeDocumentMoniker": "Source.cpp",
+              "ToolTip": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\Source.cpp",
+              "RelativeToolTip": "Source.cpp",
+              "ViewState": "AgIAADoAAAAAAAAAAAAvwFAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-03-06T14:02:04.784Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-07T19:43:44.963Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "PhysicsWorld.h",
-              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\Game-Engine-Using-Exclusively-SFML-Stuff\\PhysicsEngine\\PhysicsWorld.h",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\PhysicsWorld.h",
               "RelativeDocumentMoniker": "PhysicsEngine\\PhysicsWorld.h",
-              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\Game-Engine-Using-Exclusively-SFML-Stuff\\PhysicsEngine\\PhysicsWorld.h",
+              "ToolTip": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\PhysicsWorld.h",
               "RelativeToolTip": "PhysicsEngine\\PhysicsWorld.h",
-              "ViewState": "AgIAACIAAAAAAAAAAAAUwC4AAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAEYAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-06T14:01:59.11Z",
+              "WhenOpened": "2026-06-07T23:18:31.937Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d3750d8a-574b-4fb3-b7e2-aa8af40e8231}"
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Scene.h",
-              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\Game-Engine-Using-Exclusively-SFML-Stuff\\Scene.h",
-              "RelativeDocumentMoniker": "Scene.h",
-              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\Game-Engine-Using-Exclusively-SFML-Stuff\\Scene.h",
-              "RelativeToolTip": "Scene.h",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAYwEoAAAAAAAAAAAAAAA==",
+              "Title": "Collider.h",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\Collider.h",
+              "RelativeDocumentMoniker": "PhysicsEngine\\Collider.h",
+              "ToolTip": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\Collider.h",
+              "RelativeToolTip": "PhysicsEngine\\Collider.h",
+              "ViewState": "AgIAABIAAAAAAAAAAAAWwBYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-06T14:13:18.705Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-08T09:00:01.622Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BoxCollider.cpp",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\BoxCollider.cpp",
+              "RelativeDocumentMoniker": "PhysicsEngine\\BoxCollider.cpp",
+              "ToolTip": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\BoxCollider.cpp",
+              "RelativeToolTip": "PhysicsEngine\\BoxCollider.cpp",
+              "ViewState": "AgIAACYAAAAAAAAAAAAUwAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-07T22:52:27.46Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "GMath.h",
-              "DocumentMoniker": "C:\\Users\\danie\\Documents\\GitHub\\Game-Engine-Using-Exclusively-SFML-Stuff\\GMath.h",
-              "RelativeDocumentMoniker": "GMath.h",
-              "ToolTip": "C:\\Users\\danie\\Documents\\GitHub\\Game-Engine-Using-Exclusively-SFML-Stuff\\GMath.h",
-              "RelativeToolTip": "GMath.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAkAAAAAAAAAA==",
+              "Title": "RigidBody.h",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\RigidBody.h",
+              "RelativeDocumentMoniker": "PhysicsEngine\\RigidBody.h",
+              "ToolTip": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\RigidBody.h",
+              "RelativeToolTip": "PhysicsEngine\\RigidBody.h",
+              "ViewState": "AgIAAAsAAAAAAAAAAAArwBIAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-06T12:44:54.04Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-07T22:26:25.193Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BoxCollider.h",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\BoxCollider.h",
+              "RelativeDocumentMoniker": "PhysicsEngine\\BoxCollider.h",
+              "ToolTip": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\BoxCollider.h",
+              "RelativeToolTip": "PhysicsEngine\\BoxCollider.h",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAgAAABzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-07-12T17:28:55.353Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RigidbodyComponent.h",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\RigidbodyComponent.h",
+              "RelativeDocumentMoniker": "RigidbodyComponent.h",
+              "ToolTip": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\RigidbodyComponent.h",
+              "RelativeToolTip": "RigidbodyComponent.h",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABkAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-07T20:02:08.119Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "GMath.h",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\GMath.h",
+              "RelativeDocumentMoniker": "GMath.h",
+              "ToolTip": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\GMath.h",
+              "RelativeToolTip": "GMath.h",
+              "ViewState": "AgIAAJIAAAAAAAAAAAAAAIEDAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-07T23:02:08.804Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "RigidBody.cpp",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\RigidBody.cpp",
+              "RelativeDocumentMoniker": "PhysicsEngine\\RigidBody.cpp",
+              "ToolTip": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\RigidBody.cpp",
+              "RelativeToolTip": "PhysicsEngine\\RigidBody.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-07T22:36:55.236Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Scene.cpp",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\Scene.cpp",
+              "RelativeDocumentMoniker": "Scene.cpp",
+              "ToolTip": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\Scene.cpp",
+              "RelativeToolTip": "Scene.cpp",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAUwEYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-07T19:40:27.218Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Engine.cpp",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\Engine.cpp",
+              "RelativeDocumentMoniker": "Engine.cpp",
+              "ToolTip": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\Engine.cpp",
+              "RelativeToolTip": "Engine.cpp",
+              "ViewState": "AgIAANoAAAAAAAAAAABRwN0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-07T22:08:58.214Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "RenderManager.h",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\RenderingEngine\\RenderManager.h",
+              "RelativeDocumentMoniker": "RenderingEngine\\RenderManager.h",
+              "ToolTip": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\RenderingEngine\\RenderManager.h",
+              "RelativeToolTip": "RenderingEngine\\RenderManager.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-07T22:08:57.808Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "default_mesh.vert",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\shaders\\default_mesh.vert",
+              "RelativeDocumentMoniker": "shaders\\default_mesh.vert",
+              "ToolTip": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\shaders\\default_mesh.vert",
+              "RelativeToolTip": "shaders\\default_mesh.vert",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-06-07T22:08:58.135Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "default_mesh.frag",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\shaders\\default_mesh.frag",
+              "RelativeDocumentMoniker": "shaders\\default_mesh.frag",
+              "ToolTip": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\shaders\\default_mesh.frag",
+              "RelativeToolTip": "shaders\\default_mesh.frag",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-06-07T22:08:58.181Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "BoxCollisionComponent.h",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\BoxCollisionComponent.h",
+              "RelativeDocumentMoniker": "BoxCollisionComponent.h",
+              "ToolTip": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\BoxCollisionComponent.h",
+              "RelativeToolTip": "BoxCollisionComponent.h",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAcwBcAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-07T20:02:33.44Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "RenderManager.cpp",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\RenderingEngine\\RenderManager.cpp",
+              "RelativeDocumentMoniker": "RenderingEngine\\RenderManager.cpp",
+              "ToolTip": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\RenderingEngine\\RenderManager.cpp",
+              "RelativeToolTip": "RenderingEngine\\RenderManager.cpp",
+              "ViewState": "AgIAAKcAAAAAAAAAAAAvwLQAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-07T20:17:49.34Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Component.h",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\Component.h",
+              "RelativeDocumentMoniker": "Component.h",
+              "ToolTip": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\Component.h",
+              "RelativeToolTip": "Component.h",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAACQAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-07T19:59:17.358Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "LightManager.cpp",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\RenderingEngine\\LightManager.cpp",
+              "RelativeDocumentMoniker": "RenderingEngine\\LightManager.cpp",
+              "ToolTip": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\RenderingEngine\\LightManager.cpp",
+              "RelativeToolTip": "RenderingEngine\\LightManager.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-07T20:25:24.377Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "GameObject.cpp",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\GameObject.cpp",
+              "RelativeDocumentMoniker": "GameObject.cpp",
+              "ToolTip": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\GameObject.cpp",
+              "RelativeToolTip": "GameObject.cpp",
+              "ViewState": "AgIAACAAAAAAAAAAAAAewCgAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-07T19:59:25.343Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "LightManager.h",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\RenderingEngine\\LightManager.h",
+              "RelativeDocumentMoniker": "RenderingEngine\\LightManager.h",
+              "ToolTip": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\RenderingEngine\\LightManager.h",
+              "RelativeToolTip": "RenderingEngine\\LightManager.h",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-07T20:12:02.855Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "ShadowMapper.h",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\RenderingEngine\\ShadowMapper.h",
+              "RelativeDocumentMoniker": "RenderingEngine\\ShadowMapper.h",
+              "ToolTip": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\RenderingEngine\\ShadowMapper.h",
+              "RelativeToolTip": "RenderingEngine\\ShadowMapper.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAvwAgAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-07T20:14:55.112Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "ThermodynamicBodyComponent.cpp",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\ThermodynamicBodyComponent.cpp",
+              "RelativeDocumentMoniker": "PhysicsEngine\\ThermodynamicBodyComponent.cpp",
+              "ToolTip": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\PhysicsEngine\\ThermodynamicBodyComponent.cpp",
+              "RelativeToolTip": "PhysicsEngine\\ThermodynamicBodyComponent.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-06-07T20:02:47.488Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "Rigidbody2DComponent.h",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\Rigidbody2DComponent.h",
+              "RelativeDocumentMoniker": "Rigidbody2DComponent.h",
+              "ToolTip": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\Rigidbody2DComponent.h",
+              "RelativeToolTip": "Rigidbody2DComponent.h",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAcwBUAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-07T20:03:49.695Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "GameObject.h",
+              "DocumentMoniker": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\GameObject.h",
+              "RelativeDocumentMoniker": "GameObject.h",
+              "ToolTip": "C:\\Users\\danie\\Documents\\Game-Engine-Using-Exclusively-SFML-Stuff-main\\GameObject.h",
+              "RelativeToolTip": "GameObject.h",
+              "ViewState": "AgIAAFcAAAAAAAAAAAAwwGAAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-07T19:47:43.982Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "xhash",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\xhash",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\xhash",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\xhash",
+              "RelativeToolTip": "..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\xhash",
+              "ViewState": "AgIAALwEAAAAAAAAAAAewL8EAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2026-06-07T19:40:24.081Z"
             }
           ]
         }

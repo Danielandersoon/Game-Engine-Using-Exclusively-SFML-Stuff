@@ -21,20 +21,32 @@ namespace GUESS::physics {
         T forceAccum = T();
 
         float submergedVolume = 0.0f;
-        float fluidDensity = 1000.0f; // Default water density in kg/m³
+        float fluidDensity = 1000.0f; // Default water density in kg/m^3
         float volume = 1.0f;
+
+        bool isStatic = false;
+        bool sleeping = false;
 
     public:
         RigidBody() = default;
         explicit RigidBody(float mass, float friction = 0.2f, float restitution = 0.8f, Collider<T>* collider_ptr_in = nullptr)
-            : RigidBody<T>(mass, friction, restitution, collider_ptr_in) {};
-        void applyForce(const T& force) { acceleration = acceleration + force; };
+            : mass(mass), friction(friction), restitution(restitution), collider_ptr(collider_ptr_in) {};
+
+        void applyForce(const T& force) {
+            sleeping = false;
+            acceleration = acceleration + force;
+        };
         T getPosition() const { return position; };
         T  getVelocity() const { return velocity; };
         T getAcceleration() const { return acceleration; };
-        void setPosition(float position) { this->position = position; };
-        void setVelocity(T velocity) { this->velocity = velocity; };
-        void setAcceleration(float acceleration) { this->acceleration = acceleration; };
+        void setPosition(const T& position) { this->position = position; };
+        void setVelocity(T velocity) {
+            this->velocity = velocity;
+            if (velocity.magnitude() > 0.0001f) {
+                sleeping = false;
+            }
+        };
+        void setAcceleration(const T& acceleration) { this->acceleration = acceleration; };
         float getMass() const { return mass; };
         float getFriction() const { return friction; };
         float getRestitution() const { return restitution; };
@@ -44,10 +56,31 @@ namespace GUESS::physics {
         Collider<T>* getCollider() { return collider_ptr; }
         void setCollider(Collider<T>* col) { collider_ptr = col; }
         void clearForces() { forceAccum = T(); }
-        void addForce(const T& force) { forceAccum = forceAccum + force; }
+        void addForce(const T& force) {
+            sleeping = false;
+            forceAccum = forceAccum + force;
+        }
         void setSubmergedVolume(float volume) { submergedVolume = volume; }
         void setFluidDensity(float density) { fluidDensity = density; }
         void setVolume(float vol) { volume = vol; }
+
+        // Static flag accessors
+        void setIsStatic(bool s) { isStatic = s; }
+        bool getIsStatic() const { return isStatic; }
+        void setSleeping(bool s) {
+            if (isStatic) {
+                sleeping = false;
+                return;
+            }
+
+            sleeping = s;
+            if (sleeping) {
+                velocity = T();
+                acceleration = T();
+                clearForces();
+            }
+        }
+        bool getSleeping() const { return sleeping; }
 
         void calculateBuoyancy() {
             if (submergedVolume > 0.0f) {
@@ -69,13 +102,28 @@ namespace GUESS::physics {
 
 
         void update(float deltaTime) {
+            if (isStatic || sleeping) {
+                // Static bodies do not integrate
+                clearForces();
+                acceleration = T();
+                if (isStatic) {
+                    velocity = T();
+                }
+                return;
+            }
+
             acceleration = acceleration + (forceAccum * (1.0f / mass));
 
             calculateBuoyancy();
-            if (!collider_ptr->checkCollision(*collider_ptr)) {
-                // No collisions, just apply gravity ontop of existing accelaration.
-                acceleration = acceleration + ((mass * GRAVITY) * deltaTime);
+            // Apply gravity (F = m * g)
+            T gravityForce;
+            if constexpr (std::is_same_v<T, GUESS::core::math::Vector2f>) {
+                gravityForce = T(0.0f, mass * GRAVITY);
             }
+            else {
+                gravityForce = T(0.0f, mass * GRAVITY, 0.0f);
+            }
+            acceleration = acceleration + (gravityForce * (1.0f / mass));
 
             velocity = velocity + (acceleration * deltaTime);
             position = position + (velocity * deltaTime);

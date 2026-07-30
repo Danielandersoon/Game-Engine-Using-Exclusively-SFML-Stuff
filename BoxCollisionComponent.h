@@ -21,7 +21,7 @@ namespace GUESS::core {
             setName("box collision component");
             collider = std::make_unique<GUESS::physics::BoxCollider>();
 
-            GameObject* owner = m_ownerScene.get()->FindGameObject(getOwner());
+            GameObject* owner = m_ownerScene->FindGameObject(getOwner());
             rigidbody = owner->getComponent<RigidbodyComponent>();
             if (rigidbody) {
                 collider->setAttachedRigidbody(rigidbody->getRigidbody());
@@ -30,7 +30,7 @@ namespace GUESS::core {
         }
 
         void update() {
-            const auto& transform = m_ownerScene.get()->FindGameObject(getOwner())->getTransform();
+            const auto& transform = m_ownerScene->FindGameObject(getOwner())->getTransform();
             collider->setPosition(transform.getPosition());
             collider->setRotation(transform.getRotation().toEuler().y);
             collider->setScale(transform.getScale());

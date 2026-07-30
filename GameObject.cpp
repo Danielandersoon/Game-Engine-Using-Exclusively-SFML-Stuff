@@ -1,5 +1,7 @@
 #include "./GameObject.h"
 
+#include "./Scene.h"
+
 namespace GUESS::core {
 
     void GameObject::removeChild(int childGUID) {
@@ -30,6 +32,14 @@ namespace GUESS::core {
 
         for (auto& component : componentList) {
             component->lateUpdate();
+        }
+    }
+
+    void GameObject::setOwnerScene(Scene* scene) {
+        for (auto& component : componentList) {
+            component->setOwnerScene(scene);
+            // Call init after the scene pointer is set so components can query the scene
+            component->init();
         }
     }
 }

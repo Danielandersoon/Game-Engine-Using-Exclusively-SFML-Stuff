@@ -15,7 +15,10 @@ namespace GUESS::core {
 	{
 
     protected:
-        std::shared_ptr<GUESS::core::Scene> m_ownerScene;
+        // Store raw pointer to the owner scene. Scene lifetime is managed elsewhere
+        // and components should not extend scene lifetime, so a raw pointer is
+        // appropriate and avoids shared ownership cycles.
+        GUESS::core::Scene* m_ownerScene = nullptr;
         int owner = -1;
         std::string name;
 
@@ -28,7 +31,7 @@ namespace GUESS::core {
         virtual void lateUpdate() const {}
 
         // except this implementation... oops
-        void setOwnerScene(std::shared_ptr<Scene> scene) { m_ownerScene = scene; }
+        void setOwnerScene(Scene* scene) { m_ownerScene = scene; }
         void setOwner(int newOwner) { owner = newOwner; }
         void setOwner(GameObject* newOwner);
         int getOwner() const { return owner; }

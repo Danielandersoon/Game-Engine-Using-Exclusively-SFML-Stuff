@@ -22,10 +22,8 @@ namespace GUESS::core {
 
     public:
         static ResourceManager& getInstance() {
-            if (!instance) {
-                instance = new ResourceManager();
-            }
-            return *instance;
+            static ResourceManager instance;
+            return instance;
         }
 
         template<typename T>

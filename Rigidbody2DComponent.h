@@ -19,7 +19,7 @@ namespace GUESS::core {
 
         void update() {
             const auto& pos = rigidbody->getPosition();
-            m_ownerScene.get()->FindGameObject(owner)->getTransform().setPosition(GUESS::core::math::Vector3f(pos.x, pos.y, 0.0f));
+            m_ownerScene->FindGameObject(owner)->getTransform().setPosition(GUESS::core::math::Vector3f(pos.x, pos.y, 0.0f));
         }
 
         void setMass(float mass) { rigidbody->setMass(mass); }

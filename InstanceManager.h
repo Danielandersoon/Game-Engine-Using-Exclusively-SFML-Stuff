@@ -5,7 +5,7 @@
 #include "./Engine.h"
 namespace GUESS::core {
 
-    class InstanceManager : Manager
+    class InstanceManager : public Manager
     {
     private:
         std::vector<std::unique_ptr<Engine>> m_instances;
@@ -31,7 +31,7 @@ namespace GUESS::core {
         {
             for (auto& inst : m_instances) {
                 if (inst.get()->getInstanceID() == i)
-                    return m_instances[i].get();
+                    return inst.get();
             }
             return nullptr;
         }

@@ -1,4 +1,6 @@
 #include "./LightManager.h"
+#include <algorithm>
+#include "../Logger.h"
 
 namespace GUESS::rendering::threed {
     void LightManager::cullLights(const GUESS::core::math::Vector3f& cameraPosition) {
@@ -21,15 +23,15 @@ namespace GUESS::rendering::threed {
     }
 
     void LightManager::updateLightUniforms(Shader& shader) {
-        // Update only visible lights
-        for (size_t i = 0; i < visibleLights.size(); i++) {
-            shader.setUniform("lights[" + std::to_string(i) + "].position", visibleLights[i].getPosition());
-            shader.setUniform("lights[" + std::to_string(i) + "].color", visibleLights[i].getColor());
-            shader.setUniform("lights[" + std::to_string(i) + "].intensity", visibleLights[i].getIntensity());
-            shader.setUniform("lights[" + std::to_string(i) + "].shadowMap", visibleLights[i].getShadowMap());
-            shader.setUniform("lights[" + std::to_string(i) + "].lightSpaceMatrix", visibleLights[i].getLightSpaceMatrix());
+        const size_t maxLights = 8;
+        const size_t count = std::min(visibleLights.size(), maxLights);
+
+        for (size_t i = 0; i < count; i++) {
+            shader.setUniform("lightPositions[" + std::to_string(i) + "]", visibleLights[i].getPosition());
+            shader.setUniform("lightColors[" + std::to_string(i) + "]", visibleLights[i].getColor());
+            shader.setUniform("lightIntensities[" + std::to_string(i) + "]", visibleLights[i].getIntensity());
         }
-        // Set the number of active lights
-        shader.setUniform("numLights", static_cast<int>(visibleLights.size()));
+
+        shader.setUniform("numLights", static_cast<int>(count));
     }
 }

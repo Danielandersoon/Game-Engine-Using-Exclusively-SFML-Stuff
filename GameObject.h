@@ -41,7 +41,9 @@ namespace GUESS::core {
         bool active = true;
 
     public:
-        GameObject() = default;
+        GameObject() {
+            guid = ++nextGUID;
+        }
         GameObject(const std::string& name) : objectName(name) {
             guid = ++nextGUID;
         }
@@ -91,7 +93,12 @@ namespace GUESS::core {
         void fixedUpdate() const;
         void lateUpdate() const;
 
-        Transform getTransform() const { return m_transform; }
+        // Called by Scene when the game object is added to a scene so that
+        // components can be given a pointer to their owning scene.
+        void setOwnerScene(Scene* scene);
+
+        Transform& getTransform() { return m_transform; }
+        const Transform& getTransform() const { return m_transform; }
     };
 }
 #endif

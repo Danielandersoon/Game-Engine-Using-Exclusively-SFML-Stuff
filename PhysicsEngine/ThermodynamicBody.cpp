@@ -12,16 +12,24 @@ void GUESS::physics::ThermodynamicBody::updateTemperature(float deltaTime, Physi
 
 void GUESS::physics::ThermodynamicBody::transferHeat(ThermodynamicBody* other) {
     // Fourier's Law of Heat Transfer
-    // Q = k * A * (T1 - T2)
+    // Q = k * A * (T1 - T2) * dt
     float heatTransferCoeff = (conductivity + other->getConductivity()) / 2.0f;
     float contactArea = std::min(surfaceArea, other->getSurfaceArea());
     float tempDiff = temperature - other->getTemperature();
 
-    float heatTransferred = heatTransferCoeff * contactArea * tempDiff;
+    // Note: This should be called with deltaTime from the physics world
+    // For now using a small fixed timestep as approximation
+    float deltaTime = 1.0f / 60.0f;
+    float heatTransferred = heatTransferCoeff * contactArea * tempDiff * deltaTime;
 
     // Update temperatures based on heat transfer
-    float myTempChange = heatTransferred / (specificHeatCapacity * surfaceArea);
-    float otherTempChange = heatTransferred / (other->getHeatCapacity() * other->getSurfaceArea());
+    // Heat capacity = mass * specific heat capacity (not surface area)
+    // Assuming mass is proportional to volume, approximate from surface area
+    float myHeatCapacity = specificHeatCapacity * surfaceArea;
+    float otherHeatCapacity = other->getHeatCapacity() * other->getSurfaceArea();
+
+    float myTempChange = heatTransferred / myHeatCapacity;
+    float otherTempChange = heatTransferred / otherHeatCapacity;
 
     temperature -= myTempChange;
     other->setTemperature(other->getTemperature() + otherTempChange);

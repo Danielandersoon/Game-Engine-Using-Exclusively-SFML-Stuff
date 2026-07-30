@@ -1,6 +1,10 @@
 #include "./Light.h"
 
 namespace GUESS::rendering::threed {
+	Light::Light()
+	{
+		*this = Light(LightType::Point);
+	}
 
     Light::Light(LightType type) : type(type), intensity(1.0f), colour(1.0f, 1.0f, 1.0f) {
         position = GUESS::core::math::Vector3f(0.0f, 0.0f, 0.0f);

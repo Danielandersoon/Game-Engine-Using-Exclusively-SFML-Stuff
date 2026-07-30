@@ -15,14 +15,6 @@ namespace GUESS::physics {
         float getAngularVelocity() const { return angularVelocity; };
 
     private:
-        GUESS::core::math::Vector2f position = GUESS::core::math::Vector2f();
-        GUESS::core::math::Vector2f velocity = GUESS::core::math::Vector2f();
-        GUESS::core::math::Vector2f acceleration = GUESS::core::math::Vector2f();
-        float mass = 1.0f;
-        float friction = 0.2f;
-        float restitution = 0.8f;
-        Collider<GUESS::core::math::Vector2f>* collider_ptr;
-        GUESS::core::math::Vector2f forceAccum = GUESS::core::math::Vector2f();
         float rotation = 0.0f;
         float angularVelocity = 0.0f;
         float torque = 0.0f;

@@ -3,7 +3,7 @@
 
 namespace GUESS::core {
     Scene::Scene(std::string sceneName) : m_sceneName(sceneName) {
-        m_mainCamera = std::make_unique<GUESS::rendering::Camera>(900.0f, 1440.0f, 1000.0f, 0.1f, 60.0f);
+        m_mainCamera = std::make_unique<GUESS::rendering::Camera>(720.0f, 1280.0f, 1000.0f, 0.1f, 90.0f);
         static unsigned int nextID = 0;
         ID = ++nextID;
         m_active = false;
@@ -26,6 +26,9 @@ namespace GUESS::core {
     bool Scene::CloseScene() {
         if (m_active) {
             m_active = false;
+            // WARNING: This clears all GameObjects! Scenes lose all objects on transition.
+            // If you need to preserve scene state, implement serialization/deserialization
+            // or use a different scene management strategy.
             GameObjects.clear();
             return true;
         }
@@ -33,9 +36,17 @@ namespace GUESS::core {
     }
 
     void Scene::AddGameObject(std::unique_ptr<GameObject> gameObject) {
-        GameObjects[gameObject.get()->getGUID()] = std::move(gameObject);
-    }
+        if (!gameObject) {
+            Logger::log(Logger::WARNING, "AddGameObject called with null gameObject");
+            return;
+        }
 
+        int guid = gameObject->getGUID(); // save before move
+        GameObjects.emplace(guid, std::move(gameObject));
+        // Assign scene pointer to components so they can access scene APIs safely
+        GameObjects[guid]->setOwnerScene(this);
+        Logger::log(Logger::INFO, "Object added as " + std::to_string(guid));
+    }
     void Scene::RemoveGameObject(const std::string& objectName) {
         for (auto it = GameObjects.begin(); it != GameObjects.end(); ++it) {
             if (it->second->getName() == objectName) {

@@ -28,6 +28,9 @@ namespace GUESS::core {
 
         void update() {
             auto owner = m_ownerScene->FindGameObject(getOwner());
+            if (!owner || !light) {
+                return;
+            }
             light.get()->setPosition(owner->getTransform().getPosition() + position);
             light.get()->setRotation(owner->getTransform().getRotation());
             light.get()->setColor(colour);
@@ -37,6 +40,7 @@ namespace GUESS::core {
 
         }
 
+        GUESS::rendering::threed::Light* getLight() const { return light.get(); }
 	};
 
 }

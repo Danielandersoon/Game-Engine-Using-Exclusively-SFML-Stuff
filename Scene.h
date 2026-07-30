@@ -54,7 +54,12 @@ namespace GUESS::core {
         GUESS::physics::PhysicsManager* getPhysicsManager() { return &m_physicsManager; }
         GUESS::physics::PhysicsWorld* getPhysicsWorld() { return &m_physicsWorld; }
         const std::unordered_map<int, std::unique_ptr<GameObject>>& GetGameObjects() const { return GameObjects; }
-        GUESS::rendering::Camera& getMainCamera() { return *m_mainCamera; }
+        GUESS::rendering::Camera& getMainCamera() { 
+            if (!m_mainCamera) {
+                throw std::runtime_error("Scene main camera is null");
+            }
+            return *m_mainCamera; 
+        }
 
         bool IsActive() const { return m_active; }
 

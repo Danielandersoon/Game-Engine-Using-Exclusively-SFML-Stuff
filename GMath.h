@@ -7,6 +7,7 @@
 #include <thread>
 #include <future>
 #include <vector>
+#include <cmath>
 
 namespace GUESS::core::math {
 
@@ -100,48 +101,31 @@ namespace GUESS::core::math {
     // sin, cos, tan taking the angle (in radians)
     // sin using taylor series
     inline float sin(float radians) {
-
-        return taylorSeries(radians, 0.0f, 20);
+        return std::sinf(radians);
     }
     inline float cos(float radians) {
-        return sin((PI / 2) - radians);
+        return std::cosf(radians);
     }
     inline float tan(float radians) {
-        float cosValue = cos(radians);
-        if (cosValue == 0.0f) return 0.0f;
-        return sin(radians) / cosValue;
+        return std::tanf(radians);
     }
 
-    // arcsin using taylor series
+    // arcsin using standard library
     inline float arcsin(float x) {
-        if (x > 1.0 || x < -1.0) return 0.0;
-
-        return taylorSeries(x, 0.0f, 20);
+        if (x > 1.0f || x < -1.0f) return 0.0f;
+        return std::asinf(x);
     }
     inline float arccos(float x) {
-        if (x > 1.0 || x < -1.0) return 0.0;
-        return PI / 2.0 - arcsin(x);
+        if (x > 1.0f || x < -1.0f) return 0.0f;
+        return std::acosf(x);
     }
-    // arctan using Taylor series
+    // arctan using standard library
     inline float arctan(float x) {
-        if (x > 1.0 || x < -1.0) {
-            x = 1.0 / x;
-            return (x > 0 ? -PI / 2.0 : PI / 2.0) - taylorSeries(x, 0.0f, 40);
-        }
-        return taylorSeries(x, 0.0f, 20);
+        return std::atanf(x);
     }
     // Two-argument arctangent
     inline float arctan2(float y, float x) {
-        if (x == 0.0f) {
-            if (y > 0.0f) return PI / 2.0f;
-            if (y < 0.0f) return -PI / 2.0f;
-            return 0.0f;
-        }
-        float angle = arctan(y / x);
-        if (x < 0.0f) {
-            angle += (y >= 0.0f) ? PI : -PI;
-        }
-        return angle;
+        return std::atan2f(y, x);
     }
     // Two-argument arcsine
     inline float arcsin2(float y, float x) {
@@ -168,6 +152,8 @@ namespace GUESS::core::math {
         Vector2<T> operator-(const Vector2<T>& other) const { return Vector2<T>(x - other.x, y - other.y); }
         Vector2<T> operator*(T scalar) const { return Vector2<T>(x * scalar, y * scalar); }
         Vector2<T> operator/(const Vector2<T>& other) const { return Vector2<T>(x / other.x, y / other.y); }
+        // element-wise multiplication
+        Vector2<T> operator*(const Vector2<T>& other) const { return Vector2<T>(x * other.x, y * other.y); }
 
         T dot(const Vector2<T>& other) const { return x * other.x + y * other.y; }
         T magnitude() const { return sqrt(x * x + y * y); }
@@ -184,6 +170,8 @@ namespace GUESS::core::math {
         Vector3<T> operator-(const Vector3<T>& other) const { return Vector3<T>(x - other.x, y - other.y, z - other.z); }
         Vector3<T> operator*(T scalar) const { return Vector3<T>(x * scalar, y * scalar, z * scalar); }
         Vector3<T> operator/(const Vector3<T>& other) const { return Vector3<T>(x / other.x, y / other.y, z / other.z); }
+        // element-wise multiplication
+        Vector3<T> operator*(const Vector3<T>& other) const { return Vector3<T>(x * other.x, y * other.y, z * other.z); }
         T dot(const Vector3<T>& other) const { return x * other.x + y * other.y + z * other.z; }
         Vector3<T> cross(const Vector3<T>& other) const {
             return Vector3<T>(y * other.z - z * other.y,
@@ -365,19 +353,19 @@ namespace GUESS::core::math {
             return euler;
         }
 
-        static Quaternion fromEuler(float pitch, float yaw, float roll) {
-            float cy = cos(roll * 0.5f);
-            float sy = sin(roll * 0.5f);
-            float cp = cos(pitch * 0.5f);
-            float sp = sin(pitch * 0.5f);
-            float cr = cos(yaw * 0.5f);
-            float sr = sin(yaw * 0.5f);
+        static Quaternion fromEuler(float xAngle, float yAngle, float zAngle) {
+            const float cx = cos(xAngle * 0.5f);
+            const float sx = sin(xAngle * 0.5f);
+            const float cy = cos(yAngle * 0.5f);
+            const float sy = sin(yAngle * 0.5f);
+            const float cz = cos(zAngle * 0.5f);
+            const float sz = sin(zAngle * 0.5f);
 
             return Quaternion(
-                cy * cp * cr + sy * sp * sr,
-                cy * cp * sr - sy * sp * cr,
-                sy * cp * sr + cy * sp * cr,
-                sy * cp * cr - cy * sp * sr
+                cx * cy * cz + sx * sy * sz,
+                sx * cy * cz - cx * sy * sz,
+                cx * sy * cz + sx * cy * sz,
+                cx * cy * sz - sx * sy * cz
             );
         }
         Matrix4x4 toMatrix() const {

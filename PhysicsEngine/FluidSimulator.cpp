@@ -7,6 +7,7 @@ namespace GUESS::physics {
         grid.handleFluidMixing();
         grid.updateThermodynamics();
         grid.handleStateTransitions();
+        // TODO: Use deltaTime for time-based simulation updates
     }
 
     void FluidSimulator::propagateHeat() {

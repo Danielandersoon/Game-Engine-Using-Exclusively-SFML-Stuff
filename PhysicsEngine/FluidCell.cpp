@@ -2,14 +2,16 @@
 
 namespace GUESS::physics {
     void FluidCell::updateState() {
-        if (temperature < thermalProperties->getMeltingPoint()) {
-            state = solid;
-        }
-        else if (temperature > thermalProperties->getBoilingPoint()) {
-            state = gas;
-        }
-        else {
-            state = liquid;
+        if (thermalProperties) {
+            if (temperature < thermalProperties->getMeltingPoint()) {
+                state = solid;
+            }
+            else if (temperature > thermalProperties->getBoilingPoint()) {
+                state = gas;
+            }
+            else {
+                state = liquid;
+            }
         }
     }
 
