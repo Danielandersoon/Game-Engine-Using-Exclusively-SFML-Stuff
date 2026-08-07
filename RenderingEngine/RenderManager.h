@@ -20,6 +20,7 @@ namespace GUESS::rendering {
             GUESS::core::math::Vector3f center;
             GUESS::core::math::Vector3f dimensions;
             GUESS::core::math::Vector3f scale;
+            GUESS::core::math::Quaternion orientation;
         };
 
         std::unique_ptr<Camera> m_mainCamera;
@@ -65,7 +66,8 @@ namespace GUESS::rendering {
         void SubmitMesh(GUESS::rendering::threed::Mesh* mesh, GUESS::rendering::Material* material = nullptr);
         void SubmitColliderWireframe(const GUESS::core::math::Vector3f& center,
                          const GUESS::core::math::Vector3f& dimensions,
-                         const GUESS::core::math::Vector3f& scale);
+                         const GUESS::core::math::Vector3f& scale,
+                         const GUESS::core::math::Quaternion& orientation);
         void SubmitLight(const GUESS::rendering::threed::Light& light) { m_lightManager.addLight(light); }
         void ClearLights() { m_lightManager.clearLights(); }
         void SetShader(const std::string& vertexShader, const std::string& fragmentShader);

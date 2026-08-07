@@ -20,6 +20,8 @@ namespace GUESS::physics {
         bool getTrigger() const { return isTrigger; }
         RigidBody<T>* getAttachedRigidbody() { return attachedRigidbody; }
         T getScale() const { return scale; }
+        float getRotation() const { return rotation; }
+        GUESS::core::math::Quaternion getOrientation() const { return orientation; }
 
         void setDimensions(const T& dimensions) { this->dimensions = dimensions; }
         void setPosition(const T& position) {
@@ -29,6 +31,10 @@ namespace GUESS::physics {
         void setTrigger(bool isTrigger) { this->isTrigger = isTrigger; }
         void setRotation(float angle) {
             this->rotation = angle;
+            updateCenter();
+        }
+        void setOrientation(const GUESS::core::math::Quaternion& quat) {
+            this->orientation = quat;
             updateCenter();
         }
         void setScale(const T& scale) {
@@ -43,7 +49,8 @@ namespace GUESS::physics {
         }
 
         bool isTrigger;
-        float rotation;
+        float rotation;  // 2D rotation (radians)
+        GUESS::core::math::Quaternion orientation = GUESS::core::math::Quaternion(1.0f, 0.0f, 0.0f, 0.0f);  // 3D rotation
         T dimensions;
         T position;
         T center;

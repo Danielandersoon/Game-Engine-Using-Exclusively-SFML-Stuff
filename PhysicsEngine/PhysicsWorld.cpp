@@ -25,10 +25,11 @@ namespace GUESS::physics {
             body->update(dt);
         }
 
-        // Sync colliders to updated rigidbody positions so collision checks use correct positions
+        // Sync colliders to updated rigidbody positions and orientations
         for (auto* body : bodies3D) {
             if (auto* col = body->getCollider()) {
                 col->setPosition(body->getPosition());
+                col->setOrientation(body->getOrientation());
             }
         }
 
@@ -146,13 +147,13 @@ namespace GUESS::physics {
             bool shouldSleep = (relVelMagnitude < GUESS::physics::SLEEP_LINEAR_VELOCITY_THRESHOLD) && 
                                (penetration < GUESS::physics::SLEEP_PENETRATION_THRESHOLD);
 
-            std::string sleepMsg = "[COLLISION] VelMag=" + std::to_string(relVelMagnitude) + " Pen=" + std::to_string(penetration) + " Sleep=" + std::to_string(shouldSleep) + " Resting=" + std::to_string(isRestingContact);
-            GUESS::core::Logger::log(GUESS::core::Logger::DEBUG, sleepMsg);
+            // Only log if significant motion
+            if (relVelMagnitude > 0.5f || penetration > 0.01f) {
+                std::string sleepMsg = "[COLLISION] VelMag=" + std::to_string(relVelMagnitude) + " Pen=" + std::to_string(penetration) + " Resting=" + std::to_string(isRestingContact);
+                GUESS::core::Logger::log(GUESS::core::Logger::DEBUG, sleepMsg);
+            }
 
             if (invMassA + invMassB > 0.0f) {
-                std::string slopCalcMsg = "[SLOP_CALC] avgHeight=" + std::to_string(avgHeightSize) + " baseSlop=" + std::to_string(baseSlop) + " calculatedSlop=" + std::to_string(slop) + " penetration=" + std::to_string(penetration);
-                GUESS::core::Logger::log(GUESS::core::Logger::DEBUG, slopCalcMsg);
-
                 // Resting contacts against static bodies should depenetrate fully.
                 bool aggressiveRestingCorrection = isRestingContact && (bodyA->getIsStatic() || bodyB->getIsStatic());
                 float effectiveSlop = aggressiveRestingCorrection ? 0.0f : slop;
@@ -160,9 +161,6 @@ namespace GUESS::physics {
 
                 // Correct whenever penetration exceeds effective slop.
                 bool shouldCorrect = penetration > effectiveSlop;
-
-                std::string correctionDecision = "[CORRECTION] isResting=" + std::to_string(isRestingContact) + " pen=" + std::to_string(penetration) + " slop=" + std::to_string(slop) + " effSlop=" + std::to_string(effectiveSlop) + " shouldCorrect=" + std::to_string(shouldCorrect);
-                GUESS::core::Logger::log(GUESS::core::Logger::DEBUG, correctionDecision);
 
                 if (shouldCorrect) {
                     bool snappedToSurface = false;
@@ -195,9 +193,7 @@ namespace GUESS::physics {
                             snappedToSurface = true;
                         }
 
-                        if (snappedToSurface) {
-                            GUESS::core::Logger::log(GUESS::core::Logger::DEBUG, "[SNAP] Applied exact surface snap for static-dynamic Y contact");
-                        }
+                        // Snapped to surface
                     }
 
                     if (!snappedToSurface) {
@@ -209,42 +205,17 @@ namespace GUESS::physics {
                     float correctionMag = penToCorrect / (invMassA + invMassB) * correctionPercent;
                     GUESS::core::math::Vector3f correction = normal * correctionMag;
 
-                    std::string correctionMsg = "[PENETRATION] CorrectionMag=" + std::to_string(correctionMag) +
-                        " PenToCorrect=" + std::to_string(penToCorrect) + " Percent=" + std::to_string(correctionPercent) +
-                        " EffSlop=" + std::to_string(effectiveSlop) + " AggressiveRest=" + std::to_string(aggressiveRestingCorrection);
-                    GUESS::core::Logger::log(GUESS::core::Logger::DEBUG, correctionMsg);
-
                     if (invMassA > 0.0f) {
-                        auto oldPosA = bodyA->getPosition();
                         auto newPosA = bodyA->getPosition() - correction * invMassA;
                         bodyA->setPosition(newPosA);
                         if (auto c = bodyA->getCollider()) c->setPosition(newPosA);
-                        std::string posMsgA = "[POSITION] BodyA Y: " + std::to_string(oldPosA.y) + " → " + std::to_string(newPosA.y) + " (Δ" + std::to_string(newPosA.y - oldPosA.y) + ")";
-                        GUESS::core::Logger::log(GUESS::core::Logger::DEBUG, posMsgA);
-
-                        auto verifyPosA = bodyA->getPosition();
-                        auto verifyColA = colliderA->getCenter();
-                        std::string verifyMsgA = "[POSITION_VERIFY] BodyA ptr=" + std::to_string(bodyPtrA) +
-                            " rb_y=" + std::to_string(verifyPosA.y) + " col_y=" + std::to_string(verifyColA.y);
-                        GUESS::core::Logger::log(GUESS::core::Logger::DEBUG, verifyMsgA);
                     }
                     if (invMassB > 0.0f) {
-                        auto oldPosB = bodyB->getPosition();
                         auto newPosB = bodyB->getPosition() + correction * invMassB;
                         bodyB->setPosition(newPosB);
                         if (auto c = bodyB->getCollider()) c->setPosition(newPosB);
-                        std::string posMsgB = "[POSITION] BodyB Y: " + std::to_string(oldPosB.y) + " → " + std::to_string(newPosB.y) + " (Δ" + std::to_string(newPosB.y - oldPosB.y) + ")";
-                        GUESS::core::Logger::log(GUESS::core::Logger::DEBUG, posMsgB);
-
-                        auto verifyPosB = bodyB->getPosition();
-                        auto verifyColB = colliderB->getCenter();
-                        std::string verifyMsgB = "[POSITION_VERIFY] BodyB ptr=" + std::to_string(bodyPtrB) +
-                            " rb_y=" + std::to_string(verifyPosB.y) + " col_y=" + std::to_string(verifyColB.y);
-                        GUESS::core::Logger::log(GUESS::core::Logger::DEBUG, verifyMsgB);
                     }
                     }
-                } else {
-                    GUESS::core::Logger::log(GUESS::core::Logger::DEBUG, "[CORRECTION] Skipping correction (penetration within slop)");
                 }
 
                 // After positional correction, also resolve velocities to prevent re-penetration jitter
@@ -357,16 +328,43 @@ namespace GUESS::physics {
     }
 
     void PhysicsWorld::resolveCollision(RigidBody<GUESS::core::math::Vector3f>* bodyA, RigidBody<GUESS::core::math::Vector3f>* bodyB, const GUESS::core::math::Vector3f& normal) {
-        // Overload that uses the collision normal from penetration analysis (more stable)
-        auto relativeVel = bodyB->getVelocity() - bodyA->getVelocity();
+        // For AABB collisions, use simple contact point on AABB surfaces
+        // This is approximate but stable for mostly axis-aligned scenarios
+
+        GUESS::core::math::Vector3f contactPoint;
+
+        if (auto* colA = bodyA->getCollider()) {
+            if (auto* colB = bodyB->getCollider()) {
+                GUESS::core::math::Vector3f centerA = bodyA->getPosition();
+                GUESS::core::math::Vector3f centerB = bodyB->getPosition();
+
+                GUESS::core::math::Vector3f halfExtentsA = colA->getDimensions() * colA->getScale() * 0.5f;
+                GUESS::core::math::Vector3f halfExtentsB = colB->getDimensions() * colB->getScale() * 0.5f;
+
+                // Project half-extents onto the collision normal (AABB normal is axis-aligned)
+                float extentA = std::abs(normal.x) * halfExtentsA.x + std::abs(normal.y) * halfExtentsA.y + std::abs(normal.z) * halfExtentsA.z;
+                float extentB = std::abs(normal.x) * halfExtentsB.x + std::abs(normal.y) * halfExtentsB.y + std::abs(normal.z) * halfExtentsB.z;
+
+                // Surface points
+                GUESS::core::math::Vector3f surfaceA = centerA + normal * extentA;
+                GUESS::core::math::Vector3f surfaceB = centerB - normal * extentB;
+
+                // Contact is midpoint
+                contactPoint = (surfaceA + surfaceB) * 0.5f;
+            }
+        }
+
+        // Calculate lever arms from body centers to contact point
+        GUESS::core::math::Vector3f rA = contactPoint - bodyA->getPosition();
+        GUESS::core::math::Vector3f rB = contactPoint - bodyB->getPosition();
+
+        GUESS::core::math::Vector3f velA = bodyA->getVelocity() + bodyA->getAngularVelocity().cross(rA);
+        GUESS::core::math::Vector3f velB = bodyB->getVelocity() + bodyB->getAngularVelocity().cross(rB);
+
+        auto relativeVel = velB - velA;
         float velAlongNormal = relativeVel.dot(normal);
 
-        std::string velCheckMsg = "[IMPULSE_CHECK] relVel=(" + std::to_string(relativeVel.x) + "," + std::to_string(relativeVel.y) + "," + std::to_string(relativeVel.z) + 
-            ") velAlongNormal=" + std::to_string(velAlongNormal) + " normal=(" + std::to_string(normal.x) + "," + std::to_string(normal.y) + "," + std::to_string(normal.z) + ")";
-        GUESS::core::Logger::log(GUESS::core::Logger::DEBUG, velCheckMsg);
-
         if (velAlongNormal > 0.0f) {
-            GUESS::core::Logger::log(GUESS::core::Logger::DEBUG, "[IMPULSE] Early return: velocities already separating");
             return;
         }
 
@@ -384,26 +382,43 @@ namespace GUESS::physics {
         // Detect resting contact: if relative velocity is very small, use zero restitution
         float relVelMagnitude = relativeVel.magnitude();
         bool isRestingContact = relVelMagnitude < GUESS::physics::RESTING_VELOCITY_THRESHOLD;
-
-        std::string restingCheckMsg = "[IMPULSE_RESTING] relVelMag=" + std::to_string(relVelMagnitude) + " threshold=" + std::to_string(GUESS::physics::RESTING_VELOCITY_THRESHOLD) + 
-            " isResting=" + std::to_string(isRestingContact);
-        GUESS::core::Logger::log(GUESS::core::Logger::DEBUG, restingCheckMsg);
-
         float restitution = isRestingContact ? GUESS::physics::RESTING_RESTITUTION : std::min(bodyA->getRestitution(), bodyB->getRestitution());
 
-        std::string restitutionMsg = "[IMPULSE_RESTITUTION] isResting=" + std::to_string(isRestingContact) + " restitution=" + std::to_string(restitution);
-        GUESS::core::Logger::log(GUESS::core::Logger::DEBUG, restitutionMsg);
+        // Calculate impulse magnitude including rotational inertia
+        GUESS::core::math::Vector3f rAcrossN = rA.cross(normal);
+        GUESS::core::math::Vector3f rBcrossN = rB.cross(normal);
+
+        GUESS::core::math::Vector3f invInertiaA = bodyA->getInverseInertiaTensor();
+        GUESS::core::math::Vector3f invInertiaB = bodyB->getInverseInertiaTensor();
+
+        // For diagonal inertia tensors: I^-1 * v = (I^-1_xx * vx, I^-1_yy * vy, I^-1_zz * vz)
+        GUESS::core::math::Vector3f rAcrossNInertia(
+            rAcrossN.x * invInertiaA.x,
+            rAcrossN.y * invInertiaA.y,
+            rAcrossN.z * invInertiaA.z
+        );
+        GUESS::core::math::Vector3f rBcrossNInertia(
+            rBcrossN.x * invInertiaB.x,
+            rBcrossN.y * invInertiaB.y,
+            rBcrossN.z * invInertiaB.z
+        );
+
+        float angularEffect = rAcrossNInertia.cross(rA).dot(normal) + rBcrossNInertia.cross(rB).dot(normal);
 
         float j = -(1.0f + restitution) * velAlongNormal;
-        j /= (invMassA + invMassB);
+        j /= (invMassA + invMassB + angularEffect);
         GUESS::core::math::Vector3f impulse = normal * j;
 
-        std::string impulseCalcMsg = "[IMPULSE_CALC] velAlongNormal=" + std::to_string(velAlongNormal) + " restitution=" + std::to_string(restitution) + 
-            " j=" + std::to_string(j) + " impulse=(" + std::to_string(impulse.x) + "," + std::to_string(impulse.y) + "," + std::to_string(impulse.z) + ")";
-        GUESS::core::Logger::log(GUESS::core::Logger::DEBUG, impulseCalcMsg);
+        // Log rotation-related physics when angular velocity is significant
+        if (!isRestingContact && (bodyA->getAngularVelocity().magnitude() > 0.1f || bodyB->getAngularVelocity().magnitude() > 0.1f)) {
+            std::string rotPhysicsMsg = "[ROT_PHYSICS] AngEffect=" + std::to_string(angularEffect) + " j=" + std::to_string(j);
+            rotPhysicsMsg += " | InvInertiaA=(" + std::to_string(invInertiaA.x) + "," + std::to_string(invInertiaA.y) + "," + std::to_string(invInertiaA.z) + ")";
+            rotPhysicsMsg += " | rA=(" + std::to_string(rA.x) + "," + std::to_string(rA.y) + "," + std::to_string(rA.z) + ") mag=" + std::to_string(rA.magnitude());
+            rotPhysicsMsg += " | contact=(" + std::to_string(contactPoint.x) + "," + std::to_string(contactPoint.y) + "," + std::to_string(contactPoint.z) + ")";
+            GUESS::core::Logger::log(GUESS::core::Logger::DEBUG, rotPhysicsMsg);
+        }
 
         if (invMassA > 0.0f) {
-            auto oldVelA = bodyA->getVelocity();
             auto newVelA = bodyA->getVelocity() - impulse * invMassA;
 
             // Apply aggressive damping to resting contacts to prevent oscillation
@@ -411,19 +426,35 @@ namespace GUESS::physics {
                 // Remove velocity component along the collision normal (prevents bouncing along that axis)
                 GUESS::core::math::Vector3f velAlongNormalVec = normal * (newVelA.dot(normal));
                 newVelA = newVelA - velAlongNormalVec;
-                std::string dampingMsg = "[IMPULSE_DAMPING_A] beforeDamping=(" + std::to_string((bodyA->getVelocity() - impulse * invMassA).x) + "," + 
-                    std::to_string((bodyA->getVelocity() - impulse * invMassA).y) + "," + std::to_string((bodyA->getVelocity() - impulse * invMassA).z) + ") afterDamping=(" + 
-                    std::to_string(newVelA.x) + "," + std::to_string(newVelA.y) + "," + std::to_string(newVelA.z) + ")";
-                GUESS::core::Logger::log(GUESS::core::Logger::DEBUG, dampingMsg);
+
+                // Also damp angular velocity for resting contacts
+                auto angVelA = bodyA->getAngularVelocity();
+                angVelA = angVelA * 0.9f; // Strong damping
+                bodyA->setAngularVelocity(angVelA);
             }
 
             bodyA->setVelocity(newVelA);
-            std::string velChangeMsg = "[IMPULSE_VELOCITY_A] old=(" + std::to_string(oldVelA.x) + "," + std::to_string(oldVelA.y) + "," + std::to_string(oldVelA.z) + 
-                ") new=(" + std::to_string(newVelA.x) + "," + std::to_string(newVelA.y) + "," + std::to_string(newVelA.z) + ")";
-            GUESS::core::Logger::log(GUESS::core::Logger::DEBUG, velChangeMsg);
+
+            // Apply angular impulse (torque = r × impulse)
+            if (!isRestingContact) {
+                GUESS::core::math::Vector3f angularImpulseA = rA.cross(impulse * -1.0f);
+                GUESS::core::math::Vector3f angularVelocityChangeA(
+                    angularImpulseA.x * invInertiaA.x,
+                    angularImpulseA.y * invInertiaA.y,
+                    angularImpulseA.z * invInertiaA.z
+                );
+                auto newAngVelA = bodyA->getAngularVelocity() + angularVelocityChangeA;
+
+                // Clamp angular velocity to prevent wild spinning
+                const float maxAngularVel = 10.0f;
+                if (newAngVelA.magnitude() > maxAngularVel) {
+                    newAngVelA = newAngVelA.normalized() * maxAngularVel;
+                }
+
+                bodyA->setAngularVelocity(newAngVelA);
+            }
         }
         if (invMassB > 0.0f) {
-            auto oldVelB = bodyB->getVelocity();
             auto newVelB = bodyB->getVelocity() + impulse * invMassB;
 
             // Apply aggressive damping to resting contacts to prevent oscillation
@@ -431,16 +462,33 @@ namespace GUESS::physics {
                 // Remove velocity component along the collision normal (prevents bouncing along that axis)
                 GUESS::core::math::Vector3f velAlongNormalVec = normal * (newVelB.dot(normal));
                 newVelB = newVelB - velAlongNormalVec;
-                std::string dampingMsg = "[IMPULSE_DAMPING_B] beforeDamping=(" + std::to_string((bodyB->getVelocity() + impulse * invMassB).x) + "," + 
-                    std::to_string((bodyB->getVelocity() + impulse * invMassB).y) + "," + std::to_string((bodyB->getVelocity() + impulse * invMassB).z) + ") afterDamping=(" + 
-                    std::to_string(newVelB.x) + "," + std::to_string(newVelB.y) + "," + std::to_string(newVelB.z) + ")";
-                GUESS::core::Logger::log(GUESS::core::Logger::DEBUG, dampingMsg);
+
+                // Also damp angular velocity for resting contacts
+                auto angVelB = bodyB->getAngularVelocity();
+                angVelB = angVelB * 0.9f; // Strong damping
+                bodyB->setAngularVelocity(angVelB);
             }
 
             bodyB->setVelocity(newVelB);
-            std::string velChangeMsg = "[IMPULSE_VELOCITY_B] old=(" + std::to_string(oldVelB.x) + "," + std::to_string(oldVelB.y) + "," + std::to_string(oldVelB.z) + 
-                ") new=(" + std::to_string(newVelB.x) + "," + std::to_string(newVelB.y) + "," + std::to_string(newVelB.z) + ")";
-            GUESS::core::Logger::log(GUESS::core::Logger::DEBUG, velChangeMsg);
+
+            // Apply angular impulse (torque = r × impulse)
+            if (!isRestingContact) {
+                GUESS::core::math::Vector3f angularImpulseB = rB.cross(impulse);
+                GUESS::core::math::Vector3f angularVelocityChangeB(
+                    angularImpulseB.x * invInertiaB.x,
+                    angularImpulseB.y * invInertiaB.y,
+                    angularImpulseB.z * invInertiaB.z
+                );
+                auto newAngVelB = bodyB->getAngularVelocity() + angularVelocityChangeB;
+
+                // Clamp angular velocity to prevent wild spinning
+                const float maxAngularVel = 10.0f;
+                if (newAngVelB.magnitude() > maxAngularVel) {
+                    newAngVelB = newAngVelB.normalized() * maxAngularVel;
+                }
+
+                bodyB->setAngularVelocity(newAngVelB);
+            }
         }
     }
 

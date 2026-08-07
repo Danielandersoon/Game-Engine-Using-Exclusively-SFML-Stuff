@@ -1,7 +1,46 @@
 #include "./BoxCollider.h"
 #include "../Logger.h"
+#include <algorithm>
 
 namespace GUESS::physics {
+    // Helper: Calculate AABB bounds that encompass a rotated box
+    static void calculateRotatedAABB(const GUESS::core::math::Vector3f& center,
+                                      const GUESS::core::math::Vector3f& halfExtents,
+                                      const GUESS::core::math::Quaternion& orientation,
+                                      GUESS::core::math::Vector3f& outMin,
+                                      GUESS::core::math::Vector3f& outMax) {
+        // Get the 8 corners of the box in local space
+        GUESS::core::math::Vector3f corners[8] = {
+            GUESS::core::math::Vector3f(-halfExtents.x, -halfExtents.y, -halfExtents.z),
+            GUESS::core::math::Vector3f( halfExtents.x, -halfExtents.y, -halfExtents.z),
+            GUESS::core::math::Vector3f(-halfExtents.x,  halfExtents.y, -halfExtents.z),
+            GUESS::core::math::Vector3f( halfExtents.x,  halfExtents.y, -halfExtents.z),
+            GUESS::core::math::Vector3f(-halfExtents.x, -halfExtents.y,  halfExtents.z),
+            GUESS::core::math::Vector3f( halfExtents.x, -halfExtents.y,  halfExtents.z),
+            GUESS::core::math::Vector3f(-halfExtents.x,  halfExtents.y,  halfExtents.z),
+            GUESS::core::math::Vector3f( halfExtents.x,  halfExtents.y,  halfExtents.z)
+        };
+
+        // Rotate all corners and find min/max bounds
+        outMin = GUESS::core::math::Vector3f(FLT_MAX, FLT_MAX, FLT_MAX);
+        outMax = GUESS::core::math::Vector3f(-FLT_MAX, -FLT_MAX, -FLT_MAX);
+
+        for (int i = 0; i < 8; i++) {
+            // Rotate corner by orientation quaternion
+            GUESS::core::math::Vector3f rotatedCorner = orientation * corners[i];
+            // Translate to world space
+            rotatedCorner = rotatedCorner + center;
+
+            // Update bounds
+            outMin.x = std::min(outMin.x, rotatedCorner.x);
+            outMin.y = std::min(outMin.y, rotatedCorner.y);
+            outMin.z = std::min(outMin.z, rotatedCorner.z);
+            outMax.x = std::max(outMax.x, rotatedCorner.x);
+            outMax.y = std::max(outMax.y, rotatedCorner.y);
+            outMax.z = std::max(outMax.z, rotatedCorner.z);
+        }
+    }
+
     BoxCollider::BoxCollider(const GUESS::core::math::Vector3f& dimensions) {
         this->dimensions = dimensions;
         position = GUESS::core::math::Vector3f(0.0f, 0.0f, 0.0f);
@@ -12,18 +51,17 @@ namespace GUESS::physics {
     }
 
     bool BoxCollider::checkCollision(const Collider<GUESS::core::math::Vector3f>& other) {
-        // Get the centers and dimensions of both boxes
+        // Get the centers and scaled dimensions of both boxes
         GUESS::core::math::Vector3f centerA = getCenter();
         GUESS::core::math::Vector3f centerB = other.getCenter();
 
-        GUESS::core::math::Vector3f dimA = getDimensions() * scale; // element-wise scale assumed via operator*
+        GUESS::core::math::Vector3f dimA = getDimensions() * scale; 
         GUESS::core::math::Vector3f dimB = other.getDimensions() * other.getScale();
 
-        // Calculate the minimum and maximum points for both boxes
-        GUESS::core::math::Vector3f minA = centerA - (dimA * 0.5f);
-        GUESS::core::math::Vector3f maxA = centerA + (dimA * 0.5f);
-        GUESS::core::math::Vector3f minB = centerB - (dimB * 0.5f);
-        GUESS::core::math::Vector3f maxB = centerB + (dimB * 0.5f);
+        // Calculate AABB bounds considering rotation
+        GUESS::core::math::Vector3f minA, maxA, minB, maxB;
+        calculateRotatedAABB(centerA, dimA * 0.5f, getOrientation(), minA, maxA);
+        calculateRotatedAABB(centerB, dimB * 0.5f, other.getOrientation(), minB, maxB);
 
         // Check for overlap in all three axes (AABB collision check)
         bool overlapX = (minA.x <= maxB.x) && (maxA.x >= minB.x);

@@ -51,8 +51,13 @@ namespace GUESS::core {
                 if (rbComp && rbComp->getRigidbody()) {
                     // Ensure rigidbody position matches owner
                     rbComp->getRigidbody()->setPosition(ownerObj->getTransform().getPosition());
+                    rbComp->getRigidbody()->setOrientation(ownerObj->getTransform().getRotation());
                     rbComp->getRigidbody()->setCollider(collider.get());
                     collider->setAttachedRigidbody(rbComp->getRigidbody());
+
+                    // Calculate inertia tensor using WORLD-SPACE dimensions
+                    GUESS::core::math::Vector3f worldDimensions = collider->getDimensions() * collider->getScale();
+                    rbComp->getRigidbody()->calculateBoxInertia(worldDimensions);
 
                     // If this collider is intended to be static, mark the existing rb
                     if (isStatic) {
@@ -72,8 +77,11 @@ namespace GUESS::core {
                     createdRbComp->getRigidbody()->setMass(1e8f);
                     createdRbComp->setStatic(true);
                     createdRbComp->getRigidbody()->setPosition(ownerObj->getTransform().getPosition());
+                    createdRbComp->getRigidbody()->setOrientation(ownerObj->getTransform().getRotation());
                     createdRbComp->getRigidbody()->setCollider(collider.get());
                     collider->setAttachedRigidbody(createdRbComp->getRigidbody());
+                    GUESS::core::math::Vector3f worldDimensions = collider->getDimensions() * collider->getScale();
+                    createdRbComp->getRigidbody()->calculateBoxInertia(worldDimensions);
                     if (m_ownerScene) {
                         m_ownerScene->getPhysicsWorld()->addBody(createdRbComp->getRigidbody());
                     }
@@ -86,9 +94,10 @@ namespace GUESS::core {
             auto* ownerObj = m_ownerScene->FindGameObject(owner);
             if (!ownerObj || !collider) return;
 
-            // Keep collider aligned with GameObject transform
+            // Keep collider aligned with GameObject transform (position, rotation, scale)
             collider->setPosition(ownerObj->getTransform().getPosition());
             collider->setScale(ownerObj->getTransform().getScale());
+            collider->setOrientation(ownerObj->getTransform().getRotation());
 
             // Removed verbose position/velocity logging to reduce noise. Collision logs are produced in collision checks.
         }

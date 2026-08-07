@@ -24,13 +24,18 @@ namespace GUESS::core {
                 auto* ownerObj = m_ownerScene->FindGameObject(owner);
                 if (ownerObj) {
                     rigidbody->setPosition(ownerObj->getTransform().getPosition());
+                    rigidbody->setOrientation(ownerObj->getTransform().getRotation());
                 }
             }
         }
 
         void update() const override {
+            // Sync position and rotation from rigidbody to GameObject transform
             const auto& pos = rigidbody->getPosition();
-            m_ownerScene->FindGameObject(getOwner())->getTransform().setPosition(pos);
+            const auto& rot = rigidbody->getOrientation();
+            auto* obj = m_ownerScene->FindGameObject(getOwner());
+            obj->getTransform().setPosition(pos);
+            obj->getTransform().setRotation(rot);
 
             // Reduced debug: only log when velocity is non-zero (avoid flooding)
             auto vel = rigidbody->getVelocity();

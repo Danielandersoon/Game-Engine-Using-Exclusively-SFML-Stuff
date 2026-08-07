@@ -330,6 +330,10 @@ namespace GUESS::core::math {
             w /= mag; x /= mag; y /= mag; z /= mag;
         }
 
+        Quaternion conjugate() const {
+            return Quaternion(w, -x, -y, -z);
+        }
+
         Vector3f toEuler() const {
             Vector3f euler;
 

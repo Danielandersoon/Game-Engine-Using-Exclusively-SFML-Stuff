@@ -20,6 +20,14 @@ namespace GUESS::physics {
         Collider<T>* collider_ptr;
         T forceAccum = T();
 
+        // Rotational properties (3D only - initialized in constructor)
+        GUESS::core::math::Quaternion orientation;
+        T angularVelocity;
+        T angularAcceleration;
+        T torqueAccum;
+        T inertiaTensor;
+        T inverseInertiaTensor;
+
         float submergedVolume = 0.0f;
         float fluidDensity = 1000.0f; // Default water density in kg/m^3
         float volume = 1.0f;
@@ -28,9 +36,35 @@ namespace GUESS::physics {
         bool sleeping = false;
 
     public:
-        RigidBody() = default;
+        RigidBody() {
+            orientation = GUESS::core::math::Quaternion(1.0f, 0.0f, 0.0f, 0.0f); // Identity
+            angularVelocity = T();
+            angularAcceleration = T();
+            torqueAccum = T();
+            // Initialize inertia tensors for 3D
+            if constexpr (std::is_same_v<T, GUESS::core::math::Vector3f>) {
+                inertiaTensor = T(1.0f, 1.0f, 1.0f);
+                inverseInertiaTensor = T(1.0f, 1.0f, 1.0f);
+            } else {
+                inertiaTensor = T();
+                inverseInertiaTensor = T();
+            }
+        }
         explicit RigidBody(float mass, float friction = 0.2f, float restitution = 0.8f, Collider<T>* collider_ptr_in = nullptr)
-            : mass(mass), friction(friction), restitution(restitution), collider_ptr(collider_ptr_in) {};
+            : mass(mass), friction(friction), restitution(restitution), collider_ptr(collider_ptr_in) {
+            orientation = GUESS::core::math::Quaternion(1.0f, 0.0f, 0.0f, 0.0f); // Identity
+            angularVelocity = T();
+            angularAcceleration = T();
+            torqueAccum = T();
+            // Initialize inertia tensors for 3D
+            if constexpr (std::is_same_v<T, GUESS::core::math::Vector3f>) {
+                inertiaTensor = T(1.0f, 1.0f, 1.0f);
+                inverseInertiaTensor = T(1.0f, 1.0f, 1.0f);
+            } else {
+                inertiaTensor = T();
+                inverseInertiaTensor = T();
+            }
+        }
 
         void applyForce(const T& force) {
             sleeping = false;
@@ -64,6 +98,70 @@ namespace GUESS::physics {
         void setFluidDensity(float density) { fluidDensity = density; }
         void setVolume(float vol) { volume = vol; }
 
+        // Rotational accessors (3D only)
+        GUESS::core::math::Quaternion getOrientation() const { return orientation; }
+        T getAngularVelocity() const { return angularVelocity; }
+        T getInertiaTensor() const { return inertiaTensor; }
+        T getInverseInertiaTensor() const { return inverseInertiaTensor; }
+
+        void setOrientation(const GUESS::core::math::Quaternion& quat) { 
+            orientation = quat; 
+            orientation.normalize();
+        }
+        void setAngularVelocity(const T& angVel) { 
+            angularVelocity = angVel; 
+            if (angVel.magnitude() > 0.0001f) {
+                sleeping = false;
+            }
+        }
+
+        // Calculate inertia tensor for a box (call this when collider dimensions change)
+        void calculateBoxInertia(const T& dimensions) {
+            if constexpr (std::is_same_v<T, GUESS::core::math::Vector3f>) {
+                float m = mass;
+                float w = dimensions.x;
+                float h = dimensions.y;
+                float d = dimensions.z;
+
+                // Inertia tensor for a box: I = (1/12) * m * (w^2 + h^2, w^2 + d^2, h^2 + d^2)
+                inertiaTensor.x = (1.0f / 12.0f) * m * (h * h + d * d);
+                inertiaTensor.y = (1.0f / 12.0f) * m * (w * w + d * d);
+                inertiaTensor.z = (1.0f / 12.0f) * m * (w * w + h * h);
+
+                // Calculate inverse (for diagonal tensor, just invert each component)
+                inverseInertiaTensor.x = (inertiaTensor.x > 0.0f) ? (1.0f / inertiaTensor.x) : 0.0f;
+                inverseInertiaTensor.y = (inertiaTensor.y > 0.0f) ? (1.0f / inertiaTensor.y) : 0.0f;
+                inverseInertiaTensor.z = (inertiaTensor.z > 0.0f) ? (1.0f / inertiaTensor.z) : 0.0f;
+            }
+        }
+
+        // Add torque (3D only)
+        void addTorque(const T& torque) {
+            if constexpr (std::is_same_v<T, GUESS::core::math::Vector3f>) {
+                sleeping = false;
+                torqueAccum = torqueAccum + torque;
+            }
+        }
+
+        void clearTorques() {
+            if constexpr (std::is_same_v<T, GUESS::core::math::Vector3f>) {
+                torqueAccum = T();
+            }
+        }
+
+        // Add force at a point (generates torque)
+        void addForceAtPoint(const T& force, const T& point) {
+            if constexpr (std::is_same_v<T, GUESS::core::math::Vector3f>) {
+                addForce(force);
+                T r = point - position; // Vector from center of mass to application point
+                T torque = r.cross(force); // Torque = r × F
+                addTorque(torque);
+            } else {
+                // 2D fallback
+                addForce(force);
+            }
+        }
+
         // Static flag accessors
         void setIsStatic(bool s) { isStatic = s; }
         bool getIsStatic() const { return isStatic; }
@@ -78,6 +176,11 @@ namespace GUESS::physics {
                 velocity = T();
                 acceleration = T();
                 clearForces();
+                if constexpr (std::is_same_v<T, GUESS::core::math::Vector3f>) {
+                    angularVelocity = T();
+                    angularAcceleration = T();
+                    clearTorques();
+                }
             }
         }
         bool getSleeping() const { return sleeping; }
@@ -109,9 +212,17 @@ namespace GUESS::physics {
                 if (isStatic) {
                     velocity = T();
                 }
+                if constexpr (std::is_same_v<T, GUESS::core::math::Vector3f>) {
+                    clearTorques();
+                    angularAcceleration = T();
+                    if (isStatic) {
+                        angularVelocity = T();
+                    }
+                }
                 return;
             }
 
+            // Linear motion integration
             acceleration = acceleration + (forceAccum * (1.0f / mass));
 
             calculateBuoyancy();
@@ -127,6 +238,41 @@ namespace GUESS::physics {
 
             velocity = velocity + (acceleration * deltaTime);
             position = position + (velocity * deltaTime);
+
+            // Rotational motion integration (3D only)
+            if constexpr (std::is_same_v<T, GUESS::core::math::Vector3f>) {
+                // Angular acceleration = Inverse Inertia Tensor * Torque
+                angularAcceleration.x = inverseInertiaTensor.x * torqueAccum.x;
+                angularAcceleration.y = inverseInertiaTensor.y * torqueAccum.y;
+                angularAcceleration.z = inverseInertiaTensor.z * torqueAccum.z;
+
+                // Update angular velocity
+                angularVelocity = angularVelocity + (angularAcceleration * deltaTime);
+
+                // Apply angular damping (air resistance) - stronger to prevent wild spinning
+                float angularDamping = 0.92f;
+                angularVelocity = angularVelocity * angularDamping;
+
+                // Update orientation using angular velocity
+                // dq/dt = 0.5 * ω * q (quaternion derivative)
+                if (angularVelocity.magnitude() > 0.0001f) {
+                    GUESS::core::math::Quaternion angVelQuat(angularVelocity.x, angularVelocity.y, angularVelocity.z, 0.0f);
+                    GUESS::core::math::Quaternion orientationDelta = angVelQuat * orientation;
+                    orientationDelta.x *= 0.5f * deltaTime;
+                    orientationDelta.y *= 0.5f * deltaTime;
+                    orientationDelta.z *= 0.5f * deltaTime;
+                    orientationDelta.w *= 0.5f * deltaTime;
+
+                    orientation.x += orientationDelta.x;
+                    orientation.y += orientationDelta.y;
+                    orientation.z += orientationDelta.z;
+                    orientation.w += orientationDelta.w;
+                    orientation.normalize();
+                }
+
+                clearTorques();
+                angularAcceleration = T();
+            }
 
             // Clear forces for next frame
             clearForces();

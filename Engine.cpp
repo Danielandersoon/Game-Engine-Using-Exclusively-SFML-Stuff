@@ -155,7 +155,8 @@ namespace GUESS::core {
                     m_renderManager.SubmitColliderWireframe(
                         collider->getCenter(),
                         collider->getDimensions(),
-                        collider->getScale()
+                        collider->getScale(),
+                        collider->getOrientation()
                     );
                 }
             }
@@ -166,7 +167,8 @@ namespace GUESS::core {
                     m_renderManager.SubmitColliderWireframe(
                         boxColComp->collider->getCenter(),
                         boxColComp->collider->getDimensions(),
-                        boxColComp->collider->getScale()
+                        boxColComp->collider->getScale(),
+                        boxColComp->collider->getOrientation()
                     );
                 }
             }
@@ -191,16 +193,7 @@ namespace GUESS::core {
             // Handle rendering
             if (auto* meshRenderer = gameObject->getComponent<MeshRendererComponent>()) {
                 if (auto mesh = meshRenderer->getMesh()) {
-                    auto rotation = gameObject->getTransform().getRotation();
-                    const auto deltaRotation = GUESS::core::math::Quaternion::fromEuler(
-                        0.0f,
-                        GUESS::core::math::toRadians(45.0f) * m_deltaTime,
-                        0.0f
-                    );
-                    rotation = rotation * deltaRotation;
-                    rotation.normalize();
-                    gameObject->getTransform().setRotation(rotation);
-
+                    const auto rotation = gameObject->getTransform().getRotation();
                     const auto euler = rotation.toEuler();
                     const auto position = gameObject->getTransform().getPosition();
                     const auto scale = gameObject->getTransform().getScale();

@@ -12,7 +12,7 @@ namespace GUESS::core {
 
 	public:
 		void TimingUpdate();
-		int DeltaTime() { return dt; }
+		float DeltaTime() { return dt; }
 	};
 }
 

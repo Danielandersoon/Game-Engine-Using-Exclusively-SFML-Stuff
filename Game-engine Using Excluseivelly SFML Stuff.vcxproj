@@ -259,7 +259,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
-    <None Include="COLLISION_DEBUG_GUIDE.md" />
     <None Include="shaders\default_mesh.frag" />
     <None Include="shaders\default_mesh.vert" />
   </ItemGroup>

@@ -234,8 +234,9 @@ namespace GUESS::rendering {
 
     void RenderManager::SubmitColliderWireframe(const GUESS::core::math::Vector3f& center,
                                                 const GUESS::core::math::Vector3f& dimensions,
-                                                const GUESS::core::math::Vector3f& scale) {
-        m_colliderWireframeQueue.push_back({ center, dimensions, scale });
+                                                const GUESS::core::math::Vector3f& scale,
+                                                const GUESS::core::math::Quaternion& orientation) {
+        m_colliderWireframeQueue.push_back({ center, dimensions, scale, orientation });
     }
 
     void RenderManager::drawColliderWireframes() {
@@ -258,33 +259,42 @@ namespace GUESS::rendering {
             const float hy = worldDim.y * 0.5f;
             const float hz = worldDim.z * 0.5f;
 
-            const GUESS::core::math::Vector3f v0(item.center.x - hx, item.center.y - hy, item.center.z - hz);
-            const GUESS::core::math::Vector3f v1(item.center.x + hx, item.center.y - hy, item.center.z - hz);
-            const GUESS::core::math::Vector3f v2(item.center.x + hx, item.center.y + hy, item.center.z - hz);
-            const GUESS::core::math::Vector3f v3(item.center.x - hx, item.center.y + hy, item.center.z - hz);
-            const GUESS::core::math::Vector3f v4(item.center.x - hx, item.center.y - hy, item.center.z + hz);
-            const GUESS::core::math::Vector3f v5(item.center.x + hx, item.center.y - hy, item.center.z + hz);
-            const GUESS::core::math::Vector3f v6(item.center.x + hx, item.center.y + hy, item.center.z + hz);
-            const GUESS::core::math::Vector3f v7(item.center.x - hx, item.center.y + hy, item.center.z + hz);
+            // Create local-space corners
+            GUESS::core::math::Vector3f corners[8] = {
+                GUESS::core::math::Vector3f(-hx, -hy, -hz),  // v0
+                GUESS::core::math::Vector3f( hx, -hy, -hz),  // v1
+                GUESS::core::math::Vector3f( hx,  hy, -hz),  // v2
+                GUESS::core::math::Vector3f(-hx,  hy, -hz),  // v3
+                GUESS::core::math::Vector3f(-hx, -hy,  hz),  // v4
+                GUESS::core::math::Vector3f( hx, -hy,  hz),  // v5
+                GUESS::core::math::Vector3f( hx,  hy,  hz),  // v6
+                GUESS::core::math::Vector3f(-hx,  hy,  hz)   // v7
+            };
+
+            // Rotate and translate to world space
+            GUESS::core::math::Vector3f v[8];
+            for (int i = 0; i < 8; i++) {
+                v[i] = item.orientation * corners[i] + item.center;
+            }
 
             glBegin(GL_LINES);
             // Bottom
-            glVertex3f(v0.x, v0.y, v0.z); glVertex3f(v1.x, v1.y, v1.z);
-            glVertex3f(v1.x, v1.y, v1.z); glVertex3f(v2.x, v2.y, v2.z);
-            glVertex3f(v2.x, v2.y, v2.z); glVertex3f(v3.x, v3.y, v3.z);
-            glVertex3f(v3.x, v3.y, v3.z); glVertex3f(v0.x, v0.y, v0.z);
+            glVertex3f(v[0].x, v[0].y, v[0].z); glVertex3f(v[1].x, v[1].y, v[1].z);
+            glVertex3f(v[1].x, v[1].y, v[1].z); glVertex3f(v[2].x, v[2].y, v[2].z);
+            glVertex3f(v[2].x, v[2].y, v[2].z); glVertex3f(v[3].x, v[3].y, v[3].z);
+            glVertex3f(v[3].x, v[3].y, v[3].z); glVertex3f(v[0].x, v[0].y, v[0].z);
 
             // Top
-            glVertex3f(v4.x, v4.y, v4.z); glVertex3f(v5.x, v5.y, v5.z);
-            glVertex3f(v5.x, v5.y, v5.z); glVertex3f(v6.x, v6.y, v6.z);
-            glVertex3f(v6.x, v6.y, v6.z); glVertex3f(v7.x, v7.y, v7.z);
-            glVertex3f(v7.x, v7.y, v7.z); glVertex3f(v4.x, v4.y, v4.z);
+            glVertex3f(v[4].x, v[4].y, v[4].z); glVertex3f(v[5].x, v[5].y, v[5].z);
+            glVertex3f(v[5].x, v[5].y, v[5].z); glVertex3f(v[6].x, v[6].y, v[6].z);
+            glVertex3f(v[6].x, v[6].y, v[6].z); glVertex3f(v[7].x, v[7].y, v[7].z);
+            glVertex3f(v[7].x, v[7].y, v[7].z); glVertex3f(v[4].x, v[4].y, v[4].z);
 
             // Verticals
-            glVertex3f(v0.x, v0.y, v0.z); glVertex3f(v4.x, v4.y, v4.z);
-            glVertex3f(v1.x, v1.y, v1.z); glVertex3f(v5.x, v5.y, v5.z);
-            glVertex3f(v2.x, v2.y, v2.z); glVertex3f(v6.x, v6.y, v6.z);
-            glVertex3f(v3.x, v3.y, v3.z); glVertex3f(v7.x, v7.y, v7.z);
+            glVertex3f(v[0].x, v[0].y, v[0].z); glVertex3f(v[4].x, v[4].y, v[4].z);
+            glVertex3f(v[1].x, v[1].y, v[1].z); glVertex3f(v[5].x, v[5].y, v[5].z);
+            glVertex3f(v[2].x, v[2].y, v[2].z); glVertex3f(v[6].x, v[6].y, v[6].z);
+            glVertex3f(v[3].x, v[3].y, v[3].z); glVertex3f(v[7].x, v[7].y, v[7].z);
             glEnd();
         }
 
